@@ -1,4 +1,4 @@
-package jab.lejos.tests;
+package jab.lejos.ev3.actuators;
 
 import java.io.File;
 import java.util.Random;

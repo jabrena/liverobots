@@ -1,4 +1,4 @@
-liverobots
+Live Robots
 ==========
 
 Live Robots, is a educative project designed to create robots with Behaviors.
