@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="BRITY" default="run" basedir=".">
+	<description>
+Ant file designed to upload and run a EV3 project using LeJOS project.
+	</description>
+	
+	<!-- DEVELOPMENT SECTION -->
+	<property name="project" value="Brity"/>
+	<property name="base.dir" value="." />
+	<property name="src" location="src"/>
+	<property name="lib" location="${base.dir}/lib" />
+	<property name="build" location="build"/>
+	<property name="dist"  location="target"/>
+
+	<!-- EV3 SSH SECTION -->
+	<property name="host" value="192.168.43.62"/>
+	<property name="username" value="root"/>
+	<property name="password" value=""/>
+	
+	<!-- EV3 LINUX SECTION -->
+	<property name="remotePath" value="/home/root/lejos/examples/Brity/"/>
+
+	<!-- CLASS SECTION -->
+	<property name="package" value="jab.lejos.liverobots"/>
+	<property name="class" value="BrityPOC"/>
+	
+	<target name="init">
+		<tstamp/>
+		<echo message="Initializating deployment."/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${dist}"/>
+	</target>
+			
+	<target name="compile" depends="init" description="Compile your project" >
+		<tstamp/>
+		<echo message="Compiling project."/>
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath>
+				<fileset dir="${lib}">
+				        <include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+		
+	<target name="dist" depends="compile" description="generate the distribution" >
+		<tstamp/>
+		<echo message="Packaging project."/>
+		<jar jarfile="${dist}/${project}-${DSTAMP}.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="${package}.${class}"/>
+            </manifest>
+		</jar>
+	</target>
+
+	<target name="upload" depends="dist">
+		<tstamp/>
+		<echo message="Deploying into EV3 Brick."/>
+    	<scp file="${dist}/${project}-${DSTAMP}.jar"
+    	     todir="${username}:@${host}:${remotePath}"
+		/>
+	</target>
+	
+	<target name="run" depends="upload">
+		<tstamp/>
+		<echo message="Running software."/>
+		<sshexec host="${host}"
+			username="${username}"
+			password="${password}"
+			command="jrun -cp ${remotePath}${project}-${DSTAMP}.jar ${package}.${class}"
+		/>
+		<antcall target="clean" />
+	</target>
+
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+</project>
