@@ -9,8 +9,10 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="base.dir" value="." />
 	<property name="src" location="src"/>
 	<property name="lib" location="${base.dir}/lib" />
+	<property name="logs" location="${base.dir}/logs" />
 	<property name="build" location="build"/>
 	<property name="dist"  location="target"/>
+	<property name="dist.lib"  location="${dist}/lib"/>
 
 	<!-- EV3 SSH SECTION -->
 	<property name="host" value="192.168.43.62"/>
@@ -21,14 +23,22 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="remotePath" value="/home/root/lejos/examples/Brity/"/>
 
 	<!-- CLASS SECTION -->
-	<property name="package" value="jab.lejos.liverobots"/>
-	<property name="class" value="BrityPOC"/>
-	
+	<!--
+	<property name="package" value="jab.lejos.liverobots.brity.states"/>
+	<property name="class" value="Observe"/> 
+	<property name="package" value="jab.lejos.db"/>
+	<property name="class" value="TestDB"/>	-->
+	<property name="package" value="jab.lejos.utils"/>
+	<property name="class" value="log4jExample"/>
+
+	<!-- TARGET SECTION -->
 	<target name="init">
 		<tstamp/>
 		<echo message="Initializating deployment."/>
 		<mkdir dir="${build}"/>
+		<mkdir dir="${logs}"/>
 		<mkdir dir="${dist}"/>
+		<mkdir dir="${dist.lib}"/>
 	</target>
 			
 	<target name="compile" depends="init" description="Compile your project" >
@@ -51,14 +61,22 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
                 <attribute name="Main-Class" value="${package}.${class}"/>
             </manifest>
 		</jar>
+		<echo message="Packaging project dependencies."/>
+		<copy file="${lib}/log4j.properties" toDir="${dist.lib}"/>
+		<copy file="${lib}/log4j-1.2.17.jar" toDir="${dist.lib}"/>
+		<copy file="${lib}/hsqldb.jar" toDir="${dist.lib}"/>
 	</target>
 
 	<target name="upload" depends="dist">
 		<tstamp/>
-		<echo message="Deploying into EV3 Brick."/>
+		<echo message="Deploying software into EV3 Brick."/>
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
     	     todir="${username}:@${host}:${remotePath}"
 		/>
+		<echo message="Deploying software dependencies into EV3 Brick."/>
+		<scp todir="${username}:@${host}:${remotePath}lib">
+			<fileset dir="${dist.lib}"/>
+		</scp>
 	</target>
 	
 	<target name="run" depends="upload">
@@ -67,7 +85,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<sshexec host="${host}"
 			username="${username}"
 			password="${password}"
-			command="jrun -cp ${remotePath}${project}-${DSTAMP}.jar ${package}.${class}"
+			command="jrun -cp '${remotePath}${project}-${DSTAMP}.jar:${remotePath}lib/log4j-1.2.17.jar:${remotePath}lib/hsqldb.jar' ${package}.${class}"
 		/>
 		<antcall target="clean" />
 	</target>

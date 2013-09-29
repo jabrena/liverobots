@@ -1,4 +1,4 @@
-package jab.lejos.liverobots;
+package jab.lejos.liverobots.brity;
 
 import java.util.Random;
 
@@ -20,13 +20,12 @@ import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
 
-public class BrityBody {
+public class Robot {
 
 	//Sensors
 	private SoundSensor leftSound;
 	private SoundSensor rightSound;
 	private UltrasonicSensor ultrasonic;
-	//private EV3ColorSensor colorSensor;
 	private LightSensor lightSensor;
 	
 	//Actuators
@@ -42,7 +41,7 @@ public class BrityBody {
 	private Navigator nav;
 
 	
-	public BrityBody(){
+	public Robot(){
 		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
 		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
 		leftSound.setDBA(true);
@@ -93,32 +92,32 @@ public class BrityBody {
 		leftMotor.forward();
 		rightMotor.forward();
 		try { Thread.sleep(seconds*1000); } catch (InterruptedException e) {}
-		leftMotor.stop();
-		rightMotor.stop();
+		leftMotor.stop(true);
+		rightMotor.stop(true);
 	}
 	
 	public void backward(int msecs){
 		leftMotor.backward();
 		rightMotor.backward();
 		try { Thread.sleep(msecs); } catch (InterruptedException e) {}
-		leftMotor.stop();
-		rightMotor.stop();
+		leftMotor.stop(true);
+		rightMotor.stop(true);
 	}
 	
 	public void turnRight(int seconds){
 		leftMotor.forward();
 		rightMotor.backward();
 		try { Thread.sleep(seconds*1000); } catch (InterruptedException e) {}
-		leftMotor.stop();
-		rightMotor.stop();
+		leftMotor.stop(true);
+		rightMotor.stop(true);
 	}
 
 	public void turnLeft(int seconds){
 		leftMotor.backward();
 		rightMotor.forward();
 		try { Thread.sleep(seconds*1000); } catch (InterruptedException e) {}
-		leftMotor.stop();
-		rightMotor.stop();
+		leftMotor.stop(true);
+		rightMotor.stop(true);
 	}
 	
 	public int getLeftSound(){
@@ -134,12 +133,9 @@ public class BrityBody {
 	}
 	
 	public int getLightLeve(){
-		//System.out.println(lightSensor.getHigh());
-		//System.out.println(lightSensor.getLow());
 		System.out.println(lightSensor.getLightValue());
+		System.out.println(lightSensor.getNormalizedLightValue());
 		return lightSensor.getNormalizedLightValue();
-		//return colorSensor.getLightValue();
-		
 	}
 	
 	public void shortSound(int tones, int freqValue){

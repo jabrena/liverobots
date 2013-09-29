@@ -1,22 +1,21 @@
-package jab.lejos.liverobots;
-
+package jab.lejos.liverobots.brity;
 
 import lejos.nxt.Button;
 import lejos.nxt.Sound;
 
 public class Brity {	
 
-	private static BrityBody brityBody;
+	private static Robot brityBody;
 	
 	public static void main(String[] args){
 
-		brityBody = new BrityBody();
+		brityBody = new Robot();
 		Sound.setVolume(30);
 		Sound.beepSequenceUp();
 
 		int iterationCounter = 0;
 		
-		//while ((!Button.ESCAPE.isDown()) || (iterationCounter > 10)) {
+		//while ((!Button.ESCAPE.isDown()) || (!(iterationCounter >= 10))) {
 		while (!(iterationCounter >= 20)) {
 		//for(int i=0; i<=10; i++){	
 
