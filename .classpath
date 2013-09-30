@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/jabrena/DATA/JAB/research/robotics/lejos/ev3/SD/lejosimage/ev3classes.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
