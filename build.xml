@@ -79,7 +79,8 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 				<attribute name="Specification-Title" value="${project}"/>
 				<attribute name="Specification-Version" value="${version}"/>
 				<attribute name="Specification-Vendor" value="JAB"/>
-				<attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
+            	<attribute name="Implementation-Title" value="${project}"/>
+            	<attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
 				<attribute name="Implementation-Vendor" value="JAB"/>
                 
 		    	<attribute name="Main-Class" value="${package}.${class}"/>
