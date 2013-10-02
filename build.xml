@@ -29,10 +29,14 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="class" value="Observe"/> 
 	<property name="package" value="jab.lejos.db"/>
 	<property name="class" value="TestDB"/>	
-	-->
+
 	<property name="package" value="jab.lejos.utils"/>
 	<property name="class" value="log4jExample"/>
-
+	-->
+	<property name="package" value="jab.lejos.ev3.sensors.net"/>
+	<property name="class" value="EV3TimeSensorTest"/>
+	
+	
 	<!-- TARGET SECTION -->
 	<target name="init">
 		<antcall target="local-init" />
@@ -84,13 +88,21 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 				<attribute name="Implementation-Vendor" value="JAB"/>
                 
 		    	<attribute name="Main-Class" value="${package}.${class}"/>
-				<attribute name="Class-Path" value="lib/log4j-1.2.17.jar lib/hsqldb.jar"/>
+				<attribute name="Class-Path" value="lib/log4j-1.2.17.jar lib/hsqldb.jar lib/joda-time-2.3.jar"/>
             </manifest>
 		</jar>
 		<echo message="Packaging project dependencies."/>
+		
+		<copy todir="${dist.lib}">
+			<fileset dir="${lib}">
+				<exclude name="ev3classes.jar"/>
+		    </fileset>
+		  </copy>
+		<!--
 		<copy file="${lib}/log4j.properties" toDir="${dist.lib}"/>
 		<copy file="${lib}/log4j-1.2.17.jar" toDir="${dist.lib}"/>
 		<copy file="${lib}/hsqldb.jar" toDir="${dist.lib}"/>
+		-->
 	</target>
 
 	<target name="upload" depends="dist">

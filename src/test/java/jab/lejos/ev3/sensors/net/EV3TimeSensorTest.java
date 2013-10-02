@@ -13,7 +13,7 @@ public class EV3TimeSensorTest {
     	Coordinates coordinate = new Coordinates(40.479732600000000000,-3.589829900000040700);
 
     	Properties prop = new Properties();
-    	prop.load(new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/geonames.properties"));
+    	prop.load(new FileInputStream(System.getProperty("user.dir") + "/lib/geonames.properties"));
 
     	EV3TimeSensor tns = new EV3TimeSensor(coordinate, prop.getProperty("username"));
 
