@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project name="BRITY" default="run" basedir=".">
+<project name="Brity" default="run" basedir=".">
 	<description>
 Ant file designed to upload and run a EV3 project using LeJOS project.
 	</description>
 	
 	<!-- DEVELOPMENT SECTION -->
 	<property name="project" value="Brity"/>
+	<property name="version" value="0.1"/>
 	<property name="base.dir" value="." />
 	<property name="src" location="src"/>
 	<property name="lib" location="${base.dir}/lib" />
@@ -20,27 +21,43 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="password" value=""/>
 	
 	<!-- EV3 LINUX SECTION -->
-	<property name="remotePath" value="/home/root/lejos/examples/Brity/"/>
+	<property name="remotePath" value="/home/root/lejos/examples/"/>
 
 	<!-- CLASS SECTION -->
 	<!--
 	<property name="package" value="jab.lejos.liverobots.brity.states"/>
 	<property name="class" value="Observe"/> 
 	<property name="package" value="jab.lejos.db"/>
-	<property name="class" value="TestDB"/>	-->
+	<property name="class" value="TestDB"/>	
+	-->
 	<property name="package" value="jab.lejos.utils"/>
 	<property name="class" value="log4jExample"/>
 
 	<!-- TARGET SECTION -->
 	<target name="init">
+		<antcall target="local-init" />
+		<antcall target="remote-init" />
+	</target>
+	
+	<target name="local-init" description="Initializating local environment" >
 		<tstamp/>
-		<echo message="Initializating deployment."/>
+		<echo message="Initializating local environment."/>
 		<mkdir dir="${build}"/>
 		<mkdir dir="${logs}"/>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${dist.lib}"/>
 	</target>
-			
+
+	<target name="remote-init" description="Initializating local environment" >
+		<tstamp/>
+		<echo message="Initializating remote environment."/>
+		<sshexec host="${host}"
+			username="${username}"
+			password="${password}"
+			command="cd ${remotePath}; rm -f -r ${project}; mkdir ${project}; cd ${project}; mkdir lib;"
+		/>
+	</target>
+	
 	<target name="compile" depends="init" description="Compile your project" >
 		<tstamp/>
 		<echo message="Compiling project."/>
@@ -58,7 +75,15 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<echo message="Packaging project."/>
 		<jar jarfile="${dist}/${project}-${DSTAMP}.jar" basedir="${build}">
             <manifest>
-                <attribute name="Main-Class" value="${package}.${class}"/>
+		    <attribute name="Built-By" value="${user.name}"/>
+				<attribute name="Specification-Title" value="${project}"/>
+				<attribute name="Specification-Version" value="${version}"/>
+				<attribute name="Specification-Vendor" value="JAB"/>
+				<attribute name="Implementation-Version" value="${version} ${TODAY}"/> 
+				<attribute name="Implementation-Vendor" value="JAB"/>
+                
+		    	<attribute name="Main-Class" value="${package}.${class}"/>
+				<attribute name="Class-Path" value="lib/log4j-1.2.17.jar lib/hsqldb.jar"/>
             </manifest>
 		</jar>
 		<echo message="Packaging project dependencies."/>
@@ -71,10 +96,10 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<tstamp/>
 		<echo message="Deploying software into EV3 Brick."/>
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
-    	     todir="${username}:@${host}:${remotePath}"
+    	     todir="${username}:@${host}:${remotePath}${project}/"
 		/>
 		<echo message="Deploying software dependencies into EV3 Brick."/>
-		<scp todir="${username}:@${host}:${remotePath}lib">
+		<scp todir="${username}:@${host}:${remotePath}${project}/lib/">
 			<fileset dir="${dist.lib}"/>
 		</scp>
 	</target>
@@ -85,9 +110,10 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<sshexec host="${host}"
 			username="${username}"
 			password="${password}"
-			command="jrun -cp '${remotePath}${project}-${DSTAMP}.jar:${remotePath}lib/log4j-1.2.17.jar:${remotePath}lib/hsqldb.jar' ${package}.${class}"
+			command="cd ${remotePath}${project}/; jrun -jar ${project}-${DSTAMP}.jar "
 		/>
 		<antcall target="clean" />
+		
 	</target>
 
 	<target name="clean" description="clean up" >
