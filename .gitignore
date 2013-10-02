@@ -6,3 +6,5 @@
 *.ear
 /logs
 /bin
+/db_file.properties
+/db_file.script
