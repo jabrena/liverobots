@@ -39,9 +39,8 @@ public class Robot {
 	private final boolean reverse = false;
 	private PoseProvider posep;
 	private Navigator nav;
-
 	
-	public Robot(){
+	private Robot(){
 		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
 		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
 		leftSound.setDBA(true);
@@ -61,6 +60,25 @@ public class Robot {
 		nav = new Navigator(dPilot,posep);
 		Pose start = new Pose(0,0,0);
 		
+	}
+	
+	//Singleton pattern
+	private static Robot INSTANCE = null;
+	
+	public static Robot getInstance() {
+        if (INSTANCE == null) {
+            synchronized(Robot.class) {
+                if (INSTANCE == null) { 
+                    INSTANCE = new Robot();
+                }
+            }
+        }
+        
+        return INSTANCE;
+    }
+
+	public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException(); 
 	}
 	
 	public int getDistance(){

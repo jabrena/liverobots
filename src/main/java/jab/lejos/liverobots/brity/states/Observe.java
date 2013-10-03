@@ -9,7 +9,7 @@ public class Observe {
 	
 	public static void main(String[] args){
 
-		brityBody = new Robot();
+		brityBody = Robot.getInstance();
 		Sound.setVolume(30);
 		Sound.beepSequenceUp();
 

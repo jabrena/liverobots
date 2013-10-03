@@ -9,7 +9,8 @@ public class Brity {
 	
 	public static void main(String[] args){
 
-		brityBody = new Robot();
+		//brityBody = Robot.g;
+		Robot b = Robot.getInstance();
 		Sound.setVolume(30);
 		Sound.beepSequenceUp();
 
