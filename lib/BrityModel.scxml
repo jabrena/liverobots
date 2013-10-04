@@ -1,0 +1,12 @@
+<scxml initial="state1" name="state1" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=167.92 h=388  -->
+ <state id="state1"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+  <transition event="event12" target="state2"><!--   edge-path [state2]  x=67.5 y=143  --></transition>
+ </state>
+ <state id="state2"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+  <transition event="event21" target="state1"><!--   edge-path [state1]  x=47.5 y=143  --></transition>
+  <transition event="disconnected" target="disconnected"></transition>
+ </state>
+ <state id="disconnected"><!--   node-size-and-position x=51.5 y=293 w=80 h=75  -->
+  <transition event="eventd1" target="state1"><!--   edge-path [state1]  x=125.5 y=205.5  --></transition>
+ </state>
+</scxml>

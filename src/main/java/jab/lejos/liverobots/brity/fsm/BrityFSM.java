@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 
 public class BrityFSM extends FSM{
 
-	private static final String SCXML_CONFIG = "./lib/BrityModel.xml";
+	private static final String SCXML_CONFIG = "./lib/BrityModel.scxml";
 	
 	public BrityFSM() throws MalformedURLException {
 		super(new File(SCXML_CONFIG).toURI().toURL());
