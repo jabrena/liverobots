@@ -6,6 +6,7 @@ import lejos.nxt.Sound;
 public class Observe {
 
 	private static Robot brityBody;
+
 	
 	public static void main(String[] args){
 

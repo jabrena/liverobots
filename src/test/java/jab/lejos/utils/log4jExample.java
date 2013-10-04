@@ -16,9 +16,14 @@ public class log4jExample{
   public static void main(String[] args)
                 throws IOException,SQLException{
    
+	  final String configPath = "/lib/log4j.properties";
+	  
 	  System.out.println(System.getProperty("user.dir"));
 	  Properties props = new Properties();
-	  props.load(new FileInputStream("/home/root/lejos/examples/Brity/lib/log4j.properties"));
+	  String path = System.getProperty("user.dir") + configPath;
+	  System.out.println(path);
+	  
+	  props.load(new FileInputStream(path));
 	  PropertyConfigurator.configure(props);
 	  
      log.debug("Hello this is an debug message");
