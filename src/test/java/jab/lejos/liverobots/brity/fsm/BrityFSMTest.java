@@ -21,9 +21,7 @@ public class BrityFSMTest {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
 		final String configPath = "/lib/log4j.properties";
-		String path = System.getProperty("user.dir") + configPath;		  
-		System.out.println(path);
-		
+		String path = System.getProperty("user.dir") + configPath;
 		Properties props = new Properties();
 		props.load(new FileInputStream(path));
 		PropertyConfigurator.configure(props);
