@@ -1,4 +1,4 @@
-package jab.lejos.liverobots.brity.states;
+package jab.lejos.liverobots.brity.fsm.states;
 
 import jab.lejos.liverobots.brity.Robot;
 import lejos.nxt.Sound;
