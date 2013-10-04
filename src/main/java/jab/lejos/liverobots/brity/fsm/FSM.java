@@ -8,19 +8,11 @@ import org.apache.commons.scxml.env.AbstractStateMachine;
 import org.apache.commons.scxml.model.State;
 
 public class FSM extends AbstractStateMachine{
+	
+	public FSM(final URL SCXML){
+		super(SCXML);
+	}
 
-<<<<<<< HEAD
-	
-	public FSM(final URL SCXML){
-		super(SCXML);
-	}
-	
-=======
-	public FSM(final URL SCXML){
-		super(SCXML);
-	}
->>>>>>> refs/remotes/origin/master
-	
 	public void callState(String name){
 		this.invoke(name);
 	}
