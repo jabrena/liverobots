@@ -1,19 +1,20 @@
 package jab.lejos.liverobots.brity.fsm;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.scxml.model.Transition;
 
-public class Main {
+public class BrityFSMTest {
 
 	private BrityFSM brityFSM;
 	
-	public static void main(String[] args) {
-		new Main();
+	public static void main(String[] args) throws MalformedURLException {
+		new BrityFSMTest();
 	}
 	
-	public Main() {
+	public BrityFSMTest() throws MalformedURLException {
 		brityFSM = new BrityFSM();
 
 		for(int i=0;i<10; i++){

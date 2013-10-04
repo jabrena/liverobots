@@ -32,9 +32,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 
 	<property name="package" value="jab.lejos.utils"/>
 	<property name="class" value="log4jExample"/>
-	-->
+	
 	<property name="package" value="jab.lejos.ev3.sensors.net"/>
 	<property name="class" value="EV3TimeSensorTest"/>
+	-->
+	<property name="package" value="jab.lejos.liverobots.brity.fsm"/>
+	<property name="class" value="Main"/>
 	
 	
 	<!-- TARGET SECTION -->
@@ -88,7 +91,18 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 				<attribute name="Implementation-Vendor" value="JAB"/>
                 
 		    	<attribute name="Main-Class" value="${package}.${class}"/>
-				<attribute name="Class-Path" value="lib/log4j-1.2.17.jar lib/hsqldb.jar lib/joda-time-2.3.jar"/>
+				<attribute name="Class-Path" value="
+					lib/log4j-1.2.17.jar 
+					lib/hsqldb.jar 
+					lib/joda-time-2.3.jar
+					lib/commons-beanutils-1.8.2.jar
+					lib/commons-digester-1.8.1.jar
+					lib/commons-jexl-1.1.jar
+					lib/commons-logging-1.1.1.jar
+					lib/commons-scxml-0.9.jar
+					lib/xalan-2.6.0.jar
+					"			
+				/>
             </manifest>
 		</jar>
 		<echo message="Packaging project dependencies."/>

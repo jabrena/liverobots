@@ -1,12 +1,9 @@
 package jab.lejos.ev3.sensors;
-import lejos.nxt.ADSensorPort;
 import lejos.nxt.Button;
 import lejos.nxt.EV3ColorSensor;
-import lejos.nxt.EV3TouchSensor;
 import lejos.nxt.LCD;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UARTPort;
-import lejos.robotics.Color;
 
 
 public class EV3ColorSensorTest {

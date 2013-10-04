@@ -1,11 +1,14 @@
 package jab.lejos.liverobots.brity.fsm;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 public class BrityFSM extends FSM{
 
-	private static final String SCXML_CONFIG = "./BrityModel.xml";
+	private static final String SCXML_CONFIG = "./lib/BrityModel.xml";
 	
-	public BrityFSM() {
-    	super(BrityFSM.class.getClassLoader().getResource(SCXML_CONFIG));
+	public BrityFSM() throws MalformedURLException {
+		super(new File(SCXML_CONFIG).toURI().toURL());
 	}
 	
 	//FSM Methods
