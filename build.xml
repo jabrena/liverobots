@@ -25,7 +25,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 
 	<!-- CLASS SECTION -->
 	<!--
-	<property name="package" value="jab.lejos.liverobots.brity.states"/>
+	<property name="package" value="jab.lejos.liverobots.brity.fsm.states"/>
 	<property name="class" value="Observe"/> 
 	<property name="package" value="jab.lejos.db"/>
 	<property name="class" value="TestDB"/>	
