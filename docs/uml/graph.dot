@@ -83,37 +83,40 @@ digraph G {
 <tr><td align="left" balign="left"> + createSensorMeasureStructure() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.brity.fsm.BrityFSM4
-	c5 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM4" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.brity.fsm.BrityFSM
+	c5 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> BrityFSM4 </td></tr>
+<tr><td align="center" balign="center"> BrityFSM </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
 <tr><td align="left" balign="left"> - SCXML_CONFIG : String </td></tr>
 <tr><td align="left" balign="left"> - robot : RobotSimulated </td></tr>
+<tr><td align="left" balign="left"> ~ status : int </td></tr>
 <tr><td align="left" balign="left"> ~ voltage : int </td></tr>
 <tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
 <tr><td align="left" balign="left"> ~ distance : int </td></tr>
 <tr><td align="left" balign="left"> ~ distanceThreshold : int </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + BrityFSM4() </td></tr>
+<tr><td align="left" balign="left"> + BrityFSM() </td></tr>
 <tr><td align="left" balign="left"> + getCurrentStateId() : String </td></tr>
 <tr><td align="left" balign="left"> + getCurrentState() : State </td></tr>
 <tr><td align="left" balign="left"> + getCurrentStateEvents() : Collection&lt;?&gt; </td></tr>
 <tr><td align="left" balign="left"> + getRobot() : RobotSimulated </td></tr>
+<tr><td align="left" balign="left"> + getStatus() : int </td></tr>
+<tr><td align="left" balign="left"> + setStatus(status : int) </td></tr>
 <tr><td align="left" balign="left"> + Iddle() </td></tr>
 <tr><td align="left" balign="left"> + DriveForward() </td></tr>
 <tr><td align="left" balign="left"> + DetectWall() </td></tr>
 <tr><td align="left" balign="left"> + Disconnect() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.brity.fsm.BrityFSMStates
-	c6 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSMStates" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.brity.fsm.BrityFSM.States
+	c6 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM.States" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
-<tr><td align="center" balign="center"> BrityFSMStates </td></tr>
+<tr><td align="center" balign="center"> States </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left">  </td></tr>
@@ -125,11 +128,11 @@ digraph G {
 <tr><td align="left" balign="left"> Disconnect </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.brity.fsm.BrityFSMTransitions
-	c7 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSMTransitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.brity.fsm.BrityFSM.Transitions
+	c7 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM.Transitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
-<tr><td align="center" balign="center"> BrityFSMTransitions </td></tr>
+<tr><td align="center" balign="center"> Transitions </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left">  </td></tr>
@@ -147,11 +150,10 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
-<tr><td align="left" balign="left"> ~ voltage : int </td></tr>
-<tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + DetectWall(brityFSM : BrityFSM4, robot : Robot) </td></tr>
+<tr><td align="left" balign="left"> + DetectWall(brityFSM : BrityFSM) </td></tr>
+<tr><td align="left" balign="left"> + action() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.DriveForward
@@ -161,27 +163,28 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
-<tr><td align="left" balign="left"> ~ voltage : int </td></tr>
-<tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
 <tr><td align="left" balign="left"> ~ distance : int </td></tr>
 <tr><td align="left" balign="left"> ~ distanceThreshold : int </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + DriveForward(brityFSM : BrityFSM4, robot : Robot) </td></tr>
+<tr><td align="left" balign="left"> + DriveForward(brityFSM : BrityFSM) </td></tr>
+<tr><td align="left" balign="left"> + action() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.GenericState
 	c10 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.GenericState" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> GenericState </td></tr>
+<tr><td align="center" balign="center"><font face="Helvetica-Oblique"> GenericState </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
 <tr><td align="left" balign="left"> ~ voltage : int </td></tr>
 <tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
+<tr><td align="left" balign="left"> # brityFSM : BrityFSM </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + GenericState(brityFSM : BrityFSM4, robot : Robot) </td></tr>
+<tr><td align="left" balign="left"> + GenericState(brityFSM : BrityFSM) </td></tr>
+<tr><td align="left" balign="left"><font face="Helvetica-Oblique" point-size="10.0"> + action() </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.Robot
@@ -196,8 +199,6 @@ digraph G {
 <tr><td align="left" balign="left"> + Robot(type : RobotType) </td></tr>
 <tr><td align="left" balign="left"><font face="Helvetica-Oblique" point-size="10.0"> + getDistance() : int </font></td></tr>
 <tr><td align="left" balign="left"><font face="Helvetica-Oblique" point-size="10.0"> + getVoltage() : int </font></td></tr>
-<tr><td align="left" balign="left"><font face="Helvetica-Oblique" point-size="10.0"> + getStatus() : int </font></td></tr>
-<tr><td align="left" balign="left"><font face="Helvetica-Oblique" point-size="10.0"> + setStatus(i : int) </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotEV3
@@ -236,8 +237,6 @@ digraph G {
 <tr><td align="left" balign="left"> + getLightLeve() : int </td></tr>
 <tr><td align="left" balign="left"> + shortSound(tones : int, freqValue : int) </td></tr>
 <tr><td align="left" balign="left"> + getVoltage() : int </td></tr>
-<tr><td align="left" balign="left"> + getStatus() : int </td></tr>
-<tr><td align="left" balign="left"> + setStatus(i : int) </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotFactory
@@ -260,7 +259,6 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> - INSTANCE : RobotSimulated </td></tr>
-<tr><td align="left" balign="left"> - status : int </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> - RobotSimulated(type : RobotType) </td></tr>
@@ -268,8 +266,6 @@ digraph G {
 <tr><td align="left" balign="left"> + clone() : Object </td></tr>
 <tr><td align="left" balign="left"> + getDistance() : int </td></tr>
 <tr><td align="left" balign="left"> + getVoltage() : int </td></tr>
-<tr><td align="left" balign="left"> + getStatus() : int </td></tr>
-<tr><td align="left" balign="left"> + setStatus(i : int) </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotType
@@ -288,7 +284,7 @@ digraph G {
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//jab.lejos.liverobots.brity.dao.BritySensorDAO implements jab.lejos.liverobots.brity.dao.IBritySensorDAO
 	c4:p -> c2:p [dir=back,arrowtail=empty,style=dashed];
-	//jab.lejos.liverobots.brity.fsm.BrityFSM4 extends AbstractStateMachine
+	//jab.lejos.liverobots.brity.fsm.BrityFSM extends AbstractStateMachine
 	c16:p -> c5:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.fsm.states.DetectWall extends jab.lejos.liverobots.brity.fsm.states.GenericState
 	c10:p -> c8:p [dir=back,arrowtail=empty];

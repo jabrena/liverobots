@@ -173,19 +173,5 @@ public class RobotEV3 extends Robot {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public int getStatus() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setStatus(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
 	
 }

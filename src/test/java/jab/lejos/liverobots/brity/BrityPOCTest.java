@@ -1,4 +1,4 @@
-package jab.lejos.liverobots;
+package jab.lejos.liverobots.brity;
 
 import lejos.nxt.Motor;
 import lejos.nxt.Sound;

@@ -51,16 +51,4 @@ public class RobotSimulated extends Robot {
 		return voltage;
 	}
 
-	private int status = 0;
-	
-	public int getStatus() {
-		// TODO Auto-generated method stub
-		return status;
-	}
-
-	@Override
-	public void setStatus(int i) {
-		// TODO Auto-generated method stub
-		status = i;
-	}
 }

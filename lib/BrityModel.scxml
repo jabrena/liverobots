@@ -9,7 +9,7 @@
  </state>
  <state id="DetectWall"><!--   node-size-and-position x=240 y=360 w=75 h=75  -->
   <transition event="continueDriving" target="DriveForward"><!--   edge-path [DriveForward]  x=230 y=270 pointx=0 pointy=66 offsetx=-11 offsety=-30  --></transition>
-<!--  <transition event="lowBattery" target="Disconnect"></transition>--><!--   edge-path [Disconnect]  pointx=0 pointy=-22 offsetx=3 offsety=1  -->
+  <transition event="lowBattery" target="Disconnect"></transition><!--   edge-path [Disconnect]  pointx=0 pointy=-22 offsetx=3 offsety=1  -->
  </state>
  <final id="Disconnect"><!--   node-size-and-position x=420 y=360 w=75 h=75  --></final>
 </scxml>

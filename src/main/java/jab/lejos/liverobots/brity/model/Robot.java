@@ -10,7 +10,5 @@ public abstract class Robot {
 	
 	public abstract int getDistance();
 	public abstract int getVoltage();
-	public abstract int getStatus();
-	public abstract void setStatus(int i);
-	
+
 }
