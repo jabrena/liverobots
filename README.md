@@ -6,7 +6,9 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 
 Ideas
 
-W3C SCXML: http://commons.apache.org/proper/commons-scxml/
+W3 SCXML: http://www.w3.org/TR/scxml/
+
+Apache Commons: http://commons.apache.org/proper/commons-scxml/
 
 SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
 

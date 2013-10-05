@@ -12,10 +12,6 @@ public class FSM extends AbstractStateMachine{
 	public FSM(final URL SCXML){
 		super(SCXML);
 	}
-
-	public void callState(String name){
-		this.invoke(name);
-	}
 	
 	//User methods
 	public String getCurrentStateId() {
