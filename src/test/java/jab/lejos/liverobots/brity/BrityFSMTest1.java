@@ -1,5 +1,6 @@
-package jab.lejos.liverobots.brity.fsm;
+package jab.lejos.liverobots.brity;
 
+import jab.lejos.liverobots.brity.fsm.BrityFSM;
 import jab.lejos.liverobots.brity.model.Robot;
 import jab.lejos.liverobots.brity.model.RobotFactory;
 import jab.lejos.liverobots.brity.model.RobotType;
@@ -16,14 +17,14 @@ import org.apache.commons.scxml.model.Transition;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-public class BrityFSMTest {
+public class BrityFSMTest1 {
 
 	//Robot
 	Robot robot;
 	
 	private BrityFSM brityFSM;
 
-	final Logger logger = Logger.getLogger(BrityFSMTest.class);
+	final Logger logger = Logger.getLogger(BrityFSMTest1.class);
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
@@ -33,15 +34,12 @@ public class BrityFSMTest {
 		props.load(new FileInputStream(path));
 		PropertyConfigurator.configure(props);
 		  
-		new BrityFSMTest();
+		new BrityFSMTest1();
 	}
 	
-	public BrityFSMTest() throws MalformedURLException {
+	public BrityFSMTest1() throws MalformedURLException {
 		robot = RobotFactory.getRobot(RobotType.SIMULATED);
 		brityFSM = new BrityFSM(robot);
-
-		//brityFSM.fireEvent(brityFSM.getCurrentState().getTransitionsList().get(0).toString());
-		
 
 		if(!brityFSM.getCurrentState().isFinal()){
 			//List Transitions
@@ -56,33 +54,6 @@ public class BrityFSMTest {
 				brityFSM.fireEvent(list.get(0).toString());
 			}
 		}
-		
-		//http://commons.apache.org/proper/commons-scxml/xref-test/org/apache/commons/scxml/env/StopWatchDisplay.html
-		//http://commons.apache.org/proper/commons-scxml/xref-test/org/apache/commons/scxml/env/StopWatch.html
-
-		
-		/*
-		for(int i=0;i<10; i++){
-			
-			if(!brityFSM.getCurrentState().isFinal()){
-				//List Transitions
-				List<Transition> transitionList = brityFSM.getCurrentState().getTransitionsList();
-				if(transitionList.size() > 0){
-					List<String> list = new ArrayList<String>();
-					for (Transition transition : transitionList) {
-						list.add(transition.getEvent());
-						logger.info("EVENT: " + transition.getEvent() );
-					}
-					//Fire first event
-					brityFSM.fireEvent(list.get(0).toString());
-				}
-			}else{
-				break;
-			}
-			logger.info("ITERATION: " + i );
-
-		}
-		*/
 
 	}
 

@@ -1,7 +1,5 @@
 package jab.lejos.liverobots.brity.fsm;
 
-import jab.lejos.liverobots.brity.fsm.states.DriveForward;
-import jab.lejos.liverobots.brity.fsm.states.DetectWall;
 import jab.lejos.liverobots.brity.model.Robot;
 
 import java.io.File;
@@ -13,12 +11,12 @@ import org.apache.commons.scxml.env.AbstractStateMachine;
 import org.apache.commons.scxml.model.State;
 import org.apache.log4j.Logger;
 
-public class BrityFSM extends AbstractStateMachine{
+public class BrityFSM2 extends AbstractStateMachine{
 
 	private Robot robot;
 	private static final String SCXML_CONFIG = "./lib/BrityModel.scxml";
 	
-	public BrityFSM(Robot robot) throws MalformedURLException {
+	public BrityFSM2(Robot robot) throws MalformedURLException {
 		//TODO Improve parsing using this URL:
 		//http://commons.apache.org/proper/commons-scxml/guide/core-parser.html
 		super(new File(SCXML_CONFIG).toURI().toURL());
@@ -43,16 +41,18 @@ public class BrityFSM extends AbstractStateMachine{
 	
 	//FSM Methods
 	public void Iddle() {
-		Logger logger = Logger.getLogger(DriveForward.class);
+		Logger logger = Logger.getLogger(BrityFSM2.class);
 		logger.info("STATE: Idle");
 	}
 	
 	public void DriveForward() {
-		DriveForward df = new DriveForward(this,robot);
+		Logger logger = Logger.getLogger(BrityFSM2.class);
+		logger.info("STATE: DriveForward");
 	}
 
 	public void DetectWall() {
-		DetectWall dw = new DetectWall(this,robot);
+		Logger logger = Logger.getLogger(BrityFSM2.class);
+		logger.info("STATE: DetectWall");
 	}
 	
 	public void Disconnect() {

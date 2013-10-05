@@ -94,25 +94,33 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + BrityFSM(robot : Robot) </td></tr>
+<tr><td align="left" balign="left"> + getCurrentStateId() : String </td></tr>
+<tr><td align="left" balign="left"> + getCurrentState() : State </td></tr>
+<tr><td align="left" balign="left"> + getCurrentStateEvents() : Collection&lt;?&gt; </td></tr>
 <tr><td align="left" balign="left"> + Iddle() </td></tr>
 <tr><td align="left" balign="left"> + DriveForward() </td></tr>
 <tr><td align="left" balign="left"> + DetectWall() </td></tr>
 <tr><td align="left" balign="left"> + Disconnect() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.brity.fsm.FSM
-	c6 [label=<<table title="jab.lejos.liverobots.brity.fsm.FSM" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.brity.fsm.BrityFSM2
+	c6 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM2" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> FSM </td></tr>
+<tr><td align="center" balign="center"> BrityFSM2 </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left">  </td></tr>
+<tr><td align="left" balign="left"> - robot : Robot </td></tr>
+<tr><td align="left" balign="left"> - SCXML_CONFIG : String </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="left" balign="left"> + FSM(SCXML : URL) </td></tr>
+<tr><td align="left" balign="left"> + BrityFSM2(robot : Robot) </td></tr>
 <tr><td align="left" balign="left"> + getCurrentStateId() : String </td></tr>
 <tr><td align="left" balign="left"> + getCurrentState() : State </td></tr>
 <tr><td align="left" balign="left"> + getCurrentStateEvents() : Collection&lt;?&gt; </td></tr>
+<tr><td align="left" balign="left"> + Iddle() </td></tr>
+<tr><td align="left" balign="left"> + DriveForward() </td></tr>
+<tr><td align="left" balign="left"> + DetectWall() </td></tr>
+<tr><td align="left" balign="left"> + Disconnect() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.DetectWall
@@ -256,9 +264,9 @@ digraph G {
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//jab.lejos.liverobots.brity.dao.BritySensorDAO implements jab.lejos.liverobots.brity.dao.IBritySensorDAO
 	c4:p -> c2:p [dir=back,arrowtail=empty,style=dashed];
-	//jab.lejos.liverobots.brity.fsm.BrityFSM extends jab.lejos.liverobots.brity.fsm.FSM
-	c6:p -> c5:p [dir=back,arrowtail=empty];
-	//jab.lejos.liverobots.brity.fsm.FSM extends AbstractStateMachine
+	//jab.lejos.liverobots.brity.fsm.BrityFSM extends AbstractStateMachine
+	c15:p -> c5:p [dir=back,arrowtail=empty];
+	//jab.lejos.liverobots.brity.fsm.BrityFSM2 extends AbstractStateMachine
 	c15:p -> c6:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.model.RobotEV3 extends jab.lejos.liverobots.brity.model.Robot
 	c10:p -> c11:p [dir=back,arrowtail=empty];
