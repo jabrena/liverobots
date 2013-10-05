@@ -9,9 +9,20 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 Brity is a project designed to develop EV3 robot and java software.
 Robot will use a FSM with SCXML to model behaviours.
 
+### Example: BumperCar ###
+
+BumperCar is the classic example to understand the behaviour concept. 
+In LeJOS, the classic way is using the Subsumption Architecture from Rodney Brooks.
+
+Example using Subsumption: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
+
+The another alternative is using a FSM to solve the same problem:
+
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
-### Example: ###
+Current solution runs in Local and a EV3 brick.
+
+#### Preliminar results ####
 
 In local:
 
@@ -84,14 +95,9 @@ In EV3:
       [sshexec] 2000-01-01 00:05:17,825  INFO [main] (?:?) - STATE: Disconnected
 
 
-
-This example is an alternative to use Subsumption Architecture to model behaviours in Robots.
-
-http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar/
-
 ### Class diagram ###
 
-Current class diagram for Brity Project.
+Class diagram for the whole project is the following one:
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
 
@@ -121,10 +127,12 @@ Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
 
 # Build.xml #
 
-Take a look latest version of Build.xml for EV3 project.
+ANT is great Java tool. Take a look latest version of Build.xml for EV3 project.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/vizant/build.png)
 
+Try to to reuse if you like.
+https://raw.github.com/jabrena/liverobots/master/build.xml
 
 
 
