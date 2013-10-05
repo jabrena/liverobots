@@ -23,8 +23,7 @@ Robot will use a FSM with SCXML to model behaviours.
     2013-10-06 00:05:25,944  INFO [main] (BrityFSM4.java:106) - Turn left
     2013-10-06 00:05:26,446  INFO [main] (BrityFSM4.java:73) - STATE: DriveForward
     2013-10-06 00:05:26,447  INFO [main] (BrityFSM4.java:76) - Voltage: 70
-    2013-10-06 00:05:26,447  INFO [main] (BrityFSM4.java:78) - STATE: Disconnect
-    2013-10-06 00:05:26,449  INFO [main] (BrityFSM4.java:117) - STATE: disconnected
+    2013-10-06 00:05:26,449  INFO [main] (BrityFSM4.java:117) - STATE: Disconnected
 
 This example is an alternative to use Subsumption Architecture to model behaviours in Robots.
 

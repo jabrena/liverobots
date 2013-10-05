@@ -75,7 +75,6 @@ public class BrityFSM4 extends AbstractStateMachine{
 		voltage = robot.getVoltage();
 		logger.info("Voltage: " + voltage);
 		if(voltage < voltageThreshold){
-			logger.info("STATE: Disconnect");
 			robot.setStatus(3);
 		}else{
 			distance = robot.getDistance();
@@ -98,7 +97,6 @@ public class BrityFSM4 extends AbstractStateMachine{
 		voltage = robot.getVoltage();
 		logger.info("Voltage: " + voltage);
 		if(voltage < voltageThreshold){
-			logger.info("STATE: Disconnect");
 			robot.setStatus(3);
 		}else{
 			logger.info("Go backward");
@@ -114,7 +112,7 @@ public class BrityFSM4 extends AbstractStateMachine{
 	
 	public void Disconnect() {
 		//TODO Improve log4j usage
-		logger.info("STATE: disconnected");
+		logger.info("STATE: Disconnected");
 	}
 	
 }
