@@ -15,18 +15,56 @@ Robot will use a FSM with SCXML to model behaviours.
 
 In local:
 
-    2013-10-06 00:05:25,429  INFO [main] (BrityFSM4.java:64) - STATE: Iddle
-    2013-10-06 00:05:25,441  INFO [main] (BrityFSM4.java:73) - STATE: DriveForward
-    2013-10-06 00:05:25,442  INFO [main] (BrityFSM4.java:76) - Voltage: 500
-    2013-10-06 00:05:25,442  INFO [main] (BrityFSM4.java:82) - Distance: 24
-    2013-10-06 00:05:25,443  INFO [main] (BrityFSM4.java:96) - STATE: DetectWall
-    2013-10-06 00:05:25,444  INFO [main] (BrityFSM4.java:99) - Voltage: 500
-    2013-10-06 00:05:25,444  INFO [main] (BrityFSM4.java:104) - Go backward
-    2013-10-06 00:05:25,944  INFO [main] (BrityFSM4.java:106) - Turn left
-    2013-10-06 00:05:26,446  INFO [main] (BrityFSM4.java:73) - STATE: DriveForward
-    2013-10-06 00:05:26,447  INFO [main] (BrityFSM4.java:76) - Voltage: 70
-    2013-10-06 00:05:26,449  INFO [main] (BrityFSM4.java:117) - STATE: Disconnected
-
+    2013-10-06 01:22:28,309  INFO [main] (BrityFSM.java:78) - STATE: Iddle
+    2013-10-06 01:22:28,320  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:28,322  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:28,323  INFO [main] (DriveForward.java:25) - Voltage: 500
+    2013-10-06 01:22:28,323  INFO [main] (DriveForward.java:30) - Distance: 46
+    2013-10-06 01:22:28,324  INFO [main] (BrityFSM.java:95) - STATE: DetectWall
+    2013-10-06 01:22:28,325  INFO [main] (DetectWall.java:14) - STATE: DetectWall
+    2013-10-06 01:22:28,325  INFO [main] (DetectWall.java:20) - Voltage: 500
+    2013-10-06 01:22:28,325  INFO [main] (DetectWall.java:24) - Go backward
+    2013-10-06 01:22:28,826  INFO [main] (DetectWall.java:26) - Turn left
+    2013-10-06 01:22:29,328  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:29,329  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:29,329  INFO [main] (DriveForward.java:25) - Voltage: 500
+    2013-10-06 01:22:29,329  INFO [main] (DriveForward.java:30) - Distance: 81
+    2013-10-06 01:22:29,331  INFO [main] (BrityFSM.java:95) - STATE: DetectWall
+    2013-10-06 01:22:29,331  INFO [main] (DetectWall.java:14) - STATE: DetectWall
+    2013-10-06 01:22:29,336  INFO [main] (DetectWall.java:20) - Voltage: 500
+    2013-10-06 01:22:29,336  INFO [main] (DetectWall.java:24) - Go backward
+    2013-10-06 01:22:29,837  INFO [main] (DetectWall.java:26) - Turn left
+    2013-10-06 01:22:30,339  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:30,339  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:30,340  INFO [main] (DriveForward.java:25) - Voltage: 500
+    2013-10-06 01:22:30,340  INFO [main] (DriveForward.java:30) - Distance: 70
+    2013-10-06 01:22:30,341  INFO [main] (BrityFSM.java:95) - STATE: DetectWall
+    2013-10-06 01:22:30,342  INFO [main] (DetectWall.java:14) - STATE: DetectWall
+    2013-10-06 01:22:30,342  INFO [main] (DetectWall.java:20) - Voltage: 500
+    2013-10-06 01:22:30,342  INFO [main] (DetectWall.java:24) - Go backward
+    2013-10-06 01:22:30,843  INFO [main] (DetectWall.java:26) - Turn left
+    2013-10-06 01:22:31,345  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:31,345  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:31,346  INFO [main] (DriveForward.java:25) - Voltage: 500
+    2013-10-06 01:22:31,346  INFO [main] (DriveForward.java:30) - Distance: 75
+    2013-10-06 01:22:31,347  INFO [main] (BrityFSM.java:95) - STATE: DetectWall
+    2013-10-06 01:22:31,348  INFO [main] (DetectWall.java:14) - STATE: DetectWall
+    2013-10-06 01:22:31,348  INFO [main] (DetectWall.java:20) - Voltage: 500
+    2013-10-06 01:22:31,348  INFO [main] (DetectWall.java:24) - Go backward
+    2013-10-06 01:22:31,849  INFO [main] (DetectWall.java:26) - Turn left
+    2013-10-06 01:22:32,351  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:32,351  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:32,352  INFO [main] (DriveForward.java:25) - Voltage: 500
+    2013-10-06 01:22:32,352  INFO [main] (DriveForward.java:30) - Distance: 62
+    2013-10-06 01:22:32,354  INFO [main] (BrityFSM.java:95) - STATE: DetectWall
+    2013-10-06 01:22:32,354  INFO [main] (DetectWall.java:14) - STATE: DetectWall
+    2013-10-06 01:22:32,354  INFO [main] (DetectWall.java:20) - Voltage: 500
+    2013-10-06 01:22:32,355  INFO [main] (DetectWall.java:24) - Go backward
+    2013-10-06 01:22:32,855  INFO [main] (DetectWall.java:26) - Turn left
+    2013-10-06 01:22:33,357  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
+    2013-10-06 01:22:33,358  INFO [main] (DriveForward.java:17) - STATE: DriveForward
+    2013-10-06 01:22:33,358  INFO [main] (DriveForward.java:25) - Voltage: 31
+    2013-10-06 01:22:33,359  INFO [main] (BrityFSM.java:103) - STATE: Disconnected
 In EV3:
 
     run:
