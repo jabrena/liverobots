@@ -11,6 +11,21 @@ Robot will use a FSM with SCXML to model behaviours.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
+### Example: ###
+
+    2013-10-06 00:05:25,429  INFO [main] (BrityFSM4.java:64) - STATE: Iddle
+    2013-10-06 00:05:25,441  INFO [main] (BrityFSM4.java:73) - STATE: DriveForward
+    2013-10-06 00:05:25,442  INFO [main] (BrityFSM4.java:76) - Voltage: 500
+    2013-10-06 00:05:25,442  INFO [main] (BrityFSM4.java:82) - Distance: 24
+    2013-10-06 00:05:25,443  INFO [main] (BrityFSM4.java:96) - STATE: DetectWall
+    2013-10-06 00:05:25,444  INFO [main] (BrityFSM4.java:99) - Voltage: 500
+    2013-10-06 00:05:25,444  INFO [main] (BrityFSM4.java:104) - Go backward
+    2013-10-06 00:05:25,944  INFO [main] (BrityFSM4.java:106) - Turn left
+    2013-10-06 00:05:26,446  INFO [main] (BrityFSM4.java:73) - STATE: DriveForward
+    2013-10-06 00:05:26,447  INFO [main] (BrityFSM4.java:76) - Voltage: 70
+    2013-10-06 00:05:26,447  INFO [main] (BrityFSM4.java:78) - STATE: Disconnect
+    2013-10-06 00:05:26,449  INFO [main] (BrityFSM4.java:117) - STATE: disconnected
+
 This example is an alternative to use Subsumption Architecture to model behaviours in Robots.
 
 http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar/
