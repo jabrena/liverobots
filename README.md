@@ -8,7 +8,8 @@ Brity:
 
 Brity is a project to design a robot using FSM with SCXML.
 
-[ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+
 
 Ideas
 
