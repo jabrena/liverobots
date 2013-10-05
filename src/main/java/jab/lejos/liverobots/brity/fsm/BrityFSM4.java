@@ -53,47 +53,63 @@ public class BrityFSM4 extends AbstractStateMachine{
 	public Collection<?> getCurrentStateEvents() {
 		return getEngine().getCurrentStatus().getEvents();
 	}
-	 
-	public void setCurrentState(SCXMLExecutor exec, final String id) throws IllegalArgumentException{
-	    try {
-	        exec.reset();
-	    } catch (ModelException me) {
-	        throw new IllegalArgumentException("Provided SCXMLExecutor "
-	                + "instance cannot be reset.");
-	    }
-	    TransitionTarget active = (TransitionTarget) exec.getStateMachine().
-	            getTargets().get(id);
-	    if (active == null) {
-	        throw new IllegalArgumentException("No target with id '" + id
-	                + "' present in state machine.");
-	    }
-	    Set current = exec.getCurrentStatus().getStates();
-	    current.clear();
-	    current.add(active);
+	
+	public RobotSimulated getRobot(){
+		return this.robot;
 	}
 	
 	//FSM Methods
 	public void Iddle() {
 		Logger logger = Logger.getLogger(BrityFSM4.class);
 		logger.info("STATE: Iddle");
-		//this.setCurrentState(getEngine(), BrityFSMTransitions.continueDriving.toString());
-	    TransitionTarget active = (TransitionTarget) this.getEngine().getStateMachine().
-	            getTargets().get(BrityFSMTransitions.continueDriving.toString());
-	    if (active == null) {
-	        throw new IllegalArgumentException("No target with id '" + BrityFSMTransitions.continueDriving.toString()
-	                + "' present in state machine.");
-	    }
-	    Set current = this.getEngine().getCurrentStatus().getStates();
-	    current.clear();
-	    current.add(active);
 	}
+	
+	int voltage = 0;
+	int voltageThreshold = 200;
+	int distance = 0;
+	int distanceThreshold = 100;
 	
 	public void DriveForward() {
 		logger.info("STATE: DriveForward");
+		
+		voltage = robot.getVoltage();
+		logger.info("Voltage: " + voltage);
+		if(voltage < voltageThreshold){
+			logger.info("STATE: Disconnect");
+			robot.setStatus(3);
+		}else{
+			distance = robot.getDistance();
+			logger.info("Distance: " + distance);
+
+			if(distance < 100){
+				robot.setStatus(2);
+			}else{
+				robot.setStatus(1);
+			}
+		}
+		
+
+		
 	}
 	
 	public void DetectWall() {
 		logger.info("STATE: DetectWall");
+		
+		voltage = robot.getVoltage();
+		logger.info("Voltage: " + voltage);
+		if(voltage < voltageThreshold){
+			logger.info("STATE: Disconnect");
+			robot.setStatus(3);
+		}else{
+			logger.info("Go backward");
+			try {Thread.sleep(500);} catch (InterruptedException e) {}
+			logger.info("Turn left");
+			try {Thread.sleep(500);} catch (InterruptedException e) {}
+			
+			robot.setStatus(1);			
+		}
+		
+
 	}
 	
 	public void Disconnect() {

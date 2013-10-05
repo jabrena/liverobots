@@ -1,11 +1,11 @@
 package jab.lejos.liverobots.brity.fsm.states;
 
-import jab.lejos.liverobots.brity.fsm.BrityFSM;
+import jab.lejos.liverobots.brity.fsm.BrityFSM4;
 import jab.lejos.liverobots.brity.model.Robot;
 
 import org.apache.log4j.Logger;
 
-public class DriveForward {
+public class DriveForward extends GenericState{
 
 	Logger logger = Logger.getLogger(DriveForward.class);
 
@@ -14,8 +14,9 @@ public class DriveForward {
 	int distance = 0;
 	int distanceThreshold = 100;
 
-	public DriveForward(BrityFSM brityFSM, Robot robot){
-
+	public DriveForward(BrityFSM4 brityFSM, Robot robot){
+		super(brityFSM, robot);
+		
 		logger.info("STATE: DriveForward");
 
 		voltage = robot.getVoltage();

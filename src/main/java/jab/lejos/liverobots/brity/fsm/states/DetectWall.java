@@ -1,18 +1,20 @@
 package jab.lejos.liverobots.brity.fsm.states;
 
-import jab.lejos.liverobots.brity.fsm.BrityFSM;
+import jab.lejos.liverobots.brity.fsm.BrityFSM4;
 import jab.lejos.liverobots.brity.model.Robot;
 
 import org.apache.log4j.Logger;
 
-public class DetectWall {
+public class DetectWall extends GenericState{
 
 	Logger logger = Logger.getLogger(DriveForward.class);
 	
 	int voltage = 0;
 	int voltageThreshold = 200;
 	
-	public DetectWall(BrityFSM brityFSM, Robot robot){
+	public DetectWall(BrityFSM4 brityFSM, Robot robot){
+		super(brityFSM, robot);
+		
 		logger.info("STATE: DetectWall");
 		
 		voltage = robot.getVoltage();
