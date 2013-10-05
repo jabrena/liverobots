@@ -246,4 +246,15 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
 	</target>
+	
+	<!-- UTILITIES -->
+	<target name="halt">
+		<tstamp/>
+		<echo message="Shutdown EV3 brick."/>
+		<sshexec host="${host}"
+			username="${username}"
+			password="${password}"
+			command="halt "
+		/>
+	</target>
 </project>

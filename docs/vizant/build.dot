@@ -29,4 +29,5 @@ digraph "G" {
     "run" -> "deploy";
     "clean";
     "clean" -> "deployment";
+    "halt";
 }
