@@ -15,7 +15,9 @@ This example is an alternative to use Subsumption Architecture to model behaviou
 
 http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar/
 
-## Class diagram ##
+### Class diagram ###
+
+Current class diagram for Brity Project.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
 
