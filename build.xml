@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project name="Brity" default="run" basedir=".">
+<project name="Brity" default="clean" basedir=".">
 	<description>
 Ant file designed to upload and run a EV3 project using LeJOS project.
 	</description>
 	
 	<!-- DEVELOPMENT SECTION -->
+	<property name="environment" value="LOCAL" />
+	
 	<property name="project" value="Brity"/>
 	<property name="version" value="0.1"/>
+	
 	<property name="base.dir" value="." />
 	<property name="src" location="src"/>
 	<property name="lib" location="${base.dir}/lib" />
-	<property name="logs" location="${base.dir}/logs" />
+	<property name="lib-eclipse" location="${base.dir}/lib-eclipse" />
+	<property name="javadoc" location="${base.dir}/docs/api" />
+	<property name="uml.dir" value="${base.dir}/docs/uml"/>
 	<property name="build" location="build"/>
 	<property name="dist"  location="target"/>
 	<property name="dist.lib"  location="${dist}/lib"/>
+	<property name="logs" location="${base.dir}/logs" />
 
 	<!-- EV3 SSH SECTION -->
 	<property name="host" value="192.168.43.62"/>
@@ -43,7 +49,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	
 	<!-- TARGET SECTION -->
 	<target name="init">
-		<antcall target="local-init" />
+
+		<condition property="debugging">
+			<equals arg1="${environment}" arg2="LOCAL" />
+		</condition>
+
+		<antcall target="local-init" />		
 		<antcall target="remote-init" />
 	</target>
 	
@@ -54,9 +65,11 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<mkdir dir="${logs}"/>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${dist.lib}"/>
+		<mkdir dir="${javadoc}"/>
+		<mkdir dir="${uml.dir}"/>
 	</target>
 
-	<target name="remote-init" description="Initializating local environment" >
+	<target name="remote-init" unless="debugging" description="Initializating local environment" >
 		<tstamp/>
 		<echo message="Initializating remote environment."/>
 		<sshexec host="${host}"
@@ -77,8 +90,63 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 			</classpath>
 		</javac>
 	</target>
-		
-	<target name="dist" depends="compile" description="generate the distribution" >
+	
+	<target name="javadoc" depends="compile">
+	        <javadoc 
+	        	destdir="${javadoc}" 
+	            private="true"
+				author="true"
+				version="true">
+
+				<doclet name="org.umlgraph.doclet.UmlGraphDoc" path="${lib-eclipse}/umlgraph-5.6.jar">
+				        <param name="-inferrel"/>
+				        <param name="-inferdep"/>
+				        <param name="-hide" value="java.*"/>
+				        <param name="-collpackages" value="java.util.*"/>
+				        <param name="-qualify"/>
+				        <param name="-postfixpackage"/>
+				        <param name="-nodefontsize" value="9"/>
+				        <param name="-nodefontpackagesize" value="7"/>
+				        <param name="-link" value="http://java.sun.com/j2se/1.5.0/docs/guide/javadoc/doclet/spec"/>
+				        <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+						<param name="-all" />
+				</doclet>
+				
+				<fileset dir="src" defaultexcludes="yes">
+	                <include name="**/*.java"/>
+	                <exclude name="**/*Test*"/>
+				</fileset>
+	        </javadoc>
+	</target>
+	
+	<target name="uml" depends="javadoc">
+	        <javadoc 
+	        	destdir="${javadoc}" 
+	            private="true"
+				author="true"
+				version="true">
+
+				<doclet name="org.umlgraph.doclet.UmlGraph" path="${lib-eclipse}/umlgraph-5.6.jar">
+					<param name="-d" value="${uml.dir}"/>
+					<param name="-all" />
+				</doclet>
+				
+				<fileset dir="src" defaultexcludes="yes">
+	                <include name="**/*.java"/>
+	                <exclude name="**/*Test*"/>
+				</fileset>
+	        </javadoc>
+			<apply executable="dot" dest="${uml.dir}" parallel="false">
+				<arg value="-Tpng"/>
+				<arg value="-o"/>
+				<targetfile/>
+				<srcfile/>
+				<fileset dir="${uml.dir}" includes="*.dot"/>
+				<mapper type="glob" from="*.dot" to="*.png"/>
+			</apply>
+	</target>
+	
+	<target name="dist" depends="uml" description="generate the distribution" >
 		<tstamp/>
 		<echo message="Packaging project."/>
 		<jar jarfile="${dist}/${project}-${DSTAMP}.jar" basedir="${build}">
@@ -113,14 +181,9 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 				<exclude name="ev3classes.jar"/>
 		    </fileset>
 		  </copy>
-		<!--
-		<copy file="${lib}/log4j.properties" toDir="${dist.lib}"/>
-		<copy file="${lib}/log4j-1.2.17.jar" toDir="${dist.lib}"/>
-		<copy file="${lib}/hsqldb.jar" toDir="${dist.lib}"/>
-		-->
 	</target>
 
-	<target name="upload" depends="dist">
+	<target name="upload" unless="debugging" depends="dist">
 		<tstamp/>
 		<echo message="Deploying software into EV3 Brick."/>
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
@@ -132,7 +195,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		</scp>
 	</target>
 	
-	<target name="run" depends="upload">
+	<target name="run" unless="debugging" depends="upload">
 		<tstamp/>
 		<echo message="Running software."/>
 		<sshexec host="${host}"
@@ -140,11 +203,9 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 			password="${password}"
 			command="cd ${remotePath}${project}/; jrun -jar ${project}-${DSTAMP}.jar "
 		/>
-		<antcall target="clean" />
-		
 	</target>
 
-	<target name="clean" description="clean up" >
+	<target name="clean" depends="run" description="Clean up" >
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
 	</target>

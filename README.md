@@ -8,7 +8,9 @@ Ideas
 
 W3 SCXML: http://www.w3.org/TR/scxml/
 
-Apache Commons: http://commons.apache.org/proper/commons-scxml/
+Apache Commons SCXML: http://commons.apache.org/proper/commons-scxml/
+
+Apache Commons API: http://commons.apache.org/proper/commons-scxml/apidocs/
 
 SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
 

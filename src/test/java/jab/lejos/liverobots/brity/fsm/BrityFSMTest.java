@@ -56,6 +56,9 @@ public class BrityFSMTest {
 				brityFSM.fireEvent(list.get(0).toString());
 			}
 		}
+		
+		//http://commons.apache.org/proper/commons-scxml/xref-test/org/apache/commons/scxml/env/StopWatchDisplay.html
+		//http://commons.apache.org/proper/commons-scxml/xref-test/org/apache/commons/scxml/env/StopWatch.html
 
 		
 		/*

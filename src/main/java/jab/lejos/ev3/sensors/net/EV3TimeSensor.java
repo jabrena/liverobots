@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import javax.microedition.location.Coordinates;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
@@ -25,11 +24,13 @@ import org.xml.sax.SAXException;
  */
 public class EV3TimeSensor {
 
+	private double lat;
+	private double lon;
 	private String username;
-	private Coordinates coordinate;
 	
-	public EV3TimeSensor(final Coordinates coordinate, final String username){
-		this.coordinate = coordinate;
+	public EV3TimeSensor(final double lat, final double lon, final String username){
+		this.lat = lat;
+		this.lon = lon;
 		this.username = username;
 	}
 	
@@ -39,10 +40,10 @@ public class EV3TimeSensor {
 		url.append("http://api.geonames.org/timezone");
 		url.append("?");
 		url.append("lat=");
-		url.append(this.coordinate.getLatitude());
+		url.append(this.lat);
 		url.append("&");
 		url.append("lng=");
-		url.append(this.coordinate.getLongitude());
+		url.append(this.lon);
 		url.append("&");
 		url.append("username=");
 		url.append(this.username);

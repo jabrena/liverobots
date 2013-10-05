@@ -4,7 +4,7 @@ import lejos.nxt.Motor;
 import lejos.nxt.Sound;
 import lejos.robotics.RegulatedMotor;
 
-public class BrityPOC {	
+public class BrityPOCTest {	
 
 	private static RegulatedMotor leftMotor;
 	private static RegulatedMotor rightMotor;

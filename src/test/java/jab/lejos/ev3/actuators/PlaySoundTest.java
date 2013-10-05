@@ -6,7 +6,7 @@ import java.util.Random;
 import lejos.nxt.Button;
 import lejos.nxt.Sound;
 
-public class PlaySound {
+public class PlaySoundTest {
 	public static void main(String[] args) throws InterruptedException {
 		//final File soundFile = new File("./res/r2d2.wav");
 		//Sound.setVolume(100);
