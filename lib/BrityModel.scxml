@@ -1,15 +1,15 @@
-<scxml initial="Iddle" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=370 h=540  -->
- <state id="Iddle"><!--   node-size-and-position x=42 y=43 w=75 h=75  -->
+<scxml initial="Iddle" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=520 h=510  -->
+ <state id="Iddle"><!--   node-size-and-position x=289.55 y=40 w=75 h=75  -->
   <transition event="goDrive" target="DriveForward"></transition>
  </state>
- <state id="DriveForward"><!--   node-size-and-position x=39.5 y=168 w=80 h=75  -->
-  <transition event="continueDriving" target="DriveForward"><!--   edge-path [DriveForward]  pointx=0 pointy=21 offsetx=0 offsety=25  --></transition>
-  <transition event="detectingWall" target="DetectWall"><!--   edge-path [DetectWall]  x=98.5 y=285 pointx=0 pointy=8 offsetx=4 offsety=18  --></transition>
-  <transition event="lowBattery" target="Disconnect"><!--   edge-path [Disconnect]  x=167.5 y=327.5 pointx=0 pointy=30 offsetx=-20 offsety=-27  --></transition>
+ <state id="DriveForward"><!--   node-size-and-position x=290.05 y=170 w=80 h=75  -->
+  <transition event="continueDriving" target="DriveForward"><!--   edge-path [DriveForward]  pointx=0 pointy=60 offsetx=0 offsety=3  --></transition>
+  <transition event="detectingWall" target="DetectWall"><!--   edge-path [DetectWall]  pointx=0 pointy=56 offsetx=0 offsety=-1  --></transition>
+  <transition event="lowBattery" target="Disconnect"><!--   edge-path [Disconnect]  x=290 y=240 pointx=0 pointy=-44 offsetx=-31 offsety=31  --></transition>
  </state>
- <state id="DetectWall"><!--   node-size-and-position x=50 y=390 w=75 h=75  -->
-  <transition event="continueDriving" target="DriveForward"><!--   edge-path [DriveForward]  x=36.5 y=265  --></transition>
-  <transition event="lowBattery" target="Disconnect"></transition>
+ <state id="DetectWall"><!--   node-size-and-position x=299.55 y=400 w=75 h=75  -->
+  <transition event="continueDriving" target="DriveForward"><!--   edge-path [DriveForward]  x=240 y=340 pointx=-1 pointy=35 offsetx=-35 offsety=-35  --></transition>
+  <transition event="lowBattery" target="Disconnect"><!--   edge-path [Disconnect]  pointx=0 pointy=28 offsetx=1 offsety=0  --></transition>
  </state>
- <final id="Disconnect"><!--   node-size-and-position x=250 y=450 w=75 h=75  --></final>
+ <final id="Disconnect"><!--   node-size-and-position x=59.55 y=400 w=75 h=75  --></final>
 </scxml>
