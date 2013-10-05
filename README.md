@@ -30,7 +30,7 @@ Subsumption
 
 Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
 
-# H1
+# Build.xml
 
 Take a look latest version of Build.xml for EV3 project.
 
