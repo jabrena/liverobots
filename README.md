@@ -19,6 +19,8 @@ http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar/
 
 Current class diagram for Brity Project.
 
+Current class diagram for Brity Project.
+
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
 
 
