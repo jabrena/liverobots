@@ -14,6 +14,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="src" location="src"/>
 	<property name="lib" location="${base.dir}/lib" />
 	<property name="lib-eclipse" location="${base.dir}/lib-eclipse" />
+	<property name="cobertura.dir" location="${base.dir}/qa/cobertura" />
 	<property name="javadoc" location="${base.dir}/docs/api" />
 	<property name="uml.dir" value="${base.dir}/docs/uml"/>
 	<property name="build" location="build"/>
@@ -49,11 +50,25 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	
 	<!-- TARGET SECTION -->
 	<target name="init">
-
+		<tstamp/>
+		<echo message="Initializating ANT."/>
 		<condition property="debugging">
 			<equals arg1="${environment}" arg2="LOCAL" />
 		</condition>
-
+	</target>
+	
+	<target name="development" depends="init">
+		<tstamp/>
+		<echo message="Development phase."/>
+		<antcall target="infraestructure" />
+		<antcall target="packaging" />
+		<antcall target="docs" />
+		<antcall target="qa" />
+	</target>
+	
+	<target name="infraestructure">
+		<tstamp/>
+		<echo message="Initializating environment."/>
 		<antcall target="local-init" />		
 		<antcall target="remote-init" />
 	</target>
@@ -62,11 +77,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<tstamp/>
 		<echo message="Initializating local environment."/>
 		<mkdir dir="${build}"/>
+		<mkdir dir="${uml.dir}"/>
 		<mkdir dir="${logs}"/>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${dist.lib}"/>
 		<mkdir dir="${javadoc}"/>
-		<mkdir dir="${uml.dir}"/>
+		<mkdir dir="${cobertura.dir}"/>
 	</target>
 
 	<target name="remote-init" unless="debugging" description="Initializating local environment" >
@@ -79,7 +95,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		/>
 	</target>
 	
-	<target name="compile" depends="init" description="Compile your project" >
+	<target name="compilation" description="Compile your project" >
 		<tstamp/>
 		<echo message="Compiling project."/>
 		<javac srcdir="${src}" destdir="${build}">
@@ -91,62 +107,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		</javac>
 	</target>
 	
-	<target name="javadoc" depends="compile">
-	        <javadoc 
-	        	destdir="${javadoc}" 
-	            private="true"
-				author="true"
-				version="true">
-
-				<doclet name="org.umlgraph.doclet.UmlGraphDoc" path="${lib-eclipse}/umlgraph-5.6.jar">
-				        <param name="-inferrel"/>
-				        <param name="-inferdep"/>
-				        <param name="-hide" value="java.*"/>
-				        <param name="-collpackages" value="java.util.*"/>
-				        <param name="-qualify"/>
-				        <param name="-postfixpackage"/>
-				        <param name="-nodefontsize" value="9"/>
-				        <param name="-nodefontpackagesize" value="7"/>
-				        <param name="-link" value="http://java.sun.com/j2se/1.5.0/docs/guide/javadoc/doclet/spec"/>
-				        <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
-						<param name="-all" />
-				</doclet>
-				
-				<fileset dir="src" defaultexcludes="yes">
-	                <include name="**/*.java"/>
-	                <exclude name="**/*Test*"/>
-				</fileset>
-	        </javadoc>
-	</target>
-	
-	<target name="uml" depends="javadoc">
-	        <javadoc 
-	        	destdir="${javadoc}" 
-	            private="true"
-				author="true"
-				version="true">
-
-				<doclet name="org.umlgraph.doclet.UmlGraph" path="${lib-eclipse}/umlgraph-5.6.jar">
-					<param name="-d" value="${uml.dir}"/>
-					<param name="-all" />
-				</doclet>
-				
-				<fileset dir="src" defaultexcludes="yes">
-	                <include name="**/*.java"/>
-	                <exclude name="**/*Test*"/>
-				</fileset>
-	        </javadoc>
-			<apply executable="dot" dest="${uml.dir}" parallel="false">
-				<arg value="-Tpng"/>
-				<arg value="-o"/>
-				<targetfile/>
-				<srcfile/>
-				<fileset dir="${uml.dir}" includes="*.dot"/>
-				<mapper type="glob" from="*.dot" to="*.png"/>
-			</apply>
-	</target>
-	
-	<target name="dist" depends="uml" description="generate the distribution" >
+	<target name="packaging" depends="compilation" description="generate the distribution" >
 		<tstamp/>
 		<echo message="Packaging project."/>
 		<jar jarfile="${dist}/${project}-${DSTAMP}.jar" basedir="${build}">
@@ -183,7 +144,79 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		  </copy>
 	</target>
 
-	<target name="upload" unless="debugging" depends="dist">
+	<target name="docs">
+		<echo message="Generating project's documentation."/>
+		<antcall target="javadocs" />
+		<antcall target="uml" />
+	</target>
+	
+	<target name="javadocs">
+	        <javadoc 
+	        	destdir="${javadoc}" 
+	            private="true"
+				author="true"
+				version="true">
+
+				<doclet name="org.umlgraph.doclet.UmlGraphDoc" path="${lib-eclipse}/umlgraph-5.6.jar">
+				        <param name="-inferrel"/>
+				        <param name="-inferdep"/>
+				        <param name="-hide" value="java.*"/>
+				        <param name="-collpackages" value="java.util.*"/>
+				        <param name="-qualify"/>
+				        <param name="-postfixpackage"/>
+				        <param name="-nodefontsize" value="9"/>
+				        <param name="-nodefontpackagesize" value="7"/>
+				        <param name="-link" value="http://java.sun.com/j2se/1.5.0/docs/guide/javadoc/doclet/spec"/>
+				        <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+						<param name="-all" />
+				</doclet>
+				
+				<fileset dir="src" defaultexcludes="yes">
+	                <include name="**/*.java"/>
+	                <exclude name="**/*Test*"/>
+				</fileset>
+	        </javadoc>
+	</target>
+	
+	<target name="uml">
+	        <javadoc 
+	        	destdir="${javadoc}" 
+	            private="true"
+				author="true"
+				version="true">
+
+				<doclet name="org.umlgraph.doclet.UmlGraph" path="${lib-eclipse}/umlgraph-5.6.jar">
+					<param name="-d" value="${uml.dir}"/>
+					<param name="-all" />
+				</doclet>
+				
+				<fileset dir="src" defaultexcludes="yes">
+	                <include name="**/*.java"/>
+	                <exclude name="**/*Test*"/>
+				</fileset>
+	        </javadoc>
+			<apply executable="dot" dest="${uml.dir}" parallel="false">
+				<arg value="-Tpng"/>
+				<arg value="-o"/>
+				<targetfile/>
+				<srcfile/>
+				<fileset dir="${uml.dir}" includes="*.dot"/>
+				<mapper type="glob" from="*.dot" to="*.png"/>
+			</apply>
+	</target>
+
+	<target name="qa" >
+		<tstamp/>
+		<echo message="QA phase."/>
+	</target>
+	
+	<target name="deployment" depends="development">
+		<tstamp/>
+		<echo message="Deployment phase."/>
+		<antcall target="run" />
+	</target>
+	
+	<target name="deploy" unless="debugging">
 		<tstamp/>
 		<echo message="Deploying software into EV3 Brick."/>
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
@@ -195,7 +228,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		</scp>
 	</target>
 	
-	<target name="run" unless="debugging" depends="upload">
+	<target name="run" unless="debugging" depends="deploy">
 		<tstamp/>
 		<echo message="Running software."/>
 		<sshexec host="${host}"
@@ -205,7 +238,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		/>
 	</target>
 
-	<target name="clean" depends="run" description="Clean up" >
+	<target name="clean" depends="deployment" description="Clean up" >
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
 	</target>

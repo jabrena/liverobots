@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Vizant" basedir="." default="vizant">
+
+	<property name="base.dir" value="." />
+	<property name="lib-eclipse" location="${base.dir}/lib-eclipse" />
+	<property name="vizant.dir" location="${base.dir}/docs/vizant" />
+
+	<taskdef name="vizant"
+		classname="net.sourceforge.vizant.Vizant"
+		classpath="${lib-eclipse}/vizant-0.1.2.jar" />
+
+	<target name="init">
+		<tstamp/>
+		<echo message="Initializating local environment."/>
+		<mkdir dir="${vizant.dir}"/>
+	</target>
+	
+	<target name="vizant" depends="init">
+		<tstamp/>
+		<echo message="Generating vizant graph."/>
+		<vizant antfile="build.xml" outfile="${vizant.dir}/build.dot" uniqueref="true" />
+		<exec executable="dot" ><arg line="-Tpng ${vizant.dir}/build.dot -o ${vizant.dir}/build.png"/></exec> 
+	</target>
+
+</project>

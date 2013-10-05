@@ -1,0 +1,32 @@
+digraph "G" {
+    graph ["rankdir"="LR",];
+    "init";
+    "development";
+    "development" -> "init";
+    "development" -> "infraestructure";
+    "development" -> "packaging";
+    "development" -> "docs";
+    "development" -> "qa";
+    "infraestructure";
+    "infraestructure" -> "local-init";
+    "infraestructure" -> "remote-init";
+    "local-init";
+    "remote-init";
+    "compilation";
+    "packaging";
+    "packaging" -> "compilation";
+    "docs";
+    "docs" -> "javadocs";
+    "docs" -> "uml";
+    "javadocs";
+    "uml";
+    "qa";
+    "deployment";
+    "deployment" -> "development";
+    "deployment" -> "run";
+    "deploy";
+    "run";
+    "run" -> "deploy";
+    "clean";
+    "clean" -> "deployment";
+}
