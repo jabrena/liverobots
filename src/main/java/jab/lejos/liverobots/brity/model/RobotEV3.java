@@ -1,4 +1,4 @@
-package jab.lejos.liverobots.brity;
+package jab.lejos.liverobots.brity.model;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
 
-public class Robot {
+public class RobotEV3 extends Robot {
 
 	//Sensors
 	private SoundSensor leftSound;
@@ -40,7 +40,8 @@ public class Robot {
 	private PoseProvider posep;
 	private Navigator nav;
 	
-	private Robot(){
+	private RobotEV3(RobotType type){
+		super(type);
 		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
 		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
 		leftSound.setDBA(true);
@@ -63,13 +64,13 @@ public class Robot {
 	}
 	
 	//Singleton pattern
-	private static Robot INSTANCE = null;
+	private static RobotEV3 INSTANCE = null;
 	
-	public static Robot getInstance() {
+	public static RobotEV3 getInstance() {
         if (INSTANCE == null) {
-            synchronized(Robot.class) {
+            synchronized(RobotEV3.class) {
                 if (INSTANCE == null) { 
-                    INSTANCE = new Robot();
+                    INSTANCE = new RobotEV3(RobotType.EV3);
                 }
             }
         }
@@ -165,6 +166,12 @@ public class Robot {
 	        Sound.playTone(i*frequency, duration);
 	        try { Thread.sleep(100); } catch (InterruptedException e) {}
 	    }		
+	}
+
+	@Override
+	public int getVoltage() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 
