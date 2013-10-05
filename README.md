@@ -15,8 +15,6 @@ This example is an alternative to use Subsumption Architecture to model behaviou
 
 http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar/
 
-![ScreenShot](https://pbs.twimg.com/media/BUwVm1xCUAAcRKQ.jpg:large)
-
 ### Class diagram ###
 
 Current class diagram for Brity Project.
