@@ -13,7 +13,7 @@ http://www.lego.com/en-us/mindstorms
     2013/09/20: I run LeJOS on EV3 brick
     2013/09/14: I received my first EV3 brick.
 
-Note: Many thanks to Andy Shaw & Lawrie Griffiths with their notes. I learn so much with them.
+Note: Many thanks to Andy Shaw & Lawrie Griffiths with their notes and advices. I learn so much with them.
 
 ## Brity robot ##
 
@@ -64,6 +64,7 @@ Example: https://github.com/jabrena/liverobots/blob/master/src/test/java/jab/lej
 
 BumperCar is the classic example to understand the behaviour concept. 
 LeJOS project has support for Subsumption Architecture.
+In the following examples, will see how to use LeJOS with Subsumption for NXT and EV3:
 
 EV3 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
 
@@ -71,7 +72,9 @@ NXT Example: http://sourceforge.net/p/lejos/code/HEAD/tree/trunk/samples/src/org
 
 #### Modelling Bumper as a SCXML file ####
 
-In this project, I will try to explore another way to model behaviours with SCXML.
+In this project, I will try to explore another way to model behaviours. In this case using a FSM with SCXML.
+
+Open the file: https://github.com/jabrena/liverobots/blob/master/lib/BrityModel.scxml Using the following tool: http://code.google.com/p/scxmlgui/source/browse/trunk/extra/fsm-editor.jar 
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
