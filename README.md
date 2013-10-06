@@ -169,6 +169,14 @@ Current physical base for Brity using EV3 and some NXT sensors.
 
 ## References ##
 
+### LEJOS ###
+
+LeJOS Project: http://lejos.sourceforge.net/
+
+EV3 Wiki: http://sourceforge.net/p/lejos/wiki/Home/
+
+EV3 Repository: http://sourceforge.net/p/lejos/ev3/ci/master/tree/
+
 ### FSM ###
 
 http://ai-depot.com/FiniteStateMachines/FSM.html
@@ -178,7 +186,6 @@ http://www.ai-junkie.com/architecture/state_driven/tut_state1.html
 http://ai.eecs.umich.edu/cogarch2/specific.html
 
 http://www.cs.umd.edu/~darsana/papers/dissertation/node145.html
-
 
 ### SCXML ###
 
