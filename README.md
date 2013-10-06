@@ -182,6 +182,13 @@ SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
 
 http://www.objectmentor.com/resources/articles/umlfsm.pdf
 
+## Behaviors ###
+
+PLEO: http://www.robotsandcomputers.com/robots/manuals/Pleo.pdf
+
+Tamagotchi: https://github.com/angryzor/tamagotchi-project/blob/master/waste-fsm.scm
+
+
 
 
 
