@@ -1,0 +1,29 @@
+<scxml initial="fsm1" version="0.9"><!--   node-size-and-position x=0 y=0 w=530 h=600  -->
+ <state id="fsm1" initial="state1"><!--   node-size-and-position x=30 y=60 w=115 h=263  -->
+  <state id="state1"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+   <transition event="goState2" target="state2"><!--   edge-path [state2]  x=74 y=143  --></transition>
+  </state>
+  <state id="state2"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+   <transition event="goState1" target="state1"><!--   edge-path [state1]  x=54 y=143  --></transition>
+   <transition event="goFSM2" target="fsm2"></transition>
+  </state>
+ </state>
+ <state id="fsm2" initial="state3"><!--   node-size-and-position x=380 y=110 w=115 h=263  -->
+  <state id="state3"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+   <transition event="goState4" target="state4"><!--   edge-path [state4]  x=74 y=143  --></transition>
+  </state>
+  <state id="state4"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+   <transition event="goState3" target="state3"><!--   edge-path [state3]  x=54 y=143  --></transition>
+   <transition event="goFSM3" target="fsm3"></transition>
+  </state>
+ </state>
+ <state id="fsm3" initial="state5"><!--   node-size-and-position x=190 y=310 w=115 h=263  -->
+  <state id="state5"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+   <transition event="goState6" target="state6"><!--   edge-path [state6]  x=74 y=143  --></transition>
+  </state>
+  <state id="state6"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+   <transition event="goState5" target="state5"><!--   edge-path [state5]  x=54 y=143  --></transition>
+   <transition event="goFSM1" target="fsm1"><!--   edge-path [fsm1]  x=165.5 y=487.5 pointx=0 pointy=0 offsetx=1 offsety=0  --></transition>
+  </state>
+ </state>
+</scxml>
