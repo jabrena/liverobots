@@ -2,8 +2,12 @@ package jab.lejos.liverobots.brity.model;
 
 import java.util.Random;
 
+import org.apache.log4j.Logger;
+
 public class RobotSimulated extends Robot {
 
+	Logger logger = Logger.getLogger(RobotSimulated.class);
+	
 	private RobotSimulated(RobotType type){
 		super(type);
 	}
@@ -49,6 +53,18 @@ public class RobotSimulated extends Robot {
 			voltage = 500;
 		}
 		return voltage;
+	}
+
+	public void forward(int i) {
+		logger.info("FORWARD");
+	}
+
+	public void backward(int i) {
+		logger.info("BACKWARD");
+	}
+
+	public void turnLeft(int i) {
+		logger.info("TURN LEFT");
 	}
 
 }

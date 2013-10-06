@@ -1,16 +1,14 @@
-package jab.lejos.liverobots.brity.fsm;
+package jab.lejos.liverobots.fsm.bumpercar;
 
-import jab.lejos.liverobots.brity.model.RobotSimulated;
-import jab.lejos.liverobots.brity.fsm.states.DriveForward;
-import jab.lejos.liverobots.brity.fsm.states.DetectWall;
+import jab.lejos.liverobots.fsm.FSM;
+import jab.lejos.liverobots.brity.model.Robot;
+import jab.lejos.liverobots.brity.model.RobotFactory;
+import jab.lejos.liverobots.brity.model.RobotFactoryException;
+import jab.lejos.liverobots.brity.model.RobotType;
 
 import java.io.File;
 import java.net.MalformedURLException;
-import java.util.Collection;
-import java.util.Set;
 
-import org.apache.commons.scxml.env.AbstractStateMachine;
-import org.apache.commons.scxml.model.State;
 import org.apache.log4j.Logger;
 
 /**
@@ -21,13 +19,13 @@ import org.apache.log4j.Logger;
  * @author jabrena
  *
  */
-public class BrityFSM extends AbstractStateMachine{
+public class BumperCar extends FSM{
 
-	Logger logger = Logger.getLogger(BrityFSM.class);
+	Logger logger = Logger.getLogger(BumperCar.class);
 	
 	private static final String SCXML_CONFIG = "./lib/BrityModel.scxml";
-	
-	private RobotSimulated robot;
+
+	private Robot robot;
 	
 	public enum States {
 		Iddle, DriveForward, DetectWall, Disconnect
@@ -37,28 +35,12 @@ public class BrityFSM extends AbstractStateMachine{
 		continueDriving, detectingWall, lowBattery
 	}
 	
-	public BrityFSM() throws MalformedURLException{
+	public BumperCar(RobotType rt) throws MalformedURLException, RobotFactoryException{
 		super(new File(SCXML_CONFIG).toURI().toURL());
-		robot = RobotSimulated.getInstance();
+		robot = RobotFactory.getRobot(rt);
 	}
 	
-	//User methods
-	public String getCurrentStateId() {
-		Set<?> states = getEngine().getCurrentStatus().getStates();
-		State state = (State) states.iterator().next();
-		return state.getId();
-	}
-	
-	public State getCurrentState() {
-		Set<?> states = getEngine().getCurrentStatus().getStates();
-		return ( (State) states.iterator().next());
-	}
-	
-	public Collection<?> getCurrentStateEvents() {
-		return getEngine().getCurrentStatus().getEvents();
-	}
-	
-	public RobotSimulated getRobot(){
+	public Robot getRobot(){
 		return this.robot;
 	}
 	
@@ -74,7 +56,7 @@ public class BrityFSM extends AbstractStateMachine{
 	
 	//FSM Methods
 	public void Iddle() {
-		Logger logger = Logger.getLogger(BrityFSM.class);
+		Logger logger = Logger.getLogger(BumperCar.class);
 		logger.info("STATE: Iddle");
 	}
 	
@@ -88,18 +70,16 @@ public class BrityFSM extends AbstractStateMachine{
 
 		DriveForward df = new DriveForward(this);
 		df.action();
-	
 	}
 	
 	public void DetectWall() {
 		logger.info("STATE: DetectWall");
-
+		
 		DetectWall dw = new DetectWall(this);
 		dw.action();
 	}
 	
 	public void Disconnect() {
-		//TODO Improve log4j usage
 		logger.info("STATE: Disconnected");
 	}
 	

@@ -9,7 +9,7 @@ public class Brity {
 	private static RobotEV3 brityBody;
 	
 	public Brity(){
-		brityBody = (RobotEV3) RobotFactory.getRobot(RobotType.EV3);
+		brityBody = RobotEV3.getInstance();
 	}
 
 	public void debugBrity(){

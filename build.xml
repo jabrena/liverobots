@@ -6,8 +6,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	
 	<!-- DEVELOPMENT SECTION -->
 	<property name="environment" value="EV3" />
-	<property name="extra" value="disabled" />
-	
+
 	<property name="project" value="Brity"/>
 	<property name="version" value="0.1"/>
 	
@@ -45,8 +44,8 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="package" value="jab.lejos.ev3.sensors.net"/>
 	<property name="class" value="EV3TimeSensorTest"/>
 	-->
-	<property name="package" value="jab.lejos.liverobots.brity"/>
-	<property name="class" value="BrityFSMTest2"/>
+	<property name="package" value="jab.lejos.liverobots.fsm.bumpercar"/>
+	<property name="class" value="BumperCarFSMTest"/>
 	
 	
 	<!-- TARGET SECTION -->
@@ -56,9 +55,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<condition property="debugging">
 			<equals arg1="${environment}" arg2="LOCAL" />
 		</condition>
-		<condition property="optional">
-			<equals arg1="${extra}" arg2="enabled" />
-		</condition>
+		
 	</target>
 	
 	<target name="development" depends="init">
@@ -66,7 +63,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<echo message="Development phase."/>
 		<antcall target="infraestructure" />
 		<antcall target="packaging" />
-		<antcall target="docs" />
+		<!-- <antcall target="docs" /> -->
 		<antcall target="qa" />
 	</target>
 	
@@ -150,12 +147,10 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		  </copy>
 	</target>
 
-	<target name="docs" unless="optional">
+	<target name="docs">
 		<echo message="Generating project's documentation."/>
-		<!--
 		<antcall target="javadocs" />
 		<antcall target="uml" />
-		-->
 	</target>
 	
 	<target name="javadocs">

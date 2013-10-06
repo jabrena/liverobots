@@ -1,10 +1,10 @@
-package jab.lejos.liverobots.brity;
+package jab.lejos.ev3.actuators;
 
 import lejos.nxt.Motor;
 import lejos.nxt.Sound;
 import lejos.robotics.RegulatedMotor;
 
-public class BrityPOCTest {	
+public class MotorTest {	
 
 	private static RegulatedMotor leftMotor;
 	private static RegulatedMotor rightMotor;

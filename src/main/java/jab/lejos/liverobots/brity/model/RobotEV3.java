@@ -40,8 +40,8 @@ public class RobotEV3 extends Robot {
 	private PoseProvider posep;
 	private Navigator nav;
 	
-	private RobotEV3(RobotType type){
-		super(type);
+	private RobotEV3(){
+		super(RobotType.EV3);
 		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
 		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
 		leftSound.setDBA(true);
@@ -70,7 +70,7 @@ public class RobotEV3 extends Robot {
         if (INSTANCE == null) {
             synchronized(RobotEV3.class) {
                 if (INSTANCE == null) { 
-                    INSTANCE = new RobotEV3(RobotType.EV3);
+                    INSTANCE = new RobotEV3();
                 }
             }
         }

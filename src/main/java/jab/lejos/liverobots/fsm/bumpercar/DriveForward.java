@@ -1,6 +1,4 @@
-package jab.lejos.liverobots.brity.fsm.states;
-
-import jab.lejos.liverobots.brity.fsm.BrityFSM;
+package jab.lejos.liverobots.fsm.bumpercar;
 
 import org.apache.log4j.Logger;
 
@@ -11,28 +9,26 @@ public class DriveForward extends GenericState{
 	int distance = 0;
 	int distanceThreshold = 100;
 
-	public DriveForward(BrityFSM brityFSM){
-		super(brityFSM);
-		
-		logger.info("STATE: DriveForward");
-
-
-
+	public DriveForward(BumperCar fsm){
+		super(fsm);
 	}
 
 	public void action() {
-		voltage = brityFSM.getRobot().getVoltage();
+
+		voltage = fsm.getRobot().getVoltage();
 		logger.info("Voltage: " + voltage);
 		if(voltage < voltageThreshold){
-			brityFSM.setStatus(3);
+			fsm.setStatus(3);
 		}else{
-			distance = brityFSM.getRobot().getDistance();
+			logger.info("Go forward");
+			fsm.getRobot().forward(1);
+			distance = fsm.getRobot().getDistance();
 			logger.info("Distance: " + distance);
 
 			if(distance < 100){
-				brityFSM.setStatus(2);
+				fsm.setStatus(2);
 			}else{
-				brityFSM.setStatus(1);
+				fsm.setStatus(1);
 			}
 		}
 	}
