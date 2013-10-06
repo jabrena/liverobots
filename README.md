@@ -16,6 +16,27 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
 The behaviours will be modelled with a SCXML FSM.
 
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+
+### Class diagram ###
+
+With EV3, the development is easier than NXT or RCX with Java and LeJOS.
+I think that it is a good practice if you view your Class diagramas to discover bad designs.
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
+
+Note: In this graph, I notice some problems... :)
+
+### Build.xml ###
+
+With EV3, you can cover all software engineer process with a unique file. 
+ANT files are great.
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/vizant/build.png)
+
+Try to to reuse if you like this idea.
+https://raw.github.com/jabrena/liverobots/master/build.xml
+
 ## Getting started with SCXML FSM in LeJOS for EV3 ##
 
 ### BumperCar ###
@@ -26,8 +47,6 @@ In LeJOS, exist a package to model behaviours using Subsumption Architecture.
 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
 
 In this project, I will try to explore another way to model behaviours with SCXML.
-
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
 #### Youtube ####
 
@@ -109,21 +128,6 @@ In EV3:
       [sshexec] 2000-01-01 00:05:17,782  INFO [main] (?:?) - Voltage: 109
       [sshexec] 2000-01-01 00:05:17,825  INFO [main] (?:?) - STATE: Disconnected
 
-
-## Class diagram ##
-
-This is the UML Class diagram. It is very useful to detect bad designs.
-
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
-
-# Build.xml #
-
-ANT is great Java tool. Take a look latest version of Build.xml for EV3 project.
-
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/vizant/build.png)
-
-Try to to reuse if you like.
-https://raw.github.com/jabrena/liverobots/master/build.xml
 
 ## References ##
 
