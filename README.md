@@ -74,9 +74,15 @@ NXT Example: http://sourceforge.net/p/lejos/code/HEAD/tree/trunk/samples/src/org
 
 In this project, I will try to explore another way to model behaviours. In this case using a FSM with SCXML.
 
-Open the file: https://github.com/jabrena/liverobots/blob/master/lib/BrityModel.scxml Using the following tool: http://code.google.com/p/scxmlgui/source/browse/trunk/extra/fsm-editor.jar 
+Open the file: https://github.com/jabrena/liverobots/blob/master/lib/BrityModel.scxml 
+Using the following FSM tool: http://code.google.com/p/scxmlgui/source/browse/trunk/extra/fsm-editor.jar 
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+
+Once you have designed the behaviours for your robot, it is required to create a FSM. 
+In this case, I followed the approach from the class AbstractStateMachine:
+http://commons.apache.org/proper/commons-scxml/apidocs/org/apache/commons/scxml/env/AbstractStateMachine.html 
+and I added some methods to replicated every stated modelled in the SCXML file.
 
 #### Youtube ####
 
