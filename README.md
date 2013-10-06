@@ -138,6 +138,8 @@ In EV3:
 
 ### Gallery ###
 
+Current physical base for Brity using EV3 and some NXT sensors.
+
 ![ScreenShot](https://pbs.twimg.com/media/BUwVm1xCUAAcRKQ.jpg:small)
 
 ## References ##
