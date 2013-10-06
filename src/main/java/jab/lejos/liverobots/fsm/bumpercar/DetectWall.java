@@ -2,12 +2,17 @@ package jab.lejos.liverobots.fsm.bumpercar;
 
 import org.apache.log4j.Logger;
 
-public class DetectWall extends GenericState{
+public class DetectWall {
 
-	Logger logger = Logger.getLogger(DriveForward.class);
+	Logger logger = Logger.getLogger(DetectWall.class);
+	
+	int voltage = 0;
+	int voltageThreshold = 200;
+	
+	private BumperCar fsm;
 	
 	public DetectWall(BumperCar fsm){
-		super(fsm);
+		this.fsm = fsm;
 	}
 
 	public void action() {

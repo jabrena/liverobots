@@ -2,15 +2,20 @@ package jab.lejos.liverobots.fsm.bumpercar;
 
 import org.apache.log4j.Logger;
 
-public class DriveForward extends GenericState{
+public class DriveForward {
 
 	Logger logger = Logger.getLogger(DriveForward.class);
 
 	int distance = 0;
 	int distanceThreshold = 100;
 
+	int voltage = 0;
+	int voltageThreshold = 200;
+	
+	private BumperCar fsm;
+	
 	public DriveForward(BumperCar fsm){
-		super(fsm);
+		this.fsm = fsm;
 	}
 
 	public void action() {
