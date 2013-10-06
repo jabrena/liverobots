@@ -9,9 +9,11 @@ http://www.lego.com/en-us/mindstorms
 
     2013/10/06: Refactoring code...
     2013/10/05: First FSM running in EV3
-    2013/10/02: Stable ANT file to build, package (Runnable Jar) and deploy in EV3 brick (Many thanks to Lawrie Griffiths with some notes about Classpath)
-    2013/09/20: I run LeJOS on EV3 brick. (Many thanks to Andy Shaw by the effort with LeJOS support for EV3)
+    2013/10/02: Stable ANT file to build, package (Runnable Jar) and deploy in EV3 brick
+    2013/09/20: I run LeJOS on EV3 brick
     2013/09/14: I received my first EV3 brick.
+
+Note: Many thanks to Andy Shaw & Lawrie Griffiths with their notes. I learn so much with them.
 
 ## Brity robot ##
 
@@ -20,7 +22,7 @@ The behaviours are modelled with a FSM using Apache Commons SCXML.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
-FSM was very popular concept when Id Software published source code of the video game Quake. 
+Id Software popularized the FSM concept when they  published the source code of the video game Quake. 
 In this example, it is possible to see the design for a bot in Quake.
 
 ![ScreenShot](http://ai-depot.com/FiniteStateMachines/FSM7.png)
@@ -64,6 +66,7 @@ BumperCar is the classic example to understand the behaviour concept.
 LeJOS project has support for Subsumption Architecture.
 
 EV3 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
+
 NXT Example: http://sourceforge.net/p/lejos/code/HEAD/tree/trunk/samples/src/org/lejos/sample/bumpercar
 
 #### Modelling Bumper as a SCXML file ####
