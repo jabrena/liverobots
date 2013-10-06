@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<scxml profile="ecmascript" xmlns="http://www.w3.org/2005/07/scxml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/2005/07/scxml http://scxml-schema.googlecode.com/svn/SCXML-Schema/ecma/scxml-profile-ecma.xsd"
+	version="1.0">
+
+
+	<script><![CDATA[
+		function generateGrammarFromList(inputList) {
+			return "#JSGF V1.0; \ngrammar g; \npublic <top> = " + inputList.join(" | ").toLowerCase() + ";\n";
+		}
+	]]></script>
+
+
+	<datamodel>
+		<data id="lastRequest" />
+			
+		<data id="languages" />
+		<data id="categories" />
+		<data id="sources" />
+		<data id="reading_list" />
+
+	</datamodel>
+
+	<state id="main">
+		<invoke id="nextphase" type="x-acapela-nextphase">
+			<finalize>
+				<assign location="lastRequest" expr="_event.data.lastResult" />
+			</finalize>
+		</invoke>
+		<invoke id="tts" type="x-tts" />
+		<invoke id="asr" type="x-asr" />
+		
+		<parallel id="init">
+			<state id="init_tts">
+				<state><transition event="init.invoke.tts" target="f1" /></state>
+				<final id="f1" />
+			</state>
+			<state id="init_asr">
+				<state><transition event="init.invoke.asr" target="f2" /></state>
+				<final id="f2" />
+			</state>
+			<state id="init_newsreader">
+				<state><transition event="init.invoke.nextphase" target="f3" /></state>
+				<final id="f3" />
+			</state>
+			<transition event="done.state.init" target="dialog" />
+		</parallel>
+		
+		<state id="dialog">
+			
+			<state id="lang">
+				<onentry>
+					<send type="x-acapela-nextphase" target="#nextphase" event="getLanguages" />
+					<send type="x-tts" target="#tts">
+						<param name="say" expr="'Welcome. Which language?'" />
+					</send>
+				</onentry>
+
+				<transition event="result.invoke.nextphase">
+					<send type="x-asr" target="#asr">
+						<param name="grammar" expr="generateGrammarFromList(lastRequest)" />
+					</send>
+				</transition>
+
+				<transition event="result.invoke.asr" target="cat">
+					<assign location="lang" expr="_event.data.lastResult" />
+				</transition>
+
+			</state>
+
+			<state id="cat">
+				<onentry>
+					<send type="x-acapela-nextphase" target="#nextphase" event="getCategories" namelist="lang"  />
+					<send type="x-tts" target="#tts">
+						<param name="say" expr="'Which category?'" />
+					</send>
+				</onentry>
+
+				<transition event="result.invoke.tts">
+					<send type="x-asr" target="#asr">
+						<param name="grammar" expr="generateGrammarFromList(lastRequest)" />
+					</send>
+				</transition>
+
+				<transition event="result.invoke.asr" target="news_source">
+					<assign location="cat" expr="_event.data.lastResult" />
+				</transition>
+
+			</state>
+
+			<state id="news_source">
+				<onentry>
+					<send type="x-acapela-nextphase" target="#nextphase" event="getSources" namelist="lang cat" />
+					<send type="x-tts" target="#tts">
+						<param name="say" expr="'From which source?'" />
+					</send>
+				</onentry>
+
+				<transition event="result.invoke.tts">
+					<send type="x-asr" target="#asr">
+						<param name="grammar" expr="generateGrammarFromList(lastRequest)" />
+					</send>
+				</transition>
+
+				<transition event="result.invoke.asr" target="reading">
+					<assign location="source" expr="_event.data.lastResult" />
+				</transition>
+
+			</state>
+
+		</state>
+
+		<state id="reading">
+			<onentry>
+				<send type="x-acapela-nextphase" target="#nextphase" event="getNewsItems" namelist="lang cat source" />
+			</onentry>
+
+			<state id="reading_init">
+				<transition event="result.invoke.nextphase" target="speaking" >
+					<assign location="reading_list" expr="lastRequest.reverse()"/>
+					<send type="x-tts" target="#tts" >
+						<param name="say" expr="'Found ' + reading_list.length + ' news items. Say skip to skip current item. '" />
+					</send>
+				</transition>
+			</state>
+			
+			<state id="speaking">
+				<onentry>
+					<script>
+						var current_item = reading_list.pop();
+						var toRead = current_item.title + ".\n" + current_item.ingress;
+					</script>
+					<send type="x-asr" target="#asr">
+						<param name="grammar" expr="generateGrammarFromList(['skip'])" />
+					</send>
+					<send type="x-tts" target="#tts">
+						<param name="say" expr="toRead" />
+					</send>
+				</onentry>
+				<transition event="result.invoke.asr.skip" cond="reading_list.length &gt; 0" target="speaking" />
+				<transition event="result.invoke.asr.skip" target="reading_done" />
+				<transition event="result.invoke.tts" cond="reading_list.length &gt; 0" target="speaking" />
+				<transition event="result.invoke.tts" target="reading_done" />
+				
+				<onexit>
+					<send event="abort" type="x-tts" target="#tts" />
+					<send event="abort" type="x-asr" target="#asr" />
+				</onexit>
+			</state>
+
+		</state>
+		
+		<state id="reading_done">
+			<onentry>
+				<send type="x-tts" target="#tts">
+					<param name="say" expr="'I\'ve finished reading. Would you like to hear more news?'" />
+				</send>
+			</onentry>
+
+			<transition event="result.invoke.tts">
+				<send type="x-asr" target="#asr">
+					<param name="grammar" expr="generateGrammarFromList(['yes', 'no'])" />
+				</send>
+			</transition>
+
+			<transition event="result.invoke.asr.yes" target="dialog" />
+			<transition event="result.invoke.asr.no" target="final" />
+			
+		</state>
+	</state>
+	<final id="final" />
+</scxml>
+

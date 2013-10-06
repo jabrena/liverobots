@@ -1,0 +1,22 @@
+<scxml initial="s1">
+	<state id="s1">
+		<invoke id="asr" type="x-asr" />
+		<transition event="init.invoke.asr" >
+			<send type="x-asr" target="#asr">
+				<content>
+				<![CDATA[
+					#JSGF V1.0; 
+					grammar g; 
+					public <top> = English | Swedish;
+				]]>	
+				</content>
+			</send>
+		</transition>
+		
+		<transition event="result.invoke.asr.*" target="f2" />
+		
+	</state>
+	
+	<final id="f2"/>
+</scxml>
+

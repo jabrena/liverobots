@@ -1,0 +1,38 @@
+<scxml initial="main">
+	<datamodel>
+		<data id="grammar">
+		<![CDATA[
+		#JSGF V1.0;
+		grammar bargin;
+		public <top> = hello;
+		]]>	
+		</data>
+		<data id="bargein" expr="true" />
+	</datamodel>
+	<state id="main">
+		<invoke id="agent" type="scxml" src="../resources/dialog_agend.xml" />
+
+		<state id="initializing">
+			<transition event="ready" target="talk">
+				<log expr="'ready'" />
+			</transition>
+			
+		</state>
+		<state id="talk">
+			<onentry>
+				<send target="#agent" event="prompt" namelist="bargein">
+					<param name="say" expr="'hello, please interrupt me while I have a long exposition about the theory of everything and then go on to talk some more about what\'s on my mind.'" />
+					<param name="grammar" />
+				</send>
+			</onentry>
+			<transition event="result.invoke.asr">
+				<log expr="'you said: ' + _event.data.lastResult" />
+			</transition>
+		</state>
+
+
+	</state>
+
+	<final id="f" />
+</scxml>
+

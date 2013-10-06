@@ -1,0 +1,25 @@
+<scxml initial="s1" >
+	<datamodel>
+		<data id="x" expr="1"/>
+		<data id="time"/>
+	</datamodel>  
+	<state id="s1">
+		<onentry>
+			<script>
+				x = x + 5;
+			</script>
+			<assign location="time" expr="20110226"/>
+		</onentry>
+        <transition cond="x &gt; 1" target="print">
+        	<log label="Transition Log:" expr="x"/>
+        	<log label="Transition Log: time --- " expr="time"/>
+		</transition>
+    </state>
+    <state id="print">
+    	<onexit>
+    		<log label="Result" expr="x"/>
+    	</onexit>
+    	<transition cond="starts_with(time,'2012')" target="result" />	
+    </state>
+   <final id="result"/>
+</scxml>

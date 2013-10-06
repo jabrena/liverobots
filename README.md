@@ -25,9 +25,9 @@ This is the roadmap for the project:
 ## Brity robot ##
 
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
-The behaviours are modelled with a FSM using Apache Commons SCXML.
+The behaviours are modelled with a FSM/HFSM using Apache Commons SCXML.
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Door.png)
 
 Id Software popularized the FSM concept when they  published the source code of the video game Quake. 
 In this example, it is possible to see the design for a bot in Quake.
@@ -141,6 +141,14 @@ LeJOS Project: http://lejos.sourceforge.net/
 EV3 Wiki: http://sourceforge.net/p/lejos/wiki/Home/
 
 EV3 Repository: http://sourceforge.net/p/lejos/ev3/ci/master/tree/
+
+### HFSM ###
+
+https://code.google.com/p/scxml4flex/
+
+http://www.cs.mcgill.ca/~cdrage/projects.html
+
+http://mammoth.cs.mcgill.ca/openprojects
 
 ### FSM ###
 

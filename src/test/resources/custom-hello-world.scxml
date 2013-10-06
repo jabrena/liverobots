@@ -1,0 +1,20 @@
+<scxml xmlns="http://www.w3.org/2005/07/scxml"
+       xmlns:my="http://my.custom-actions.domain/CUSTOM"
+       version="1.0"
+       initialstate="custom">
+
+    <state id="custom">
+
+        <onentry>
+            <my:hello name="Custom State" />
+        </onentry>
+		<transition event="helloevent" target="result"/>
+    </state>
+	
+	<state id="result">
+		<onentry>
+            <my:hello name="Result State" />
+        </onentry>
+	</state>
+</scxml>
+

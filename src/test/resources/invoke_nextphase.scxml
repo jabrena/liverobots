@@ -1,0 +1,58 @@
+<scxml profile="ecmascript" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3.org/2005/07/scxml http://scxml-schema.googlecode.com/svn/SCXML-Schema/ecma/scxml-profile-ecma.xsd" 
+xmlns:scxml4flex="http://code.google.com/p/scxml4flex"
+version="1.0">
+	
+	<script><![CDATA[
+		function assignSlotsToDm(slots) {
+			for(var i in slots)
+				set(i, slots[i]);
+		}
+		function range(n, m) {
+			var output = []; 
+			for(var i = n; i < m; i++)
+				output.push(i);
+			return output;
+		}
+		function getInfoletStringRepr(infolets) {
+			var output = "";
+			for each(var infolet in infolets) {
+				output += "title: " + infolet.title + " body: " + infolet.body + "\n"; 
+			}
+			return output;
+		}
+		
+	]]></script>
+	
+	
+	<datamodel>
+		
+		<data id="language" />
+		<data id="nItems" />
+		<data id="source" />
+		<data id="newsitems" />
+		
+	</datamodel>
+
+	<state id="s1">
+		
+		<invoke id="nextphase" type="x-nextphase">
+			<finalize>
+				<assign location="newsitems" expr="_event.data.lastResult" />
+			</finalize>
+		</invoke>
+		<transition event="init.invoke">
+			<!-- <scxml4flex:getNewsItems target="#nextphase" namelist="language nItems source" /> -->
+			<send type="x-nextphase" target="#nextphase" namelist="language nItems source">
+				<param name="getNewsItems" />
+			</send>
+		</transition>
+		
+		<transition event="result.invoke" target="f2">
+			<log label="nextphase result" expr="getInfoletStringRepr(newsitems)" />
+		</transition>
+	</state>
+	
+	<final id="f2"/>
+</scxml>
+

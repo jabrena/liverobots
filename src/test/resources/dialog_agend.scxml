@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<scxml initial="s1">
+	<state id="s1">
+		<invoke id="tts" type="x-tts" />
+		<invoke id="asr" type="x-asr" />
+		<invoke id="fac" type="scxml">
+			<content>
+				<scxml initial="waiting" >
+					<datamodel>
+						<data id="fac"/>
+					</datamodel>
+					
+					<state id="waiting">
+						<onentry>
+							<assign location="fac" expr="1" />
+						</onentry>
+						<transition event="calc" target="loop">
+							<assign location="x" expr="parseInt(dm['_event'].data.val)" />
+						</transition>
+					</state>
+					  
+					<state id="loop">
+				        <transition cond="dm['x'] &gt; 1">
+							<assign location="fac" expr="dm['x'] * dm['fac']"/>
+							<assign location="x" expr="dm['x']-1"/>
+						</transition>
+						<transition target="waiting">
+					   		<send event="calc_result" target="#_parent">
+					   			<param name="val" expr="dm['fac']" />
+					   		</send>
+							
+						</transition>
+				    </state>
+				</scxml>
+				
+			</content>
+		
+		</invoke>
+		
+		<transition event="init.invoke.tts restart">
+			<send type="x-tts" target="#tts" >
+				<param name="say" expr="'Welcome. Please say a number between one and nine.'" />
+			</send> 
+		</transition>
+		
+		<transition event="result.invoke.tts" >
+			<send type="x-asr" target="#asr">
+				<content>
+				<![CDATA[
+					#JSGF V1.0;
+					grammar factorial;
+					public <top> = quit | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+				]]>	
+				</content>
+			</send>
+		</transition>
+		
+		<transition event="calc_result" >
+			<log name="result" expr="_event.data.val" />
+			<send type="x-tts" target="#tts">
+				<param name="say" expr="'The factorial of ' + dm['asr'].lastResult + ' is ' + dm['_event'].data.val" />
+			</send>
+		</transition>
+
+		<transition event="result.invoke.asr.quit" target="f2" />
+		
+		
+		<transition event="result.invoke.asr.*" >
+			<log label="asr result" expr="dm['asr'].lastResult" />
+			<send event="calc" target="#fac">
+				<param name="val" expr="dm['asr'].lastResult" />
+			</send>
+		</transition>
+		
+	</state>
+	
+	<final id="f2"/>
+</scxml>
+

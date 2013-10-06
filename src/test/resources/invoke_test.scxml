@@ -1,0 +1,9 @@
+<scxml initial="s1">
+	<state id="s1">
+		<invoke id="i" type="scxml" 
+			src="http://jrox.se:88/scxml/unittest_xml/simple.xml" />
+		<transition event="done.invoke.i" target="f2"/>
+	</state>
+	<final id="f2"/>
+</scxml>
+

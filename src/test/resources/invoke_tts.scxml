@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<scxml initial="s1">
+	<state id="s1">
+		<invoke id="tts" type="x-tts" />
+		<transition event="init.invoke.tts">
+			<send type="x-tts" target="#tts" >
+				<param name="say" expr="'hello world!'" />
+			</send> 
+		</transition>
+		
+		<state id="s2">
+			<onentry>
+				<log expr="'s2 onentry'" />
+			</onentry>
+		</state>
+		<transition event="result.invoke.tts" target="f2">
+			
+		</transition>
+	</state>
+	
+	<final id="f2"/>
+</scxml>
+
