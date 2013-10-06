@@ -162,6 +162,12 @@ http://ai.eecs.umich.edu/cogarch2/specific.html
 
 http://www.cs.umd.edu/~darsana/papers/dissertation/node145.html
 
+## Subsumption architecture ##
+
+Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
+
+Janus: http://www.janus.demon.co.uk/alife/index.html
+
 ### SCXML ###
 
 W3C SCXML: http://www.w3.org/TR/scxml/
@@ -172,11 +178,9 @@ Apache Commons API: http://commons.apache.org/proper/commons-scxml/apidocs/
 
 SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
 
-## Subsumption architecture ##
+## UML ###
 
-Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
-
-Janus: http://www.janus.demon.co.uk/alife/index.html
+http://www.objectmentor.com/resources/articles/umlfsm.pdf
 
 
 
