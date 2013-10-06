@@ -138,7 +138,7 @@ In EV3:
 
 ### Gallery ###
 
-https://pbs.twimg.com/media/BUwVm1xCUAAcRKQ.jpg:small
+![ScreenShot](https://pbs.twimg.com/media/BUwVm1xCUAAcRKQ.jpg:small)
 
 ## References ##
 
