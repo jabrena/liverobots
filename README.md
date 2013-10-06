@@ -23,6 +23,8 @@ In this example, it is possible to see the design for a bot in Quake.
 
 ![ScreenShot](http://ai-depot.com/FiniteStateMachines/FSM7.png)
 
+The final goal of this project, is to reach a Java solution to model complex behaviors for EV3 robots.
+
 ### Class diagram ###
 
 With EV3, the development is easier than with a NXT brick or a RCX brick using Java and LeJOS project.
