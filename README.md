@@ -21,9 +21,9 @@ The another alternative is using a FSM to solve the same problem:
 
 ### Youtube ###
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+The first EV3 robot running a FSM with Apache Commons SCXML.
+
+http://www.youtube.com/watch?v=lU_vTx0f-vU&feature=youtu.be
 
 Current solution runs in Local and a EV3 brick.
 
