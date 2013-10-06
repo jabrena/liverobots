@@ -2,33 +2,35 @@ Live Robots
 ==========
  
 Live Robots, is a educative project designed to create robots with Behaviors.
-The project will be developed using the educative platform Lego Mindstorms EV3.
+The project will use the educative platform Lego Mindstorms EV3.
+http://www.lego.com/en-us/mindstorms
 
 ## Project status ##
 
     2013/10/06: Refactoring code...
     2013/10/05: First FSM running in EV3
-    2013/09/10: Stable ANT file to build, package and deploy in EV3 brick
-    2013/09/10: EV3 arrived home
+    2013/10/02: Stable ANT file to build, package (Runnable Jar) and deploy in EV3 brick (Many thanks to Lawrie Griffiths with some notes about Classpath)
+    2013/09/20: I run LeJOS on EV3 brick. (Many thanks to Andy Shaw by the effort with LeJOS support for EV3)
+    2013/09/14: I received my first EV3 brick.
 
 ## Brity robot ##
 
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
-The behaviours will be modelled with a SCXML FSM.
+The behaviours are modelled with a FSM using Apache Commons SCXML.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
-FSM was very popular when Id Software published Quake source code. 
+FSM was very popular concept when Id Software published source code of the video game Quake. 
 In this example, it is possible to see the design for a bot in Quake.
 
 ![ScreenShot](http://ai-depot.com/FiniteStateMachines/FSM7.png)
 
-The final goal of this project, is to reach a Java solution to model complex behaviors for EV3 robots.
+The final goal of this project, is the development a Java solution to model complex behaviors for EV3 robots.
 
 ### Class diagram ###
 
-With EV3, the development is easier than with a NXT brick or a RCX brick using Java and LeJOS project.
-I think that it is a good practice if you view your Class diagramas to discover bad designs.
+With EV3, the development is easier than with a NXT brick or a RCX brick using Java 7 and LeJOS project.
+I think that it is a good practice if you view your Class diagrams to discover bad designs.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
 
@@ -46,9 +48,9 @@ https://github.com/jabrena/liverobots/blob/master/build.xml
 
 ### Virtual Sensors ###
 
-In many cases, EV3 robots with have a Internet connection, so it is a good practice to use information about the network to execute tasks.
-In this case, I have create a "Virtual Sensor" to get time from the public Webservices http://www.geonames.org 
-For NXT robots, It was required a physical sensor to get time. It could be a good feature to add memory and add time concepto to the robots.
+In many cases, EV3 robots have a Internet connection, so it is a good practice to use information about the network in some scenarios.
+In this case, I have created a "Virtual Sensor" (The sensor doesn't have a physical wire) to get time from the public Webservices http://www.geonames.org 
+If you used NXT platform, the unique way to getTime was using a physical sensor to get time. 
 
 Example: https://github.com/jabrena/liverobots/blob/master/src/test/java/jab/lejos/ev3/sensors/net/EV3TimeSensorTest.java  
 
@@ -56,14 +58,19 @@ Example: https://github.com/jabrena/liverobots/blob/master/src/test/java/jab/lej
 
 ### BumperCar ###
 
+#### Introduction ####
+
 BumperCar is the classic example to understand the behaviour concept. 
-In LeJOS, exist a package to model behaviours using Subsumption Architecture.
+LeJOS project has support for Subsumption Architecture.
 
-Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
+EV3 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
+NXT Example: http://sourceforge.net/p/lejos/code/HEAD/tree/trunk/samples/src/org/lejos/sample/bumpercar
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+#### Modelling Bumper as a SCXML file ####
 
 In this project, I will try to explore another way to model behaviours with SCXML.
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
 #### Youtube ####
 
