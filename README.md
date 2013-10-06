@@ -11,10 +11,12 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
     2013/09/10: Stable ANT file to build, package and deploy in EV3 brick
     2013/09/10: EV3 arrived home
 
-## Brity project ##
+## Brity robot ##
 
-Brity is a project designed to develop EV3 robot using a FSM to model the behaviours.
-To test the concept, I will develop simple robots with few behaviours to evolve the solution.
+Brity is a Home EV3 robot designed interact with Humans and Cats. 
+The behaviours will be modelled with a SCXML FSM.
+
+## Getting started with SCXML FSM in LeJOS for EV3 ##
 
 ### BumperCar ###
 
