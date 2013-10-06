@@ -170,8 +170,16 @@ public class RobotEV3 extends Robot {
 
 	@Override
 	public int getVoltage() {
-		// TODO Auto-generated method stub
-		return 0;
+		int voltage  = 0;
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(500);
+		if(randomInt < 200){
+			voltage = randomInt;
+		}else{
+			voltage = 500;
+		}
+		voltage = 500;
+		return voltage;
 	}
 	
 }

@@ -46,7 +46,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<property name="class" value="EV3TimeSensorTest"/>
 	-->
 	<property name="package" value="jab.lejos.liverobots.brity"/>
-	<property name="class" value="BrityFSMTest"/>
+	<property name="class" value="BrityFSMTest2"/>
 	
 	
 	<!-- TARGET SECTION -->
@@ -135,6 +135,8 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 					lib/commons-logging-1.1.1.jar
 					lib/commons-scxml-0.9.jar
 					lib/xalan-2.6.0.jar
+					/home/root/lejos/lib/ev3classes.jar
+					/home/root/lejos/libjna/usr/share/java/jna.jar
 					"			
 				/>
             </manifest>
@@ -150,8 +152,10 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 
 	<target name="docs" unless="optional">
 		<echo message="Generating project's documentation."/>
+		<!--
 		<antcall target="javadocs" />
 		<antcall target="uml" />
+		-->
 	</target>
 	
 	<target name="javadocs">

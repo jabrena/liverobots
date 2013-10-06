@@ -143,8 +143,68 @@ digraph G {
 <tr><td align="left" balign="left"> lowBattery </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.brity.fsm.BrityFSM2
+	c8 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM2" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> BrityFSM2 </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
+<tr><td align="left" balign="left"> - SCXML_CONFIG : String </td></tr>
+<tr><td align="left" balign="left"> - robot : RobotEV3 </td></tr>
+<tr><td align="left" balign="left"> ~ status : int </td></tr>
+<tr><td align="left" balign="left"> ~ voltage : int </td></tr>
+<tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
+<tr><td align="left" balign="left"> ~ distance : int </td></tr>
+<tr><td align="left" balign="left"> ~ distanceThreshold : int </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + BrityFSM2() </td></tr>
+<tr><td align="left" balign="left"> + getCurrentStateId() : String </td></tr>
+<tr><td align="left" balign="left"> + getCurrentState() : State </td></tr>
+<tr><td align="left" balign="left"> + getCurrentStateEvents() : Collection&lt;?&gt; </td></tr>
+<tr><td align="left" balign="left"> + getRobot() : RobotEV3 </td></tr>
+<tr><td align="left" balign="left"> + getStatus() : int </td></tr>
+<tr><td align="left" balign="left"> + setStatus(status : int) </td></tr>
+<tr><td align="left" balign="left"> + Iddle() </td></tr>
+<tr><td align="left" balign="left"> + DriveForward() </td></tr>
+<tr><td align="left" balign="left"> + DetectWall() </td></tr>
+<tr><td align="left" balign="left"> + Disconnect() </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.brity.fsm.BrityFSM2.States
+	c9 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM2.States" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
+<tr><td align="center" balign="center"> States </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> Iddle </td></tr>
+<tr><td align="left" balign="left"> DriveForward </td></tr>
+<tr><td align="left" balign="left"> DetectWall </td></tr>
+<tr><td align="left" balign="left"> Disconnect </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.brity.fsm.BrityFSM2.Transitions
+	c10 [label=<<table title="jab.lejos.liverobots.brity.fsm.BrityFSM2.Transitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
+<tr><td align="center" balign="center"> Transitions </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> continueDriving </td></tr>
+<tr><td align="left" balign="left"> detectingWall </td></tr>
+<tr><td align="left" balign="left"> lowBattery </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.DetectWall
-	c8 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.DetectWall" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c11 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.DetectWall" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DetectWall </td></tr>
 		</table></td></tr>
@@ -157,7 +217,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.DriveForward
-	c9 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.DriveForward" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c12 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.DriveForward" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DriveForward </td></tr>
 		</table></td></tr>
@@ -172,7 +232,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.fsm.states.GenericState
-	c10 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.GenericState" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c13 [label=<<table title="jab.lejos.liverobots.brity.fsm.states.GenericState" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> GenericState </font></td></tr>
 		</table></td></tr>
@@ -188,7 +248,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.Robot
-	c11 [label=<<table title="jab.lejos.liverobots.brity.model.Robot" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c14 [label=<<table title="jab.lejos.liverobots.brity.model.Robot" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> Robot </font></td></tr>
 		</table></td></tr>
@@ -202,7 +262,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotEV3
-	c12 [label=<<table title="jab.lejos.liverobots.brity.model.RobotEV3" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c15 [label=<<table title="jab.lejos.liverobots.brity.model.RobotEV3" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RobotEV3 </td></tr>
 		</table></td></tr>
@@ -240,7 +300,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotFactory
-	c13 [label=<<table title="jab.lejos.liverobots.brity.model.RobotFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c16 [label=<<table title="jab.lejos.liverobots.brity.model.RobotFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RobotFactory </td></tr>
 		</table></td></tr>
@@ -253,7 +313,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotSimulated
-	c14 [label=<<table title="jab.lejos.liverobots.brity.model.RobotSimulated" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c17 [label=<<table title="jab.lejos.liverobots.brity.model.RobotSimulated" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> RobotSimulated </td></tr>
 		</table></td></tr>
@@ -269,7 +329,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// jab.lejos.liverobots.brity.model.RobotType
-	c15 [label=<<table title="jab.lejos.liverobots.brity.model.RobotType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	c18 [label=<<table title="jab.lejos.liverobots.brity.model.RobotType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> RobotType </td></tr>
@@ -285,17 +345,19 @@ digraph G {
 	//jab.lejos.liverobots.brity.dao.BritySensorDAO implements jab.lejos.liverobots.brity.dao.IBritySensorDAO
 	c4:p -> c2:p [dir=back,arrowtail=empty,style=dashed];
 	//jab.lejos.liverobots.brity.fsm.BrityFSM extends AbstractStateMachine
-	c16:p -> c5:p [dir=back,arrowtail=empty];
+	c19:p -> c5:p [dir=back,arrowtail=empty];
+	//jab.lejos.liverobots.brity.fsm.BrityFSM2 extends AbstractStateMachine
+	c19:p -> c8:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.fsm.states.DetectWall extends jab.lejos.liverobots.brity.fsm.states.GenericState
-	c10:p -> c8:p [dir=back,arrowtail=empty];
+	c13:p -> c11:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.fsm.states.DriveForward extends jab.lejos.liverobots.brity.fsm.states.GenericState
-	c10:p -> c9:p [dir=back,arrowtail=empty];
+	c13:p -> c12:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.model.RobotEV3 extends jab.lejos.liverobots.brity.model.Robot
-	c11:p -> c12:p [dir=back,arrowtail=empty];
+	c14:p -> c15:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.model.RobotSimulated extends jab.lejos.liverobots.brity.model.Robot
-	c11:p -> c14:p [dir=back,arrowtail=empty];
+	c14:p -> c17:p [dir=back,arrowtail=empty];
 	// AbstractStateMachine
-	c16[label=<<table title="AbstractStateMachine" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api//AbstractStateMachine.html">
+	c19[label=<<table title="AbstractStateMachine" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api//AbstractStateMachine.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AbstractStateMachine </td></tr>
 		</table></td></tr>

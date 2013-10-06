@@ -8,7 +8,7 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 
 Brity is a project designed to develop EV3 robot using a FSM with SCXML to model the behaviours.
 
-### Example: BumperCar ###
+### BumperCar ###
 
 BumperCar is the classic example to understand the behaviour concept. 
 In LeJOS, exist a package to model behaviours with Subsumption Architecture.
@@ -18,6 +18,12 @@ Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
 The another alternative is using a FSM to solve the same problem:
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+
+### Youtube ###
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 Current solution runs in Local and a EV3 brick.
 
