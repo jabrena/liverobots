@@ -4,24 +4,36 @@ Live Robots
 Live Robots, is a educative project designed to create robots with Behaviors.
 The project will be developed using the educative platform Lego Mindstorms EV3.
 
+## Project status ##
+
+2013/10/06: Refactoring code...
+
+2013/10/05: First FSM running in EV3
+
+2013/09/10: Stable ANT file to build, package and deploy in EV3 brick
+
+2013/09/10: EV3 arrives home
+
 ## Brity project ##
 
-Brity is a project designed to develop EV3 robot using a FSM with SCXML to model the behaviours.
+Brity is a project designed to develop EV3 robot using a FSM to model the behaviours.
+
+To test the concept, I will develop simple robots with few behaviours to evolve the solution.
 
 ### BumperCar ###
 
 BumperCar is the classic example to understand the behaviour concept. 
-In LeJOS, exist a package to model behaviours with Subsumption Architecture.
+In LeJOS, exist a package to model behaviours using Subsumption Architecture.
 
 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
 
-The another alternative is using a FSM to solve the same problem:
+In this project, I will try to explore another way to model behaviours.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
-### Youtube ###
+#### Youtube ####
 
-The first EV3 robot running a FSM with Apache Commons SCXML.
+BumperCar running in a EV3 robot using a FSM.
 
 http://www.youtube.com/watch?v=lU_vTx0f-vU&feature=youtu.be
 
@@ -100,35 +112,11 @@ In EV3:
       [sshexec] 2000-01-01 00:05:17,825  INFO [main] (?:?) - STATE: Disconnected
 
 
-### Class diagram ###
+## Class diagram ##
 
-Class diagram for the whole project is the following one:
+This is the UML Class diagram. It is very useful to detect bad designs.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
-
-
-## Modeling behaviors with LeJOS ##
-
-One goal of this project is the research about behavior modelling with Java.
-Currently, the alternatives are:
-
-FSM
-HFSM
-Subsumption
-
-### SCXML ###
-
-W3 SCXML: http://www.w3.org/TR/scxml/
-
-Apache Commons SCXML: http://commons.apache.org/proper/commons-scxml/
-
-Apache Commons API: http://commons.apache.org/proper/commons-scxml/apidocs/
-
-SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
-
-### Subsumption architecture ###
-
-Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
 
 # Build.xml #
 
@@ -138,6 +126,37 @@ ANT is great Java tool. Take a look latest version of Build.xml for EV3 project.
 
 Try to to reuse if you like.
 https://raw.github.com/jabrena/liverobots/master/build.xml
+
+## References ##
+
+### FSM ###
+
+http://ai-depot.com/FiniteStateMachines/FSM.html
+
+http://www.ai-junkie.com/architecture/state_driven/tut_state1.html
+
+http://ai.eecs.umich.edu/cogarch2/specific.html
+
+http://www.cs.umd.edu/~darsana/papers/dissertation/node145.html
+
+
+### SCXML ###
+
+W3C SCXML: http://www.w3.org/TR/scxml/
+
+Apache Commons SCXML: http://commons.apache.org/proper/commons-scxml/
+
+Apache Commons API: http://commons.apache.org/proper/commons-scxml/apidocs/
+
+SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
+
+## Subsumption architecture ##
+
+Wikipedia: http://en.wikipedia.org/wiki/Subsumption_architecture
+
+Janus: http://www.janus.demon.co.uk/alife/index.html
+
+
 
 
 
