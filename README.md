@@ -35,7 +35,15 @@ ANT files are great technology.
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/vizant/build.png)
 
 Try to to reuse if you like this idea.
-https://raw.github.com/jabrena/liverobots/master/build.xml
+https://github.com/jabrena/liverobots/blob/master/build.xml
+
+### Virtual Sensors ###
+
+In many cases, EV3 robots with have a Internet connection, so it is a good practice to use information about the network to execute tasks.
+In this case, I have create a "Virtual Sensor" to get time from the public Webservices http://www.geonames.org 
+For NXT robots, It was required a physical sensor to get time. It could be a good feature to add memory and add time concepto to the robots.
+
+Example: https://github.com/jabrena/liverobots/blob/master/src/test/java/jab/lejos/ev3/sensors/net/EV3TimeSensorTest.java  
 
 ## Getting started with SCXML FSM in LeJOS for EV3 ##
 
