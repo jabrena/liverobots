@@ -84,17 +84,9 @@ In this case, I followed the approach from the class AbstractStateMachine:
 http://commons.apache.org/proper/commons-scxml/apidocs/org/apache/commons/scxml/env/AbstractStateMachine.html 
 and I added some methods to replicated every stated modelled in the SCXML file.
 
-#### Youtube ####
+Console:
 
-BumperCar running in a EV3 robot using a FSM.
-
-http://www.youtube.com/watch?v=lU_vTx0f-vU&feature=youtu.be
-
-#### Preliminar results ####
-
-Current solution runs in Local and a EV3 brick.
-
-In local:
+Local:
 
     2013-10-06 01:22:28,309  INFO [main] (BrityFSM.java:78) - STATE: Iddle
     2013-10-06 01:22:28,320  INFO [main] (BrityFSM.java:87) - STATE: DriveForward
@@ -146,7 +138,8 @@ In local:
     2013-10-06 01:22:33,358  INFO [main] (DriveForward.java:17) - STATE: DriveForward
     2013-10-06 01:22:33,358  INFO [main] (DriveForward.java:25) - Voltage: 31
     2013-10-06 01:22:33,359  INFO [main] (BrityFSM.java:103) - STATE: Disconnected
-In EV3:
+
+EV3:
 
     run:
          [echo] Running software.
@@ -164,7 +157,11 @@ In EV3:
       [sshexec] 2000-01-01 00:05:17,782  INFO [main] (?:?) - Voltage: 109
       [sshexec] 2000-01-01 00:05:17,825  INFO [main] (?:?) - STATE: Disconnected
 
-### Gallery ###
+#### Visual example ####
+
+Video: http://www.youtube.com/watch?v=lU_vTx0f-vU&feature=youtu.be
+
+#### Gallery ####
 
 Current physical base for Brity using EV3 and some NXT sensors.
 
