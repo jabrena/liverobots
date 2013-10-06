@@ -1,10 +1,13 @@
 package jab.lejos.liverobots.fsm.bumpercar;
 
-import jab.lejos.liverobots.fsm.FSM;
 import jab.lejos.liverobots.brity.model.Robot;
 import jab.lejos.liverobots.brity.model.RobotFactory;
 import jab.lejos.liverobots.brity.model.RobotFactoryException;
 import jab.lejos.liverobots.brity.model.RobotType;
+
+import jab.lejos.liverobots.fsm.FSM;
+import jab.lejos.liverobots.fsm.bumpercar.states.DriveForward;
+import jab.lejos.liverobots.fsm.bumpercar.states.DetectWall;
 
 import java.io.File;
 import java.net.MalformedURLException;

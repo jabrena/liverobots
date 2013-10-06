@@ -1,4 +1,6 @@
-package jab.lejos.liverobots.fsm.bumpercar;
+package jab.lejos.liverobots.fsm.bumpercar.states;
+
+import jab.lejos.liverobots.fsm.bumpercar.BumperCar;
 
 import org.apache.log4j.Logger;
 
