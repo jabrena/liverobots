@@ -29,8 +29,8 @@ Note: In this graph, I notice some problems... :)
 
 ### Build.xml ###
 
-With EV3, you can cover all software engineer process with a unique file. 
-ANT files are great.
+With EV3, you can cover all software engineer processes with a unique file. 
+ANT files are great technology.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/vizant/build.png)
 
