@@ -15,6 +15,13 @@ http://www.lego.com/en-us/mindstorms
 
 Note: Many thanks to Andy Shaw & Lawrie Griffiths with their notes and advices. I learn so much with them.
 
+## Roadmap ##
+
+This is the roadmap for the project:
+
+    Develop a DAO
+    Test a HFSM with SCXML
+
 ## Brity robot ##
 
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
