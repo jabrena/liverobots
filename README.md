@@ -25,9 +25,9 @@ The first EV3 robot running a FSM with Apache Commons SCXML.
 
 http://www.youtube.com/watch?v=lU_vTx0f-vU&feature=youtu.be
 
-Current solution runs in Local and a EV3 brick.
-
 #### Preliminar results ####
+
+Current solution runs in Local and a EV3 brick.
 
 In local:
 
