@@ -179,7 +179,7 @@ digraph G {
 <tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
 <tr><td align="left" balign="left"> - SCXML_CONFIG : String </td></tr>
 <tr><td align="left" balign="left"> - robot : Robot </td></tr>
-<tr><td align="left" balign="left"> ~ status : int </td></tr>
+<tr><td align="left" balign="left"> - status : Transitions </td></tr>
 <tr><td align="left" balign="left"> ~ voltage : int </td></tr>
 <tr><td align="left" balign="left"> ~ voltageThreshold : int </td></tr>
 <tr><td align="left" balign="left"> ~ distance : int </td></tr>
@@ -187,17 +187,18 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="left" balign="left"> + BumperCar(rt : RobotType) </td></tr>
+<tr><td align="left" balign="left"> + autoFireEvent() </td></tr>
 <tr><td align="left" balign="left"> + getRobot() : Robot </td></tr>
-<tr><td align="left" balign="left"> + getStatus() : int </td></tr>
-<tr><td align="left" balign="left"> + setStatus(status : int) </td></tr>
+<tr><td align="left" balign="left"> + getStatus() : Transitions </td></tr>
+<tr><td align="left" balign="left"> + setStatus(status : Transitions) </td></tr>
 <tr><td align="left" balign="left"> + Iddle() </td></tr>
 <tr><td align="left" balign="left"> + DriveForward() </td></tr>
 <tr><td align="left" balign="left"> + DetectWall() </td></tr>
 <tr><td align="left" balign="left"> + Disconnect() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.fsm.bumpercar.BumperCar.States
-	c10 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.BumperCar.States" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.fsm.bumpercar.States
+	c10 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.States" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> States </td></tr>
@@ -212,8 +213,8 @@ digraph G {
 <tr><td align="left" balign="left"> Disconnect </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.fsm.bumpercar.BumperCar.Transitions
-	c11 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.BumperCar.Transitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.fsm.bumpercar.Transitions
+	c11 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.Transitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> Transitions </td></tr>
@@ -227,8 +228,8 @@ digraph G {
 <tr><td align="left" balign="left"> lowBattery </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.fsm.bumpercar.DetectWall
-	c12 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.DetectWall" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.fsm.bumpercar.states.DetectWall
+	c12 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.states.DetectWall" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DetectWall </td></tr>
 		</table></td></tr>
@@ -243,8 +244,8 @@ digraph G {
 <tr><td align="left" balign="left"> + action() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
-	// jab.lejos.liverobots.fsm.bumpercar.DriveForward
-	c13 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.DriveForward" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+	// jab.lejos.liverobots.fsm.bumpercar.states.DriveForward
+	c13 [label=<<table title="jab.lejos.liverobots.fsm.bumpercar.states.DriveForward" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> DriveForward </td></tr>
 		</table></td></tr>
