@@ -20,7 +20,7 @@ The behaviours will be modelled with a SCXML FSM.
 
 ### Class diagram ###
 
-With EV3, the development is easier than NXT or RCX with Java and LeJOS.
+With EV3, the development is easier than with a NXT brick or a RCX brick using Java and LeJOS project.
 I think that it is a good practice if you view your Class diagramas to discover bad designs.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
