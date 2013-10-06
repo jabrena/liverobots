@@ -17,7 +17,6 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 ## Brity project ##
 
 Brity is a project designed to develop EV3 robot using a FSM to model the behaviours.
-
 To test the concept, I will develop simple robots with few behaviours to evolve the solution.
 
 ### BumperCar ###
@@ -27,7 +26,7 @@ In LeJOS, exist a package to model behaviours using Subsumption Architecture.
 
 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
 
-In this project, I will try to explore another way to model behaviours.
+In this project, I will try to explore another way to model behaviours with SCXML.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
