@@ -6,13 +6,10 @@ The project will be developed using the educative platform Lego Mindstorms EV3.
 
 ## Project status ##
 
-2013/10/06: Refactoring code...
-
-2013/10/05: First FSM running in EV3
-
-2013/09/10: Stable ANT file to build, package and deploy in EV3 brick
-
-2013/09/10: EV3 arrives home
+    2013/10/06: Refactoring code...
+    2013/10/05: First FSM running in EV3
+    2013/09/10: Stable ANT file to build, package and deploy in EV3 brick
+    2013/09/10: EV3 arrived home
 
 ## Brity project ##
 
