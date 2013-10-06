@@ -18,6 +18,11 @@ The behaviours will be modelled with a SCXML FSM.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
+FSM was very popular when Id Software published Quake source code. 
+In this example, it is possible to see the design for a bot in Quake.
+
+![ScreenShot](http://ai-depot.com/FiniteStateMachines/FSM7.png)
+
 ### Class diagram ###
 
 With EV3, the development is easier than with a NXT brick or a RCX brick using Java and LeJOS project.
@@ -53,6 +58,8 @@ BumperCar is the classic example to understand the behaviour concept.
 In LeJOS, exist a package to model behaviours using Subsumption Architecture.
 
 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
 
 In this project, I will try to explore another way to model behaviours with SCXML.
 
