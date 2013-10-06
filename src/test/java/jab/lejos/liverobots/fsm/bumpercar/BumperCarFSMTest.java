@@ -31,17 +31,12 @@ public class BumperCarFSMTest {
 	public BumperCarFSMTest() throws MalformedURLException, RobotFactoryException {
 		
 		BumperCar fsm = new BumperCar(RobotType.EV3);
-		fsm.fireEvent(BumperCar.Transitions.continueDriving.toString());
+		fsm.fireEvent(Transitions.continueDriving.toString());
 		
 		for(int i=0;i<=10;i++){
 
-			if(fsm.getStatus() == 1){
-				fsm.fireEvent(BumperCar.Transitions.continueDriving.toString());
-			}else if(fsm.getStatus() == 2){
-				fsm.fireEvent(BumperCar.Transitions.detectingWall.toString());
-			}else if(fsm.getStatus() == 3){
-				fsm.fireEvent(BumperCar.Transitions.lowBattery.toString());
-			}			
+			fsm.autoFireEvent();
+		
 		}
 	}
 

@@ -30,30 +30,26 @@ public class BumperCar extends FSM{
 
 	private Robot robot;
 	
-	public enum States {
-		Iddle, DriveForward, DetectWall, Disconnect
-	}
-	
-	public enum Transitions {
-		continueDriving, detectingWall, lowBattery
-	}
-	
 	public BumperCar(RobotType rt) throws MalformedURLException, RobotFactoryException{
 		super(new File(SCXML_CONFIG).toURI().toURL());
 		robot = RobotFactory.getRobot(rt);
+	}
+	
+	public void autoFireEvent() {
+		this.fireEvent(this.getStatus().toString());
 	}
 	
 	public Robot getRobot(){
 		return this.robot;
 	}
 	
-	int status = 0;
+	private Transitions status = null;
 	
-	public int getStatus(){
+	public Transitions getStatus(){
 		return status;
 	}
 
-	public void setStatus(int status){
+	public void setStatus(Transitions status){
 		this.status = status;
 	}
 	

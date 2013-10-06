@@ -1,6 +1,7 @@
 package jab.lejos.liverobots.fsm.bumpercar.states;
 
 import jab.lejos.liverobots.fsm.bumpercar.BumperCar;
+import jab.lejos.liverobots.fsm.bumpercar.Transitions;
 
 import org.apache.log4j.Logger;
 
@@ -25,7 +26,7 @@ public class DriveForward {
 		voltage = fsm.getRobot().getVoltage();
 		logger.info("Voltage: " + voltage);
 		if(voltage < voltageThreshold){
-			fsm.setStatus(3);
+			fsm.setStatus(Transitions.lowBattery);
 		}else{
 			logger.info("Go forward");
 			fsm.getRobot().forward(1);
@@ -33,9 +34,9 @@ public class DriveForward {
 			logger.info("Distance: " + distance);
 
 			if(distance < 100){
-				fsm.setStatus(2);
+				fsm.setStatus(Transitions.detectingWall);
 			}else{
-				fsm.setStatus(1);
+				fsm.setStatus(Transitions.continueDriving);
 			}
 		}
 	}
