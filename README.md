@@ -150,6 +150,8 @@ http://www.cs.mcgill.ca/~cdrage/projects.html
 
 http://mammoth.cs.mcgill.ca/openprojects
 
+http://gram.cs.mcgill.ca/statecharts/index.php
+
 ### FSM ###
 
 http://ai-depot.com/FiniteStateMachines/FSM.html
