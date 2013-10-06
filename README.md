@@ -36,8 +36,6 @@ I think that it is a good practice if you view your Class diagrams to discover b
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/uml/graph.png)
 
-Note: In this graph, I notice some problems... :)
-
 ### Build.xml ###
 
 With EV3, you can cover all software engineer processes with a unique file. 
