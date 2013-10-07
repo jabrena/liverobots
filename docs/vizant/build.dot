@@ -26,8 +26,16 @@ digraph "G" {
     "deployment" -> "development";
     "deployment" -> "run";
     "deploy";
+    "deploy" -> "local-deployment";
+    "deploy" -> "remote-deployment";
+    "local-deployment";
+    "remote-deployment";
     "run";
     "run" -> "deploy";
+    "run" -> "local-run";
+    "run" -> "remote-run";
+    "local-run";
+    "remote-run";
     "clean";
     "clean" -> "deployment";
     "halt";

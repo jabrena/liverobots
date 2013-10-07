@@ -230,6 +230,18 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	
 	<target name="deploy" unless="debugging">
 		<tstamp/>
+		<echo message="Deploying software."/>
+		<antcall target="local-deployment" />
+		<antcall target="remote-deployment" />
+	</target>
+
+	<target name="local-deployment">
+		<tstamp/>
+		<echo message="Deploying in local."/>
+	</target>
+
+	<target name="remote-deployment">
+		<tstamp/>
 		<echo message="Deploying software into EV3 Brick."/>
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
     	     todir="${username}:@${host}:${remotePath}${project}/"
@@ -243,13 +255,30 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<target name="run" unless="debugging" depends="deploy">
 		<tstamp/>
 		<echo message="Running software."/>
+		<antcall target="local-run" />
+		<antcall target="remote-run" />
+	</target>
+
+	<target name="local-run">
+		<tstamp/>
+		<echo message="Running software in local."/>
 		<sshexec host="${host}"
 			username="${username}"
 			password="${password}"
 			command="cd ${remotePath}${project}/; jrun -jar ${project}-${DSTAMP}.jar "
 		/>
 	</target>
-
+				
+	<target name="remote-run">
+		<tstamp/>
+		<echo message="Running software in remote."/>
+		<sshexec host="${host}"
+			username="${username}"
+			password="${password}"
+			command="cd ${remotePath}${project}/; jrun -jar ${project}-${DSTAMP}.jar "
+		/>
+	</target>
+	
 	<target name="clean" depends="deployment" description="Clean up" >
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
