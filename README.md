@@ -26,7 +26,7 @@ This is the roadmap for the project:
 ## Brity robot ##
 
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
-The behaviours are modelled with a FSM/HFSM using Apache Commons SCXML.
+The behaviours are modelled with a HFSM using Apache Commons SCXML.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Brity1.png)
 
