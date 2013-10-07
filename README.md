@@ -7,8 +7,8 @@ http://www.lego.com/en-us/mindstorms
 
 ## Project status ##
 
-    2013/10/06: Refactoring code...
-    2013/10/05: First FSM running in EV3
+    2013/10/07: HFSM running in EV3
+    2013/10/05: FSM running in EV3
     2013/10/02: Stable ANT file to build, package (Runnable Jar) and deploy in EV3 brick
     2013/09/20: I run LeJOS on EV3 brick
     2013/09/14: I received my first EV3 brick.
@@ -20,7 +20,8 @@ Note: Many thanks to Andy Shaw & Lawrie Griffiths with their notes and advices. 
 This is the roadmap for the project:
 
     Develop a DAO
-    Test a HFSM with SCXML
+    Research SCXML
+    Design HFSM for Brity
 
 ## Brity robot ##
 
@@ -61,7 +62,25 @@ If you used NXT platform, the unique way to getTime was using a physical sensor 
 
 Example: https://github.com/jabrena/liverobots/blob/master/src/test/java/jab/lejos/ev3/sensors/net/EV3TimeSensorTest.java  
 
-## Getting started with SCXML FSM in LeJOS for EV3 ##
+## Getting started with a HFSM in LeJOS for EV3 ##
+
+### Introduction ###
+
+The Finite State Machine (FSM) is a design pattern in which actions are determined by events and the current context of the system.
+The Hierarchical FSM is an extension of the FSM concept. In this case, any state can be a substate of some larger state.
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/HFSM.png)
+
+https://github.com/jabrena/liverobots/blob/master/lib/hfsm.scxml
+
+### Development ###
+
+The development of a HFSM is the same of a FSM. Take a look the following classes:
+
+HFSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/hfsm/HFSM.java
+FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/fsm/FSM.java
+
+## Getting started with a FSM in LeJOS for EV3 ##
 
 ### BumperCar ###
 
@@ -177,6 +196,12 @@ Apache Commons SCXML: http://commons.apache.org/proper/commons-scxml/
 Apache Commons API: http://commons.apache.org/proper/commons-scxml/apidocs/
 
 SCXML Editor: http://scxmlgui.googlecode.com/svn/trunk/extra/fsm-editor.jar
+
+http://genesyslab.info/wiki/index.php?title=SCXML_Language_Reference
+
+http://wiki.apache.org/commons/SCXML/Tutorials
+
+http://commons.apache.org/proper/commons-scxml/guide/scxml-documents.html
 
 ## UML ###
 

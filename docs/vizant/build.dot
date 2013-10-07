@@ -17,8 +17,10 @@ digraph "G" {
     "docs";
     "docs" -> "javadocs";
     "docs" -> "uml";
+    "docs" -> "publish";
     "javadocs";
     "uml";
+    "publish";
     "qa";
     "deployment";
     "deployment" -> "development";

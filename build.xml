@@ -43,10 +43,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<!--
 	<property name="package" value="jab.lejos.ev3.sensors.net"/>
 	<property name="class" value="EV3TimeSensorTest"/>
-	-->
+
 	<property name="package" value="jab.lejos.liverobots.fsm.bumpercar"/>
 	<property name="class" value="BumperCarFSMTest"/>
-	
+	-->
+	<property name="package" value="jab.lejos.liverobots.hfsm"/>
+	<property name="class" value="HFSMTest"/>	
 	
 	<!-- TARGET SECTION -->
 	<target name="init">
@@ -151,6 +153,7 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 		<echo message="Generating project's documentation."/>
 		<antcall target="javadocs" />
 		<antcall target="uml" />
+		<antcall target="publish" />
 	</target>
 	
 	<target name="javadocs">
@@ -208,6 +211,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 			</apply>
 	</target>
 
+	<target name="publish"> 
+	    <exec executable="/bin/bash"> 
+	        <arg value="publish.sh"/> 
+	    </exec> 
+	</target>
+	
 	<target name="qa" >
 		<tstamp/>
 		<echo message="QA phase."/>

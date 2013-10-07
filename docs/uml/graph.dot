@@ -262,18 +262,88 @@ digraph G {
 <tr><td align="left" balign="left"> + action() </td></tr>
 		</table></td></tr>
 		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.hfsm.HFSM
+	c14 [label=<<table title="jab.lejos.liverobots.hfsm.HFSM" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> HFSM </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> ~ logger : Logger </td></tr>
+<tr><td align="left" balign="left"> - SCXML_CONFIG : String </td></tr>
+<tr><td align="left" balign="left"> - status : Transitions </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> + HFSM() </td></tr>
+<tr><td align="left" balign="left"> + getStatus() : Transitions </td></tr>
+<tr><td align="left" balign="left"> + setStatus(status : Transitions) </td></tr>
+<tr><td align="left" balign="left"> + autoFireEvent() </td></tr>
+<tr><td align="left" balign="left"> + fsm1() </td></tr>
+<tr><td align="left" balign="left"> + fsm2() </td></tr>
+<tr><td align="left" balign="left"> + fsm3() </td></tr>
+<tr><td align="left" balign="left"> + State1() </td></tr>
+<tr><td align="left" balign="left"> + State2() </td></tr>
+<tr><td align="left" balign="left"> + State3() </td></tr>
+<tr><td align="left" balign="left"> + State4() </td></tr>
+<tr><td align="left" balign="left"> + State5() </td></tr>
+<tr><td align="left" balign="left"> + State6() </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.hfsm.States
+	c15 [label=<<table title="jab.lejos.liverobots.hfsm.States" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
+<tr><td align="center" balign="center"> States </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> fsm1 </td></tr>
+<tr><td align="left" balign="left"> fsm2 </td></tr>
+<tr><td align="left" balign="left"> fsm3 </td></tr>
+<tr><td align="left" balign="left"> State1 </td></tr>
+<tr><td align="left" balign="left"> State2 </td></tr>
+<tr><td align="left" balign="left"> State3 </td></tr>
+<tr><td align="left" balign="left"> State4 </td></tr>
+<tr><td align="left" balign="left"> State5 </td></tr>
+<tr><td align="left" balign="left"> State6 </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
+	// jab.lejos.liverobots.hfsm.Transitions
+	c16 [label=<<table title="jab.lejos.liverobots.hfsm.Transitions" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
+<tr><td align="center" balign="center"> Transitions </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="left" balign="left"> goFSM1 </td></tr>
+<tr><td align="left" balign="left"> goFSM2 </td></tr>
+<tr><td align="left" balign="left"> goFSM3 </td></tr>
+<tr><td align="left" balign="left"> goState1 </td></tr>
+<tr><td align="left" balign="left"> goState2 </td></tr>
+<tr><td align="left" balign="left"> goState3 </td></tr>
+<tr><td align="left" balign="left"> goState4 </td></tr>
+<tr><td align="left" balign="left"> goState5 </td></tr>
+<tr><td align="left" balign="left"> goState6 </td></tr>
+		</table></td></tr>
+		</table>>, URL="null", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	//jab.lejos.liverobots.brity.model.RobotEV3 extends jab.lejos.liverobots.brity.model.Robot
 	c2:p -> c3:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.model.RobotFactoryException extends java.lang.Exception
-	c14:p -> c5:p [dir=back,arrowtail=empty];
+	c17:p -> c5:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.brity.model.RobotSimulated extends jab.lejos.liverobots.brity.model.Robot
 	c2:p -> c6:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.fsm.FSM extends AbstractStateMachine
-	c15:p -> c8:p [dir=back,arrowtail=empty];
+	c18:p -> c8:p [dir=back,arrowtail=empty];
 	//jab.lejos.liverobots.fsm.bumpercar.BumperCar extends jab.lejos.liverobots.fsm.FSM
 	c8:p -> c9:p [dir=back,arrowtail=empty];
+	//jab.lejos.liverobots.hfsm.HFSM extends jab.lejos.liverobots.fsm.FSM
+	c8:p -> c14:p [dir=back,arrowtail=empty];
 	// java.lang.Exception
-	c14 [label=<<table title="java.lang.Exception" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Exception.html">
+	c17 [label=<<table title="java.lang.Exception" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Exception.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> Exception </td></tr>
 		</table></td></tr>
@@ -288,7 +358,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Exception.html", fontname="Helvetica", fontcolor="black", fontsize=10.0];
 	// AbstractStateMachine
-	c15[label=<<table title="AbstractStateMachine" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api//AbstractStateMachine.html">
+	c18[label=<<table title="AbstractStateMachine" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api//AbstractStateMachine.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> AbstractStateMachine </td></tr>
 		</table></td></tr>
