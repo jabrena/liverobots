@@ -30,16 +30,21 @@ public class HFSMTest {
 		
 		HFSM hfsm = new HFSM();
 		hfsm.fireEvent(Transitions.goState2.toString());
-		
-		System.out.println(hfsm.getCurrentStateId());
-		
+
 		/*
+		hfsm.fireEvent(Transitions.goFSM2.toString());
+		hfsm.fireEvent(Transitions.goState4.toString());
+		hfsm.fireEvent(Transitions.goFSM3.toString());
+		hfsm.fireEvent(Transitions.goState6.toString());
+		hfsm.fireEvent(Transitions.goFSM1.toString());
+		*/
+
 		for(int i=0;i<=10;i++){
 
 			hfsm.autoFireEvent();
 		
 		}
-		*/
+
 	}
 
 }

@@ -9,9 +9,6 @@ import org.apache.log4j.Logger;
 
 /**
  * 
- * Based on this example:
- * http://commons.apache.org/proper/commons-scxml/xref-test/org/apache/commons/scxml/env/StopWatch.html
- *  
  * @author jabrena
  *
  */
@@ -25,9 +22,7 @@ public class HFSM extends FSM{
 		super(new File(SCXML_CONFIG).toURI().toURL());
 	}
 	
-	public void autoFireEvent() {
-		this.fireEvent(this.getStatus().toString());
-	}
+
 	
 	private Transitions status = null;
 	
@@ -37,6 +32,10 @@ public class HFSM extends FSM{
 
 	public void setStatus(Transitions status){
 		this.status = status;
+	}
+
+	public void autoFireEvent() {
+		this.fireEvent(this.getStatus().toString());
 	}
 	
 	//HFSM Methods
@@ -54,27 +53,34 @@ public class HFSM extends FSM{
 	}
 	
 	public void State1() {
+		Logger logger = Logger.getLogger(HFSM.class);
 		logger.info("STATE: State1");
+		this.setStatus(Transitions.goState2);
 	}
-	
+
 	public void State2() {
 		logger.info("STATE: State2");
+		this.setStatus(Transitions.goFSM2);
 	}
 	
 	public void State3() {
 		logger.info("STATE: State3");
+		this.setStatus(Transitions.goState4);
 	}
 	
 	public void State4() {
 		logger.info("STATE: State4");
+		this.setStatus(Transitions.goFSM3);
 	}
-	
+
 	public void State5() {
 		logger.info("STATE: State5");
+		this.setStatus(Transitions.goState6);
 	}
 	
 	public void State6() {
 		logger.info("STATE: State6");
+		this.setStatus(Transitions.goFSM1);
 	}
 
 	
