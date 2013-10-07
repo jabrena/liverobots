@@ -1,0 +1,44 @@
+<scxml initial="Calibrate" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=700 h=670  -->
+ <state id="Calibrate"><!--   node-size-and-position x=20 y=40 w=75 h=75  -->
+  <transition event="goFSM1" target="fsm1"></transition>
+ </state>
+ <state id="fsm1" initial="Walk"><!--   node-size-and-position x=150.5 y=70 w=130 h=388  -->
+  <state id="Walk"><!--   node-size-and-position x=27.5 y=168 w=75 h=75  -->
+   <transition event="goState2" target="AvoidObstacle"><!--   edge-path [AvoidObstacle]  x=81 y=268  --></transition>
+   <transition event="goFSM3" target="fsm3"><!--   edge-path [fsm3]  pointx=0 pointy=0 offsetx=39 offsety=0  --></transition>
+  </state>
+  <state id="DetectAgent"><!--   node-size-and-position x=27.5 y=43 w=75 h=75  -->
+   <transition event="goState1" target="Walk"></transition>
+   <transition event="goFSM2" target="fsm2"><!--   edge-path [fsm2]  pointx=0 pointy=0 offsetx=-37 offsety=0  --></transition>
+  </state>
+  <state id="AvoidObstacle"><!--   node-size-and-position x=20 y=293 w=90 h=75  -->
+   <transition event="goState1" target="Walk"><!--   edge-path [Walk]  x=61 y=268  --></transition>
+  </state>
+ </state>
+ <state id="fsm3" initial="FindDark"><!--   node-size-and-position x=440 y=380 w=115 h=263  -->
+  <state id="FindDark"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+   <transition event="goState6" target="Sleep"><!--   edge-path [Sleep]  x=62 y=143  --></transition>
+  </state>
+  <state id="Sleep"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+   <transition event="goState5" target="FindDark"><!--   edge-path [FindDark]  x=42 y=143  --></transition>
+   <transition event="goFSM1" target="fsm1"><!--   edge-path [fsm1]  pointx=0 pointy=0 offsetx=-38 offsety=0  --></transition>
+  </state>
+ </state>
+ <state id="fsm2" initial="Interact"><!--   node-size-and-position x=340 y=70 w=325 h=263  -->
+  <state id="Interact"><!--   node-size-and-position x=125 y=43 w=75 h=75  -->
+   <transition event="goState4" target="Communicate"><!--   edge-path [Communicate]  x=167 y=143  --></transition>
+   <transition event="goState5" target="Dance"><!--   edge-path [Dance]  x=112.27 y=147.8  --></transition>
+   <transition event="goState6" target="Sing"><!--   edge-path [Sing]  x=217.27 y=138.2  --></transition>
+   <transition event="goFSM1" target="fsm1"></transition>
+  </state>
+  <state id="Communicate"><!--   node-size-and-position x=125 y=168 w=75 h=75  -->
+   <transition event="goFSM1" target="Interact"><!--   edge-path [Interact]  x=147 y=143  --></transition>
+  </state>
+  <state id="Dance"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+   <transition event="goFSM1" target="Interact"><!--   edge-path [Interact]  x=96.73 y=135.2  --></transition>
+  </state>
+  <state id="Sing"><!--   node-size-and-position x=230 y=168 w=75 h=75  -->
+   <transition event="goFSM1" target="Interact"><!--   edge-path [Interact]  x=201.73 y=150.8  --></transition>
+  </state>
+ </state>
+</scxml>
