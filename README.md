@@ -71,7 +71,7 @@ The Hierarchical FSM is an extension of the FSM concept. In this case, any state
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/HFSM.png)
 
-https://github.com/jabrena/liverobots/blob/master/lib/hfsm.scxml
+SCXML: https://github.com/jabrena/liverobots/blob/master/lib/hfsm.scxml
 
 ### Development ###
 
@@ -102,6 +102,8 @@ Open the file: https://github.com/jabrena/liverobots/blob/master/lib/BrityModel.
 Using the following FSM tool: http://code.google.com/p/scxmlgui/source/browse/trunk/extra/fsm-editor.jar 
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+
+SCXML: https://github.com/jabrena/liverobots/blob/master/lib/BumperCar.scxml
 
 Once you have designed the behaviours for your robot, it is required to create a FSM. 
 In this case, I followed the approach from the class AbstractStateMachine:

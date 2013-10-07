@@ -26,7 +26,7 @@ public class BumperCar extends FSM{
 
 	Logger logger = Logger.getLogger(BumperCar.class);
 	
-	private static final String SCXML_CONFIG = "./lib/BrityModel.scxml";
+	private static final String SCXML_CONFIG = "./lib/BumperCar.scxml";
 
 	private Robot robot;
 	
