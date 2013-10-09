@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-scxml-0.9.jar"/>
 	<classpathentry kind="lib" path="lib/xalan-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/java_websocket.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
