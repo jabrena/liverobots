@@ -103,7 +103,7 @@ In this project, I will try to explore another way to model behaviours. In this 
 Open the file: https://github.com/jabrena/liverobots/blob/master/lib/BrityModel.scxml 
 Using the following FSM tool: http://code.google.com/p/scxmlgui/source/browse/trunk/extra/fsm-editor.jar 
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BrityModel.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/BumperCar.png)
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/BumperCar.scxml
 

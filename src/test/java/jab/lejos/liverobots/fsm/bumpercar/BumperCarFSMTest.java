@@ -33,7 +33,7 @@ public class BumperCarFSMTest {
 		BumperCar fsm = new BumperCar(RobotType.EV3);
 		fsm.fireEvent(Transitions.continueDriving.toString());
 		
-		for(int i=0;i<=10;i++){
+		for(int i=0;i<=30;i++){
 
 			fsm.autoFireEvent();
 		
