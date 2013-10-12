@@ -42,13 +42,13 @@ public class RobotEV3 extends Robot {
 	
 	private RobotEV3(){
 		super(RobotType.EV3);
-		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
-		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
-		leftSound.setDBA(true);
-		rightSound.setDBA(true);
+		//leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
+		//rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
+		//leftSound.setDBA(true);
+		//rightSound.setDBA(true);
 		ultrasonic = new UltrasonicSensor((I2CPort) SensorPort.S3);
-		lightSensor = new LightSensor((ADSensorPort) SensorPort.S4);
-		lightSensor.setFloodlight(false);
+		//lightSensor = new LightSensor((ADSensorPort) SensorPort.S4);
+		//lightSensor.setFloodlight(false);
 
 		leftMotor = Motor.A;
 		rightMotor = Motor.C;
@@ -115,10 +115,10 @@ public class RobotEV3 extends Robot {
 		rightMotor.stop(true);
 	}
 	
-	public void backward(int msecs){
+	public void backward(int seconds){
 		leftMotor.backward();
 		rightMotor.backward();
-		try { Thread.sleep(msecs); } catch (InterruptedException e) {}
+		try { Thread.sleep(seconds*1000); } catch (InterruptedException e) {}
 		leftMotor.stop(true);
 		rightMotor.stop(true);
 	}
@@ -140,21 +140,25 @@ public class RobotEV3 extends Robot {
 	}
 	
 	public int getLeftSound(){
-		return leftSound.readValue();
+		return 1;
+		//return leftSound.readValue();
 	}
 
 	public int getRightSound(){
-		return rightSound.readValue();
+		return 1;
+		//return rightSound.readValue();
 	}
 
 	public int getDiffSound(){
-		return Math.abs(leftSound.readValue() - rightSound.readValue());
+		return 1;
+		//return Math.abs(leftSound.readValue() - rightSound.readValue());
 	}
 	
 	public int getLightLeve(){
-		System.out.println(lightSensor.getLightValue());
-		System.out.println(lightSensor.getNormalizedLightValue());
-		return lightSensor.getNormalizedLightValue();
+		return 1;
+		//System.out.println(lightSensor.getLightValue());
+		//System.out.println(lightSensor.getNormalizedLightValue());
+		//return lightSensor.getNormalizedLightValue();
 	}
 	
 	public void shortSound(int tones, int freqValue){

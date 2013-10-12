@@ -17,4 +17,6 @@ public abstract class Robot {
 
 	public abstract void turnLeft(int i);
 
+	public abstract void turnRight(int i);
+
 }

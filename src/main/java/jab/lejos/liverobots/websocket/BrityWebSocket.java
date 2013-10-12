@@ -1,28 +1,36 @@
 
 package jab.lejos.liverobots.websocket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import jab.lejos.liverobots.brity.model.Robot;
+
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.util.Collection;
 
 import org.java_websocket.WebSocket;
-import org.java_websocket.WebSocketImpl;
 import org.java_websocket.framing.Framedata;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
 /**
- * A simple WebSocketServer implementation. Keeps track of a "chatroom".
+ * A simple WebSocketServer Test
  */
 public class BrityWebSocket extends WebSocketServer {
 
+	private Robot robot;
+	private enum CMD{
+		UP, DOWN, LEFT, RIGHT
+	}
+	
 	public BrityWebSocket( int port ) throws UnknownHostException {
 		super( new InetSocketAddress( port ) );
 	}
 
+	public BrityWebSocket( int port , Robot robot) throws UnknownHostException {
+		super( new InetSocketAddress( port ) );
+		this.robot = robot;
+	}
+	
 	public BrityWebSocket( InetSocketAddress address ) {
 		super( address );
 	}
@@ -30,17 +38,28 @@ public class BrityWebSocket extends WebSocketServer {
 	@Override
 	public void onOpen( WebSocket conn, ClientHandshake handshake ) {
 		this.sendToAll( "new connection: " + handshake.getResourceDescriptor() );
-		System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!" );
+		System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " connected with EV3!" );
 	}
 
 	@Override
 	public void onClose( WebSocket conn, int code, String reason, boolean remote ) {
-		this.sendToAll( conn + " has left the room!" );
-		System.out.println( conn + " has left the room!" );
+		this.sendToAll( conn + " EV3 Connection closed" );
+		System.out.println( conn + " EV3 Connection closed" );
 	}
 
 	@Override
 	public void onMessage( WebSocket conn, String message ) {
+
+		if(message.equals(CMD.UP.toString())){
+			robot.forward(1);
+		}else if(message.equals(CMD.DOWN.toString())){
+			robot.backward(1);
+		}else if(message.equals(CMD.LEFT.toString())){
+			robot.turnLeft(1);
+		}else if(message.equals(CMD.RIGHT.toString())){
+			robot.turnRight(1);
+		}
+		
 		this.sendToAll( message );
 		System.out.println( conn + ": " + message );
 	}
@@ -50,31 +69,6 @@ public class BrityWebSocket extends WebSocketServer {
 		System.out.println( "received fragment: " + fragment );
 	}
 
-	public static void main( String[] args ) throws InterruptedException , IOException {
-		WebSocketImpl.DEBUG = true;
-		int port = 20000; // 843 flash policy port
-		try {
-			port = Integer.parseInt( args[ 0 ] );
-		} catch ( Exception ex ) {
-		}
-		BrityWebSocket s = new BrityWebSocket( port );
-		s.start();
-		System.out.println( "ChatServer started on port: " + s.getPort() );
-
-		BufferedReader sysin = new BufferedReader( new InputStreamReader( System.in ) );
-		while ( true ) {
-			String in = sysin.readLine();
-			s.sendToAll( in );
-			if( in.equals( "exit" ) ) {
-				s.stop();
-				break;
-			} else if( in.equals( "restart" ) ) {
-				s.stop();
-				s.start();
-				break;
-			}
-		}
-	}
 	@Override
 	public void onError( WebSocket conn, Exception ex ) {
 		ex.printStackTrace();

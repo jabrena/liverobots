@@ -67,4 +67,10 @@ public class RobotSimulated extends Robot {
 		logger.info("TURN LEFT");
 	}
 
+	@Override
+	public void turnRight(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
