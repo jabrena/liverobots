@@ -88,21 +88,58 @@ FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/l
 
 #### Introduction ####
 
+Lejla Banjanovic-Mehmedovic from University of Tuzla wrote the paper "BEETLE-INSPIRED BEHAVIOR OF MOBILE ROBOT WITH A FINITE STATE MACHINE DESIGN"
+This work describes a Physical platform to emulate a real Beetle. To model the behaviours, the studying used a FSM.
+
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-MODEL.png)
+
+This platform is very similar to Brity platform using 3 sensors to measure distances and 2 motors to navigate. 
+It is necessary to understand that Brity plaform doesn't include a rear bumper in the platform.
+
+#### FSM Modelling ####
+
+Original FSM Design for this Beetle robot was the following one:
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-FSM.png)
 
-#### FSM Modelling ####
+This FSM desing has been modelled in SCXML in the following way:
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Beetle1.png)
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/Beetle1.scxml
 
+I have removed the behaviour about rear bumper and I have added a new behaviour to detect low battery. 
+In my opinion, this behaviour is required for Robotics.
+
+States:
+
+    Calibrate
+    Explore
+    Scan
+    GoAhead
+    GoLeft
+    GoRight
+    GoBack
+    Sleep
+
+Transitions:
+
+    goExploring
+    goAhead
+    goLeft
+    goRight
+    goScan
+    lowBattery
+
+#### Development ####
+
+Comming soon...
+
 ### BumperCar ###
 
 #### Introduction ####
 
-BumperCar is the classic example to understand the behaviour concept. 
+BumperCar is a classic example to understand the behaviour concept. 
 LeJOS project has support for Subsumption Architecture.
 In the following examples, will see how to use LeJOS with Subsumption for NXT and EV3:
 
