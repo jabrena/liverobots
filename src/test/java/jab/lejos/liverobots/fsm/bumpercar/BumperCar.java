@@ -1,13 +1,12 @@
 package jab.lejos.liverobots.fsm.bumpercar;
 
-import jab.lejos.liverobots.brity.model.Robot;
-import jab.lejos.liverobots.brity.model.RobotFactory;
-import jab.lejos.liverobots.brity.model.RobotFactoryException;
-import jab.lejos.liverobots.brity.model.RobotType;
-
 import jab.lejos.liverobots.fsm.FSM;
 import jab.lejos.liverobots.fsm.bumpercar.states.DriveForward;
 import jab.lejos.liverobots.fsm.bumpercar.states.DetectWall;
+import jab.lejos.liverobots.fsm.model.bumpercar.BumpercarRobot;
+import jab.lejos.liverobots.fsm.model.bumpercar.BumperCarRobotFactory;
+import jab.lejos.liverobots.fsm.model.RobotFactoryException;
+import jab.lejos.liverobots.fsm.model.RobotType;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -28,18 +27,18 @@ public class BumperCar extends FSM{
 	
 	private static final String SCXML_CONFIG = "./lib/BumperCar.scxml";
 
-	private Robot robot;
+	private BumpercarRobot robot;
 	
 	public BumperCar(RobotType rt) throws MalformedURLException, RobotFactoryException{
 		super(new File(SCXML_CONFIG).toURI().toURL());
-		robot = RobotFactory.getRobot(rt);
+		robot = BumperCarRobotFactory.getRobot(rt);
 	}
 	
 	public void autoFireEvent() {
 		this.fireEvent(this.getStatus().toString());
 	}
 	
-	public Robot getRobot(){
+	public BumpercarRobot getRobot(){
 		return this.robot;
 	}
 	

@@ -1,7 +1,7 @@
 
 package jab.lejos.liverobots.websocket;
 
-import jab.lejos.liverobots.brity.model.Robot;
+import jab.lejos.liverobots.fsm.model.bumpercar.BumpercarRobot;
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
@@ -17,7 +17,7 @@ import org.java_websocket.server.WebSocketServer;
  */
 public class BrityWebSocket extends WebSocketServer {
 
-	private Robot robot;
+	private BumpercarRobot robot;
 	private enum CMD{
 		UP, DOWN, LEFT, RIGHT
 	}
@@ -26,7 +26,7 @@ public class BrityWebSocket extends WebSocketServer {
 		super( new InetSocketAddress( port ) );
 	}
 
-	public BrityWebSocket( int port , Robot robot) throws UnknownHostException {
+	public BrityWebSocket( int port , BumpercarRobot robot) throws UnknownHostException {
 		super( new InetSocketAddress( port ) );
 		this.robot = robot;
 	}

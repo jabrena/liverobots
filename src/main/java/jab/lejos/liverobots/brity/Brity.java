@@ -1,15 +1,13 @@
 package jab.lejos.liverobots.brity;
 
-import jab.lejos.liverobots.brity.model.RobotEV3;
-import jab.lejos.liverobots.brity.model.RobotFactory;
-import jab.lejos.liverobots.brity.model.RobotType;
+import jab.lejos.liverobots.fsm.model.bumpercar.BumperCarRobotEV3;
 
 public class Brity {	
 
-	private static RobotEV3 brityBody;
+	private static BumperCarRobotEV3 brityBody;
 	
 	public Brity(){
-		brityBody = RobotEV3.getInstance();
+		brityBody = BumperCarRobotEV3.getInstance();
 	}
 
 	public void debugBrity(){
@@ -21,7 +19,7 @@ public class Brity {
 		System.out.println("=======");
 	}
 	
-	public RobotEV3 getRobot(){
+	public BumperCarRobotEV3 getRobot(){
 		return this.brityBody;
 	}
 	

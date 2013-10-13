@@ -1,4 +1,6 @@
-package jab.lejos.liverobots.brity.model;
+package jab.lejos.liverobots.fsm.model.bumpercar;
+
+import jab.lejos.liverobots.fsm.model.RobotType;
 
 import java.util.Random;
 
@@ -20,7 +22,7 @@ import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.navigation.Navigator;
 import lejos.robotics.navigation.Pose;
 
-public class RobotEV3 extends Robot {
+public class BumperCarRobotEV3 extends BumpercarRobot {
 
 	//Sensors
 	private SoundSensor leftSound;
@@ -40,7 +42,7 @@ public class RobotEV3 extends Robot {
 	private PoseProvider posep;
 	private Navigator nav;
 	
-	private RobotEV3(){
+	private BumperCarRobotEV3(){
 		super(RobotType.EV3);
 		//leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
 		//rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
@@ -64,13 +66,13 @@ public class RobotEV3 extends Robot {
 	}
 	
 	//Singleton pattern
-	private static RobotEV3 INSTANCE = null;
+	private static BumperCarRobotEV3 INSTANCE = null;
 	
-	public static RobotEV3 getInstance() {
+	public static BumperCarRobotEV3 getInstance() {
         if (INSTANCE == null) {
-            synchronized(RobotEV3.class) {
+            synchronized(BumperCarRobotEV3.class) {
                 if (INSTANCE == null) { 
-                    INSTANCE = new RobotEV3();
+                    INSTANCE = new BumperCarRobotEV3();
                 }
             }
         }

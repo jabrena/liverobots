@@ -1,4 +1,4 @@
-package jab.lejos.liverobots.brity.model;
+package jab.lejos.liverobots.fsm.model;
 
 public class RobotFactoryException extends Exception {
 

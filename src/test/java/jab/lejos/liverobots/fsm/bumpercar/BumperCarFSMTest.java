@@ -1,8 +1,8 @@
 package jab.lejos.liverobots.fsm.bumpercar;
 
-import jab.lejos.liverobots.brity.model.RobotFactoryException;
-import jab.lejos.liverobots.brity.model.RobotType;
 import jab.lejos.liverobots.fsm.bumpercar.BumperCar;
+import jab.lejos.liverobots.fsm.model.RobotFactoryException;
+import jab.lejos.liverobots.fsm.model.RobotType;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

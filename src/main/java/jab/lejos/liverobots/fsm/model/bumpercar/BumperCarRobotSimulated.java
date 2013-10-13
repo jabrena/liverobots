@@ -1,25 +1,27 @@
-package jab.lejos.liverobots.brity.model;
+package jab.lejos.liverobots.fsm.model.bumpercar;
+
+import jab.lejos.liverobots.fsm.model.RobotType;
 
 import java.util.Random;
 
 import org.apache.log4j.Logger;
 
-public class RobotSimulated extends Robot {
+public class BumperCarRobotSimulated extends BumpercarRobot {
 
-	Logger logger = Logger.getLogger(RobotSimulated.class);
+	Logger logger = Logger.getLogger(BumperCarRobotSimulated.class);
 	
-	private RobotSimulated(RobotType type){
+	private BumperCarRobotSimulated(RobotType type){
 		super(type);
 	}
 	
 	//Singleton pattern
-	private static RobotSimulated INSTANCE = null;
+	private static BumperCarRobotSimulated INSTANCE = null;
 	
-	public static RobotSimulated getInstance() {
+	public static BumperCarRobotSimulated getInstance() {
         if (INSTANCE == null) {
-            synchronized(RobotSimulated.class) {
+            synchronized(BumperCarRobotSimulated.class) {
                 if (INSTANCE == null) { 
-                    INSTANCE = new RobotSimulated(RobotType.SIMULATED);
+                    INSTANCE = new BumperCarRobotSimulated(RobotType.SIMULATED);
                 }
             }
         }

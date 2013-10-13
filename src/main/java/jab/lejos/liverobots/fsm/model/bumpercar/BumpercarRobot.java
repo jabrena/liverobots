@@ -1,10 +1,12 @@
-package jab.lejos.liverobots.brity.model;
+package jab.lejos.liverobots.fsm.model.bumpercar;
 
-public abstract class Robot {
+import jab.lejos.liverobots.fsm.model.RobotType;
+
+public abstract class BumpercarRobot {
 
 	private RobotType type = null;
 	
-	public Robot(RobotType type){
+	public BumpercarRobot(RobotType type){
 		this.type = type;
 	}
 	
