@@ -90,12 +90,11 @@ FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/l
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-MODEL.png)
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-
-BEHAVIOR-FSM.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-FSM.png)
 
 #### FSM Modelling ####
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Bettle1.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Beetle1.png)
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/Beetle1.scxml
 
