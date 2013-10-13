@@ -28,7 +28,7 @@ This is the roadmap for the project:
 Brity is a Home EV3 robot designed interact with Humans and Cats. 
 The behaviours are modelled with a HFSM using Apache Commons SCXML.
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Brity1.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/Brity1.png)
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/Brity1.scxml
 
@@ -74,6 +74,12 @@ The Hierarchical FSM is an extension of the FSM concept. In this case, any state
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/HFSM.png)
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/hfsm.scxml
+
+### BumperCar2 ###
+
+#### Introduction ####
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR.png)
 
 ### Development ###
 
@@ -184,6 +190,8 @@ http://www.ai-junkie.com/architecture/state_driven/tut_state1.html
 http://ai.eecs.umich.edu/cogarch2/specific.html
 
 http://www.cs.umd.edu/~darsana/papers/dissertation/node145.html
+
+BEETLE INSPIRED BEHAVIOR OF MOBILE ROBOT WITH A FINITE STATE MACHINE DESIGN http://www.academypublish.org/papers/pdf/1907.pdf
 
 ## Subsumption architecture ##
 
