@@ -98,7 +98,7 @@ It is necessary to understand that Brity plaform doesn't include a rear bumper i
 
 #### FSM Modelling ####
 
-Original FSM Design for this Beetle robot was the following one:
+Original FSM Design for this robot was the following one:
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-FSM.png)
 
@@ -109,7 +109,7 @@ This FSM desing has been modelled in SCXML in the following way:
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/Beetle1.scxml
 
 I have removed the behaviour about rear bumper and I have added a new behaviour to detect low battery. 
-In my opinion, this behaviour is required for Robotics.
+In my opinion, this behaviour is required for kind of solution. What is the behaviour if battery is low?
 
 States:
 
