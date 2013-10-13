@@ -1,4 +1,4 @@
-package jab.lejos.liverobots.brity.dao;
+package jab.lejos.liverobots.dao;
 
 public class BritySensorDAOTest {
 
