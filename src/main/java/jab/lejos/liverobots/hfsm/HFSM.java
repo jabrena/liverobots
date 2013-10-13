@@ -1,6 +1,7 @@
 package jab.lejos.liverobots.hfsm;
 
 import jab.lejos.liverobots.fsm.FSM;
+import jab.lejos.liverobots.hfsm.Transitions;
 
 import java.io.File;
 import java.net.MalformedURLException;
