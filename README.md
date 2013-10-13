@@ -82,15 +82,22 @@ The development of a HFSM is the same of a FSM. Take a look the following classe
 HFSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/hfsm/HFSM.java
 FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/fsm/FSM.java
 
-### BumperCar2 ###
+## Getting started with a FSM in LeJOS for EV3 ##
+
+### Beetle ###
 
 #### Introduction ####
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR-MODEL.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-MODEL.png)
 
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR-FSM.png)
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-
+BEHAVIOR-FSM.png)
 
-## Getting started with a FSM in LeJOS for EV3 ##
+#### FSM Modelling ####
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/scxml/Bettle1.png)
+
+SCXML: https://github.com/jabrena/liverobots/blob/master/lib/Beetle1.scxml
 
 ### BumperCar ###
 
