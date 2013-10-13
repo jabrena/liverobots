@@ -88,8 +88,8 @@ FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/l
 
 #### Introduction ####
 
-Lejla Banjanovic-Mehmedovic from University of Tuzla wrote the paper "BEETLE-INSPIRED BEHAVIOR OF MOBILE ROBOT WITH A FINITE STATE MACHINE DESIGN" (See reference section)
-This work describes a Physical platform to emulate a real Beetle. To model the behaviours, the studying used a FSM.
+Lejla Banjanovic-Mehmedovic from University of Tuzla wrote the paper "BEETLE-INSPIRED BEHAVIOR OF MOBILE ROBOT WITH A FINITE STATE MACHINE DESIGN" (See reference section). 
+This work describes a Physical platform to emulate a real Beetle. To model the behaviours, the student used a FSM.
 
 ![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED-BEHAVIOR-MODEL.png)
 
