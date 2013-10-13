@@ -75,18 +75,20 @@ The Hierarchical FSM is an extension of the FSM concept. In this case, any state
 
 SCXML: https://github.com/jabrena/liverobots/blob/master/lib/hfsm.scxml
 
-### BumperCar2 ###
-
-#### Introduction ####
-
-![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR.png)
-
 ### Development ###
 
 The development of a HFSM is the same of a FSM. Take a look the following classes:
 
 HFSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/hfsm/HFSM.java
 FSM: https://github.com/jabrena/liverobots/blob/master/src/main/java/jab/lejos/liverobots/fsm/FSM.java
+
+### BumperCar2 ###
+
+#### Introduction ####
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR-MODEL.png)
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/BEETLE-INSPIRED BEHAVIOR-FSM.png)
 
 ## Getting started with a FSM in LeJOS for EV3 ##
 
