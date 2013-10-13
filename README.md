@@ -23,6 +23,34 @@ This is the roadmap for the project:
     Research SCXML
     Design HFSM for Brity
 
+## Memory Usage ##
+
+    Mem: 58244K used, 2644K free, 0K shrd, 3708K buff, 30180K cached
+    CPU:  64% usr  10% sys   0% nic  22% idle   2% io   0% irq   0% sirq
+    Load average: 1.11 0.61 0.57 3/59 1599
+      PID  PPID USER     STAT   VSZ %MEM %CPU COMMAND
+     1587  1586 root     S     143m 241%  91% /home/root/lejos/ejre1.7.0_21/bin/java
+      428     2 root     SW       0   0%   4% [mmcqd]
+     1476  1443 root     S     3072   5%   2% top 
+     1351  1338 root     R     3072   5%   2% top 
+     1584  1181 root     S     2372   4%   0% /usr/sbin/dropbear -r /etc/dropbear/dr
+      180     2 root     SW       0   0%   0% [kswapd0]
+     1223     1 root     S     5556   9%   0% /home/root/lms2012/sys/wpa_supplicant 
+     1146     1 root     S     3588   6%   0% bluetoothd -n 
+     1443  1442 root     S     3072   5%   0% -sh 
+     1338  1335 root     S     3072   5%   0% -sh 
+     1238     1 root     S     2884   5%   0% udhcpc -i wlan0 
+     1586  1585 root     S     2880   5%   0% /bin/sh /bin/jrun -jar Brity-20131013.
+     1585  1584 root     S     2880   5%   0% sh -c cd /home/root/lejos/examples/Bri
+     1211     1 root     S     2880   5%   0% udhcpd /home/root/lejos/bin/udhcpd.con
+     1166     1 root     S     2880   5%   0% /usr/sbin/telnetd 
+     1134     1 messageb S     2380   4%   0% /usr/bin/dbus-daemon --system 
+     1442  1181 root     S     2372   4%   0% /usr/sbin/dropbear -r /etc/dropbear/dr
+     1335  1181 root     S     2372   4%   0% /usr/sbin/dropbear -r /etc/dropbear/dr
+     1181     1 root     S     2184   4%   0% /usr/sbin/dropbear -r /etc/dropbear/dr
+     1216     1 root     S     2036   3%   0% agent -a hci0 1234 
+
+
 ## Brity robot ##
 
 Brity is a Home EV3 robot designed interact with Humans and Cats. 

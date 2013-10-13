@@ -1,7 +1,7 @@
 
 package jab.lejos.liverobots.websocket;
 
-import jab.lejos.liverobots.fsm.model.bumpercar.BumpercarRobot;
+import jab.lejos.liverobots.model.bumpercar.BumpercarRobot;
 
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;

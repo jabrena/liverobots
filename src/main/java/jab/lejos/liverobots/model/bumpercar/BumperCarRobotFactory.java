@@ -1,7 +1,7 @@
-package jab.lejos.liverobots.fsm.model.bumpercar;
+package jab.lejos.liverobots.model.bumpercar;
 
-import jab.lejos.liverobots.fsm.model.RobotFactoryException;
-import jab.lejos.liverobots.fsm.model.RobotType;
+import jab.lejos.liverobots.model.RobotFactoryException;
+import jab.lejos.liverobots.model.RobotType;
 
 import org.apache.log4j.Logger;
 

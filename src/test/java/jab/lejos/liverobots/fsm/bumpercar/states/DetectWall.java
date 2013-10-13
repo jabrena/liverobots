@@ -1,6 +1,6 @@
 package jab.lejos.liverobots.fsm.bumpercar.states;
 
-import jab.lejos.liverobots.fsm.bumpercar.BumperCar;
+import jab.lejos.liverobots.fsm.bumpercar.BumperCarFSM;
 import jab.lejos.liverobots.fsm.bumpercar.Transitions;
 
 import org.apache.log4j.Logger;
@@ -12,15 +12,15 @@ public class DetectWall {
 	int voltage = 0;
 	int voltageThreshold = 200;
 	
-	private BumperCar fsm;
+	private BumperCarFSM fsm;
 	
-	public DetectWall(BumperCar fsm){
+	public DetectWall(BumperCarFSM fsm){
 		this.fsm = fsm;
 	}
 
 	public void action() {
 
-		voltage = fsm.getRobot().getVoltage();
+		voltage = fsm.getRobot().getBatteryVoltage();
 		logger.info("Voltage: " + voltage);
 		if(voltage < voltageThreshold){
 			fsm.setStatus(Transitions.lowBattery);

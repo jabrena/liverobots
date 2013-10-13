@@ -1,9 +1,9 @@
 package jab.lejos.liverobots.websocket;
 
-import jab.lejos.liverobots.fsm.model.bumpercar.BumpercarRobot;
-import jab.lejos.liverobots.fsm.model.bumpercar.BumperCarRobotFactory;
-import jab.lejos.liverobots.fsm.model.RobotFactoryException;
-import jab.lejos.liverobots.fsm.model.RobotType;
+import jab.lejos.liverobots.model.RobotFactoryException;
+import jab.lejos.liverobots.model.RobotType;
+import jab.lejos.liverobots.model.bumpercar.BumperCarRobotFactory;
+import jab.lejos.liverobots.model.bumpercar.BumpercarRobot;
 import jab.lejos.liverobots.websocket.BrityWebSocket;
 
 import java.io.BufferedReader;

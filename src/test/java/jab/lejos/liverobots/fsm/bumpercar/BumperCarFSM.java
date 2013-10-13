@@ -3,10 +3,10 @@ package jab.lejos.liverobots.fsm.bumpercar;
 import jab.lejos.liverobots.fsm.FSM;
 import jab.lejos.liverobots.fsm.bumpercar.states.DriveForward;
 import jab.lejos.liverobots.fsm.bumpercar.states.DetectWall;
-import jab.lejos.liverobots.fsm.model.bumpercar.BumpercarRobot;
-import jab.lejos.liverobots.fsm.model.bumpercar.BumperCarRobotFactory;
-import jab.lejos.liverobots.fsm.model.RobotFactoryException;
-import jab.lejos.liverobots.fsm.model.RobotType;
+import jab.lejos.liverobots.model.RobotFactoryException;
+import jab.lejos.liverobots.model.RobotType;
+import jab.lejos.liverobots.model.bumpercar.BumperCarRobotFactory;
+import jab.lejos.liverobots.model.bumpercar.BumpercarRobot;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -21,15 +21,15 @@ import org.apache.log4j.Logger;
  * @author jabrena
  *
  */
-public class BumperCar extends FSM{
+public class BumperCarFSM extends FSM{
 
-	Logger logger = Logger.getLogger(BumperCar.class);
+	Logger logger = Logger.getLogger(BumperCarFSM.class);
 	
 	private static final String SCXML_CONFIG = "./lib/BumperCar.scxml";
 
 	private BumpercarRobot robot;
 	
-	public BumperCar(RobotType rt) throws MalformedURLException, RobotFactoryException{
+	public BumperCarFSM(RobotType rt) throws MalformedURLException, RobotFactoryException{
 		super(new File(SCXML_CONFIG).toURI().toURL());
 		robot = BumperCarRobotFactory.getRobot(rt);
 	}
@@ -54,7 +54,7 @@ public class BumperCar extends FSM{
 	
 	//FSM Methods
 	public void Iddle() {
-		Logger logger = Logger.getLogger(BumperCar.class);
+		Logger logger = Logger.getLogger(BumperCarFSM.class);
 		logger.info("STATE: Iddle");
 	}
 	

@@ -50,9 +50,13 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 
 	<property name="package" value="jab.lejos.liverobots.fsm.bumpercar"/>
 	<property name="class" value="BumperCarFSMTest"/>	
-	-->
+	
 	<property name="package" value="jab.lejos.liverobots.websocket"/>
 	<property name="class" value="RemoteControlTest"/>
+-->
+	<property name="package" value="jab.lejos.liverobots.fsm.beetle"/>
+	<property name="class" value="BeetleFSMTest"/>
+	
 	
 	<!-- TARGET SECTION -->
 	<target name="init">
@@ -269,11 +273,6 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
 	<target name="local-run">
 		<tstamp/>
 		<echo message="Running software in local."/>
-		<sshexec host="${host}"
-			username="${username}"
-			password="${password}"
-			command="cd ${remotePath}${project}/; jrun -jar ${project}-${DSTAMP}.jar "
-		/>
 	</target>
 				
 	<target name="remote-run">

@@ -1,17 +1,15 @@
-package jab.lejos.liverobots.fsm.model.bumpercar;
+package jab.lejos.liverobots.model.bumpercar;
 
-import jab.lejos.liverobots.fsm.model.RobotType;
+import jab.lejos.liverobots.model.Robot;
+import jab.lejos.liverobots.model.RobotType;
 
-public abstract class BumpercarRobot {
+public abstract class BumpercarRobot extends Robot{
 
-	private RobotType type = null;
-	
 	public BumpercarRobot(RobotType type){
-		this.type = type;
+		super(type);
 	}
 	
 	public abstract int getDistance();
-	public abstract int getVoltage();
 
 	public abstract void forward(int i);
 

@@ -1,6 +1,6 @@
-package jab.lejos.liverobots.fsm.model.bumpercar;
+package jab.lejos.liverobots.model.bumpercar;
 
-import jab.lejos.liverobots.fsm.model.RobotType;
+import jab.lejos.liverobots.model.RobotType;
 
 import java.util.Random;
 
@@ -174,8 +174,7 @@ public class BumperCarRobotEV3 extends BumpercarRobot {
 	    }		
 	}
 
-	@Override
-	public int getVoltage() {
+	public int getBatteryVoltage() {
 		int voltage  = 0;
 		Random randomGenerator = new Random();
 		int randomInt = randomGenerator.nextInt(500);

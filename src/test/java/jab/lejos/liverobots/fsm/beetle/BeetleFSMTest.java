@@ -1,6 +1,5 @@
-package jab.lejos.liverobots.fsm.bumpercar;
+package jab.lejos.liverobots.fsm.beetle;
 
-import jab.lejos.liverobots.fsm.bumpercar.BumperCarFSM;
 import jab.lejos.liverobots.model.RobotFactoryException;
 import jab.lejos.liverobots.model.RobotType;
 
@@ -13,9 +12,9 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-public class BumperCarFSMTest {
+public class BeetleFSMTest {
 
-	final Logger logger = Logger.getLogger(BumperCarFSMTest.class);
+	final Logger logger = Logger.getLogger(BeetleFSMTest.class);
 	
 	public static void main(String[] args) throws FileNotFoundException, IOException, RobotFactoryException {
 
@@ -25,19 +24,20 @@ public class BumperCarFSMTest {
 		props.load(new FileInputStream(path));
 		PropertyConfigurator.configure(props);
 		  
-		new BumperCarFSMTest();
+		new BeetleFSMTest();
 	}
 
-	public BumperCarFSMTest() throws MalformedURLException, RobotFactoryException {
+	public BeetleFSMTest() throws MalformedURLException, RobotFactoryException {
 		
-		BumperCarFSM fsm = new BumperCarFSM(RobotType.EV3);
-		fsm.fireEvent(Transitions.continueDriving.toString());
+		BeetleFSM fsm = new BeetleFSM(RobotType.EV3);
+		fsm.fireEvent(Transitions.goExploring.toString());
 		
-		for(int i=0;i<=30;i++){
+		for(int i=0;i<=100;i++){
 
 			fsm.autoFireEvent();
 		
 		}
+
 	}
 
 }
