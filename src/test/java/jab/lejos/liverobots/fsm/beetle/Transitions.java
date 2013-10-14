@@ -5,6 +5,7 @@ public enum Transitions {
 	goAhead,
 	goLeft,
 	goRight,
+	goBack,
 	goScan,
 	lowBattery
 }

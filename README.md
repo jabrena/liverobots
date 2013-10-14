@@ -169,6 +169,9 @@ Comming soon...
 
 BumperCar is a classic example to understand the behaviour concept. 
 LeJOS project has support for Subsumption Architecture.
+
+![ScreenShot](https://raw.github.com/jabrena/liverobots/master/docs/ideas/subsumption.png)
+
 In the following examples, will see how to use LeJOS with Subsumption for NXT and EV3:
 
 EV3 Example: http://sourceforge.net/p/lejos/ev3/ci/master/tree/EV3BumperCar

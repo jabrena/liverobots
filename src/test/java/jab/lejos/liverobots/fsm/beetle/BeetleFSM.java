@@ -42,12 +42,17 @@ public class BeetleFSM extends FSM{
 		this.status = status;
 	}
 	
-	//FSM Logic
-	private final int longDistance = 200;
-	private final int middleDistance = 100;
-	private final int lowDistance = 50;
-	private final int criticDistance = 20;
+	int transitionParameter = 0;
 	
+	public int getTransitionParameter(){
+		return transitionParameter;
+	}
+	
+	public void setTransitionParameter(int parameter){
+		this.transitionParameter = parameter;
+	}
+	
+	//FSM Logic
 	public void Calibrate(){
 		Logger logger = Logger.getLogger(BeetleFSM.class);
 		logger.info("STATE: Calibrate");
@@ -58,36 +63,64 @@ public class BeetleFSM extends FSM{
 		this.setStatus(Transitions.goScan);
 	}
 	
+	private final int THRESHOLD_LONG_DISTANCE = 80;
+	private final int THRESHOLD_MIDDLE_DISTANCE = 60;
+	private final int THRESHOLD_LOW_DISTANCE = 40;
+	private final int THRESHOLD_CRITIC_DISTANCE = 20;
+
+	private int leftDistance;
+	private int frontDistance;
+	private int rightDistance;
+	
 	public void Scan(){
 		logger.info("STATE: Scan");
 		
-		int leftDistance = robot.getLeftDistance();
-		int frontDistance = robot.getFrontDistance();
-		int rightDistance = robot.getRightDistance();
+		leftDistance = robot.getLeftDistance();
+		frontDistance = robot.getFrontDistance();
+		rightDistance = robot.getRightDistance();
 		
 		logger.info("Left:  " + leftDistance);
 		logger.info("Front: " + frontDistance);
 		logger.info("Right: " + rightDistance);
-		
-		/*
-		if(frontDistance >= this.longDistance){
+
+		if(frontDistance >= this.THRESHOLD_LONG_DISTANCE){
+			this.setTransitionParameter(3);
 			this.setStatus(Transitions.goAhead);
-		}else if(frontDistance >= this.middleDistance){
+		}else if(frontDistance >= this.THRESHOLD_MIDDLE_DISTANCE){
+			this.setTransitionParameter(2);
 			this.setStatus(Transitions.goAhead);
-		}else if(frontDistance >= this.lowDistance){
-			
-		}else if(frontDistance >= this.lowDistance){
-			
+		}else if(frontDistance >= this.THRESHOLD_LOW_DISTANCE){
+			if(leftDistance > rightDistance){
+				this.setStatus(Transitions.goLeft);
+			}else{
+				this.setStatus(Transitions.goRight);
+			}
+		}else if(frontDistance >= this.THRESHOLD_CRITIC_DISTANCE){
+			this.setStatus(Transitions.goBack);
 		}
-		*/
 		
 	}
 
 	public void GoAhead(){
 		logger.info("STATE: GoAhead");
 		
-		robot.goAhead(1);
+		leftDistance = robot.getLeftDistance();
+		frontDistance = robot.getFrontDistance();
+		rightDistance = robot.getRightDistance();
 		
+		logger.info("Left:  " + leftDistance);
+		logger.info("Front: " + frontDistance);
+		logger.info("Right: " + rightDistance);
+
+		if(leftDistance <= this.THRESHOLD_CRITIC_DISTANCE){
+			robot.goRight(20);
+			robot.goAhead(1);
+		}else if(rightDistance <= this.THRESHOLD_CRITIC_DISTANCE){
+			robot.goLeft(20);
+			robot.goAhead(1);
+		}else{
+			robot.goAhead(1);
+		}
 		this.setStatus(Transitions.goScan);
 	}
 
