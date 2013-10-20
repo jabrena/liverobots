@@ -138,16 +138,6 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
                 
 		    	<attribute name="Main-Class" value="${package}.${class}"/>
 				<attribute name="Class-Path" value="
-					lib/log4j-1.2.17.jar 
-					lib/hsqldb.jar 
-					lib/joda-time-2.3.jar 
-					lib/commons-beanutils-1.8.2.jar  
-					lib/commons-digester-1.8.1.jar 
-					lib/commons-jexl-1.1.jar  
-					lib/commons-logging-1.1.1.jar  
-					lib/commons-scxml-0.9.jar 
-					lib/xalan-2.6.0.jar 
-					lib/java_websocket.jar  
 					/home/root/lejos/lib/ev3classes.jar 
 					/home/root/lejos/libjna/usr/share/java/jna.jar 
 					"			
@@ -282,10 +272,12 @@ Ant file designed to upload and run a EV3 project using LeJOS project.
     	<scp file="${dist}/${project}-${DSTAMP}.jar"
     	     todir="${username}:@${host}:${remotePath}${project}/"
 		/>
+    	<!--
 		<echo message="Deploying software dependencies into EV3 Brick."/>
 		<scp todir="${username}:@${host}:${remotePath}${project}/lib/">
 			<fileset dir="${dist.lib}"/>
 		</scp>
+		-->
 	</target>
 	
 	<target name="run" unless="debugging" depends="deploy">

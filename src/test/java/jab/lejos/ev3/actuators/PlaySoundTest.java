@@ -1,9 +1,7 @@
 package jab.lejos.ev3.actuators;
 
-import java.io.File;
 import java.util.Random;
 
-import lejos.nxt.Button;
 import lejos.nxt.Sound;
 
 public class PlaySoundTest {

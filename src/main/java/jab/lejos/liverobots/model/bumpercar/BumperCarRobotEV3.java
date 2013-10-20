@@ -5,15 +5,12 @@ import jab.lejos.liverobots.model.RobotType;
 import java.util.Random;
 
 import lejos.nxt.ADSensorPort;
-import lejos.nxt.EV3ColorSensor;
 import lejos.nxt.I2CPort;
 import lejos.nxt.LightSensor;
 import lejos.nxt.Motor;
-import lejos.nxt.NXTRegulatedMotor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.Sound;
 import lejos.nxt.SoundSensor;
-import lejos.nxt.UARTPort;
 import lejos.nxt.UltrasonicSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.localization.OdometryPoseProvider;
@@ -44,10 +41,10 @@ public class BumperCarRobotEV3 extends BumpercarRobot {
 	
 	private BumperCarRobotEV3(){
 		super(RobotType.EV3);
-		//leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
-		//rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
-		//leftSound.setDBA(true);
-		//rightSound.setDBA(true);
+		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
+		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
+		leftSound.setDBA(true);
+		rightSound.setDBA(true);
 		ultrasonic = new UltrasonicSensor((I2CPort) SensorPort.S3);
 		//lightSensor = new LightSensor((ADSensorPort) SensorPort.S4);
 		//lightSensor.setFloodlight(false);

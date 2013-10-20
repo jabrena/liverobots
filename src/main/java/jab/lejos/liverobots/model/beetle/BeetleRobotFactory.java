@@ -1,6 +1,5 @@
 package jab.lejos.liverobots.model.beetle;
 
-import jab.lejos.liverobots.model.RobotFactory;
 import jab.lejos.liverobots.model.RobotFactoryException;
 import jab.lejos.liverobots.model.RobotType;
 

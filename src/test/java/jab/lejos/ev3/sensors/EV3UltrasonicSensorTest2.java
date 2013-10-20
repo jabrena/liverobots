@@ -1,6 +1,5 @@
 package jab.lejos.ev3.sensors;
 import lejos.nxt.Button;
-import lejos.nxt.EV3UltrasonicSensor;
 import lejos.nxt.I2CPort;
 import lejos.nxt.LCD;
 import lejos.nxt.SensorPort;

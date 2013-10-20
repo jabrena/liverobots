@@ -1,6 +1,9 @@
 package jab.lejos.liverobots.model.beetle;
 
 import jab.lejos.liverobots.model.RobotType;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import lejos.nxt.EV3IRSensor;
@@ -32,9 +35,11 @@ public class BeetleRobotEV3 extends BeetleRobot {
 	private DifferentialPilot differentialPilot;
 	private final float wheelDiameter = 4.5F;
 	private final float trackWidth = 14.7F;
-	private final boolean reverse = true;
+	private final boolean reverse = false;
 	private PoseProvider posep;
 	private Navigator navigator;
+	private Pose currentPose;
+	private List<Pose> poseList;
 	
 	private final int TRAVEL_DISTANCE = 20;
 	
@@ -55,8 +60,9 @@ public class BeetleRobotEV3 extends BeetleRobot {
 		differentialPilot = new DifferentialPilot(wheelDiameter,trackWidth,leftMotor,rightMotor,reverse);
 		posep = new OdometryPoseProvider(differentialPilot);
 		navigator = new Navigator(differentialPilot,posep);
-		Pose start = new Pose(0,0,0);
-		
+		currentPose = new Pose(0,0,this.getHeading());
+		poseList = new ArrayList<Pose>();
+		poseList.add(currentPose);
 	}
 	
 	//Singleton pattern
@@ -78,37 +84,46 @@ public class BeetleRobotEV3 extends BeetleRobot {
         throw new CloneNotSupportedException(); 
 	}
 	
-	public int getFrontDistance(){
-		return (int) frontUltrasonic.getRange();
+	public float getFrontDistance(){
+		return frontUltrasonic.getRange();
 	}
 
-	public int getLeftDistance(){
-		return (int) leftUltrasonic.getRange();
+	public float getLeftDistance(){
+		return leftUltrasonic.getRange();
 	}
 
-	public int getRightDistance(){
-		return (int) rightUltrasonic.getRange();
+	public float getRightDistance(){
+		return rightUltrasonic.getRange();
 	}
 
-	public int getHeading(){
-		return (int) Math.floor(compass.getDegreesCartesian());
+	public float getHeading(){
+		return compass.getDegreesCartesian();
 	}
-	
+
+	private void updatePose(){
+		currentPose = posep.getPose();
+		currentPose.setHeading(this.getHeading());
+		poseList.add(currentPose);
+	}
 	
 	public void goAhead(int parameter){
 		differentialPilot.travel(-TRAVEL_DISTANCE,true);
+		updatePose();
 	}
 	
 	public void goBack(int parameter){
 		differentialPilot.travel(+TRAVEL_DISTANCE,true);
+		updatePose();
 	}
 	
 	public void goRight(int parameter){
 		differentialPilot.rotate(45,true);
+		updatePose();
 	}
 
 	public void goLeft(int parameter){
 		differentialPilot.rotate(-45,true);
+		updatePose();
 	}
 
 	public int getBatteryVoltage() {
@@ -122,6 +137,31 @@ public class BeetleRobotEV3 extends BeetleRobot {
 		}
 		voltage = 500;
 		return voltage;
+	}
+	
+	public void travel(int distance){
+		differentialPilot.travel(distance);
+		differentialPilot.stop();
+		updatePose();
+	}
+
+	public void rotate(int degrees){
+		differentialPilot.travel(degrees,true);
+		updatePose();
+	}
+	
+	//Mapping
+	
+	public Pose getPose(){
+		return currentPose;
+	}
+	
+	public void setPose(final Pose pose){
+		currentPose = pose;
+	}
+	
+	public List<Pose> getPoseList(){
+		return poseList;
 	}
 	
 }

@@ -68,9 +68,9 @@ public class BeetleFSM extends FSM{
 	private final int THRESHOLD_LOW_DISTANCE = 40;
 	private final int THRESHOLD_CRITIC_DISTANCE = 20;
 
-	private int leftDistance;
-	private int frontDistance;
-	private int rightDistance;
+	private float leftDistance;
+	private float frontDistance;
+	private float rightDistance;
 	
 	public void Scan(){
 		logger.info("STATE: Scan");
