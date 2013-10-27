@@ -1,14 +1,14 @@
 package jab.lejos.ev3.sensors;
-import lejos.nxt.ADSensorPort;
-import lejos.nxt.Button;
-import lejos.nxt.LCD;
-import lejos.nxt.SensorPort;
-import lejos.nxt.TouchSensor;
+
+import lejos.hardware.Button;
+import lejos.hardware.LCD;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.TouchSensor;
 
 public class EV3TouchSensorTest2 {
 
 	public static void main(String[] args) throws InterruptedException {
-		TouchSensor touch2 = new TouchSensor((ADSensorPort) SensorPort.S2);
+		TouchSensor touch2 = new TouchSensor(SensorPort.S2);
 
 		LCD.clear();
 		

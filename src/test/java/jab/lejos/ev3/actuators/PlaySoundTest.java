@@ -2,7 +2,7 @@ package jab.lejos.ev3.actuators;
 
 import java.util.Random;
 
-import lejos.nxt.Sound;
+import lejos.hardware.Sound;
 
 public class PlaySoundTest {
 	public static void main(String[] args) throws InterruptedException {

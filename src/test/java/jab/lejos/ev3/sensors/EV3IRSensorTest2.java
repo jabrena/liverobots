@@ -1,10 +1,9 @@
 package jab.lejos.ev3.sensors;
-import lejos.nxt.Button;
-import lejos.nxt.EV3IRSensor;
-import lejos.nxt.LCD;
-import lejos.nxt.SensorPort;
-import lejos.nxt.UARTPort;
 
+import lejos.hardware.Button;
+import lejos.hardware.LCD;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3IRSensor;
 
 public class EV3IRSensorTest2 {
 
@@ -12,7 +11,7 @@ public class EV3IRSensorTest2 {
 	private final static int IR_PROX = 0;
 	
 	public static void main(String[] args) throws InterruptedException {
-		EV3IRSensor ir = new EV3IRSensor((UARTPort) SensorPort.S1);
+		EV3IRSensor ir = new EV3IRSensor(SensorPort.S1);
 		//ir.switchMode(IR_PROX,SWITCH_DELAY);
 		float ranges[];
 		

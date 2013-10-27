@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import lejos.nxt.EV3IRSensor;
-import lejos.nxt.I2CPort;
-import lejos.nxt.Motor;
-import lejos.nxt.SensorPort;
-import lejos.nxt.UARTPort;
-import lejos.nxt.addon.CompassHTSensor;
+import lejos.hardware.motor.Motor;
+import lejos.hardware.port.I2CPort;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.port.UARTPort;
+import lejos.hardware.sensor.EV3IRSensor;
+import lejos.hardware.sensor.HiTechnicCompass;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.localization.PoseProvider;
@@ -25,7 +25,7 @@ public class BeetleRobotEV3 extends BeetleRobot {
 	private EV3IRSensor leftUltrasonic;
 	private EV3IRSensor frontUltrasonic;
 	private EV3IRSensor rightUltrasonic;
-	private CompassHTSensor compass;
+	private HiTechnicCompass compass;
 	
 	//Actuators
 	private RegulatedMotor leftMotor;
@@ -49,7 +49,7 @@ public class BeetleRobotEV3 extends BeetleRobot {
 		leftUltrasonic = new EV3IRSensor((UARTPort) SensorPort.S1);
 		frontUltrasonic = new EV3IRSensor((UARTPort) SensorPort.S2);
 		rightUltrasonic = new EV3IRSensor((UARTPort) SensorPort.S3);
-		compass = new CompassHTSensor((I2CPort) SensorPort.S4);
+		compass = new HiTechnicCompass((I2CPort) SensorPort.S4);
 
 		leftMotor = Motor.A;
 		rightMotor = Motor.C;
@@ -97,7 +97,7 @@ public class BeetleRobotEV3 extends BeetleRobot {
 	}
 
 	public float getHeading(){
-		return compass.getDegreesCartesian();
+		return 0; //compass.getDegreesCartesian();
 	}
 
 	private void updatePose(){

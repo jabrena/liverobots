@@ -4,14 +4,13 @@ import jab.lejos.liverobots.model.RobotType;
 
 import java.util.Random;
 
-import lejos.nxt.ADSensorPort;
-import lejos.nxt.I2CPort;
-import lejos.nxt.LightSensor;
-import lejos.nxt.Motor;
-import lejos.nxt.SensorPort;
-import lejos.nxt.Sound;
-import lejos.nxt.SoundSensor;
-import lejos.nxt.UltrasonicSensor;
+import lejos.hardware.Sound;
+import lejos.hardware.motor.Motor;
+import lejos.hardware.port.Port;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.NXTLightSensor;
+import lejos.hardware.sensor.NXTSoundSensor;
+import lejos.hardware.sensor.NXTUltrasonicSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.localization.OdometryPoseProvider;
 import lejos.robotics.localization.PoseProvider;
@@ -22,10 +21,10 @@ import lejos.robotics.navigation.Pose;
 public class BumperCarRobotEV3 extends BumpercarRobot {
 
 	//Sensors
-	private SoundSensor leftSound;
-	private SoundSensor rightSound;
-	private UltrasonicSensor ultrasonic;
-	private LightSensor lightSensor;
+	private NXTSoundSensor leftSound;
+	private NXTSoundSensor rightSound;
+	private NXTUltrasonicSensor ultrasonic;
+	private NXTLightSensor lightSensor;
 	
 	//Actuators
 	private RegulatedMotor leftMotor;
@@ -41,13 +40,11 @@ public class BumperCarRobotEV3 extends BumpercarRobot {
 	
 	private BumperCarRobotEV3(){
 		super(RobotType.EV3);
-		leftSound = new SoundSensor((ADSensorPort) SensorPort.S1);
-		rightSound = new SoundSensor((ADSensorPort) SensorPort.S2);
-		leftSound.setDBA(true);
-		rightSound.setDBA(true);
-		ultrasonic = new UltrasonicSensor((I2CPort) SensorPort.S3);
-		//lightSensor = new LightSensor((ADSensorPort) SensorPort.S4);
-		//lightSensor.setFloodlight(false);
+		leftSound = new NXTSoundSensor(SensorPort.S1);
+		rightSound = new NXTSoundSensor(SensorPort.S2);
+		leftSound.getDBAMode();
+		rightSound.getDBAMode();
+		ultrasonic = new NXTUltrasonicSensor(SensorPort.S3);
 
 		leftMotor = Motor.A;
 		rightMotor = Motor.C;
@@ -85,8 +82,8 @@ public class BumperCarRobotEV3 extends BumpercarRobot {
 		
 		int distance = -1;
 		
-		float ranges[];
-		ranges = ultrasonic.getRanges();
+		float ranges[] = null;
+		//ranges[0] = 1;//ultrasonic.G //getRanges();
 		if(ranges.length > 0){
 			if(ranges.length == 1){
 				distance = Math.round(ranges[0]);

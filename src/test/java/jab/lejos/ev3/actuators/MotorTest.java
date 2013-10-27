@@ -1,7 +1,7 @@
 package jab.lejos.ev3.actuators;
 
-import lejos.nxt.Motor;
-import lejos.nxt.Sound;
+import lejos.hardware.Sound;
+import lejos.hardware.motor.Motor;
 import lejos.robotics.RegulatedMotor;
 
 public class MotorTest {	

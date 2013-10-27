@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>ev3classes</name>
+			<type>2</type>
+			<location>/home/jabrena/DATA/JAB/research/robotics/lejos/ev3/ev3/ev3classes</location>
+		</link>
+	</linkedResources>
 </projectDescription>
