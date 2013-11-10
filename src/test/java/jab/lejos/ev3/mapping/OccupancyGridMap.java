@@ -3,6 +3,8 @@ package jab.lejos.ev3.mapping;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import lejos.robotics.navigation.Pose;
 
@@ -19,6 +21,8 @@ public class OccupancyGridMap {
 	private int[][] P; //Pose Cell
 	private String path;
 	private String file;
+	private Pose current;
+	private CycleDetector cd;
 	
 	public OccupancyGridMap(final int dimension, final float cellSize){
 		xMax = dimension;
@@ -28,6 +32,7 @@ public class OccupancyGridMap {
 		P = new int[xMax][yMax];
 		initialize();
 		this.cellSize = cellSize;
+		cd = new CycleDetector(20);
 	}
 	
 	private void initialize(){
@@ -50,6 +55,8 @@ public class OccupancyGridMap {
 	 * @param measure
 	 */
 	public void update(Pose pose, float measure){
+			this.current = pose;
+			
 			float xMeasured = 0;
 			float yMeasured = 0;
 			int xCell = 0;
@@ -60,7 +67,6 @@ public class OccupancyGridMap {
 			int THRESHOLD_DETECTION  = 90;
 			
 			float theta = pose.getHeading();
-			
 			
 			//TODO Use a new structure to send angle + measure
 			if(theta == 0){
@@ -113,11 +119,11 @@ public class OccupancyGridMap {
 				}
 			}else if(theta == 180){
 				cellCounter = Math.abs(xMeasuredCell - xCell);
-				System.out.println(yMeasuredCell);
-				System.out.println(xMeasuredCell);
-				System.out.println(xCell);
+				//System.out.println(yMeasuredCell);
+				//System.out.println(xMeasuredCell);
+				//System.out.println(xCell);
 				
-				System.out.println("COUNTER " + cellCounter);
+				//System.out.println("COUNTER " + cellCounter);
 				
 				for(int i=cellCounter; i>0;i--){
 					C[xCell-i][yCell]++;
@@ -125,11 +131,11 @@ public class OccupancyGridMap {
 				
 			}else if(theta == 270){
 				cellCounter = Math.abs(xMeasuredCell - xCell);
-				System.out.println(yMeasuredCell);
-				System.out.println(xMeasuredCell);
-				System.out.println(xCell);
+				//System.out.println(yMeasuredCell);
+				//System.out.println(xMeasuredCell);
+				//System.out.println(xCell);
 				
-				System.out.println("COUNTER " + cellCounter);
+				//System.out.println("COUNTER " + cellCounter);
 				
 				for(int i=cellCounter; i>0;i--){
 					C[xCell][yCell-i]++;
@@ -145,6 +151,8 @@ public class OccupancyGridMap {
 					M[xMeasuredCell][yMeasuredCell]++;
 				}
 			}
+			
+			//System.out.println("" + xCell + "," + xCell);
 	}
 	
 	private void store(final String content){
@@ -223,6 +231,11 @@ public class OccupancyGridMap {
 		
 		String mapR = this.getJSArrayMap("mapR", R, true);
 		sb.append(mapR);
+		
+		//MAP3
+		sb.append("\n");
+		sb.append("\n");
+		sb.append("var lastPose = Array([" + current.getX() + "," + current.getY() + "," + current.getHeading() + "]);");
 		
 		this.store(sb.toString());
 	}

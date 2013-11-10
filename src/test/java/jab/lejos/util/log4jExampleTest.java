@@ -1,4 +1,4 @@
-package jab.lejos.utils;
+package jab.lejos.util;
 
 
 import org.apache.log4j.Logger;

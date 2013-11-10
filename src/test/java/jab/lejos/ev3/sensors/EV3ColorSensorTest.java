@@ -16,8 +16,13 @@ public class EV3ColorSensorTest {
 		LCD.clear();
 
 		while (!Button.ESCAPE.isDown()) {
-	        //LCD.drawString("CS: " + color.get getLightValue(), 0, 0);
-			//System.out.println("CS: " + color.getLightValue());
+			int sampleSize = color.sampleSize();
+			float[] sample = new float[sampleSize];
+			color.fetchSample(sample, 0);
+			for(int i=0;i<sampleSize;i++) {
+				LCD.drawString("sample[" + i + "] is " + sample[i], 0,0);
+				System.out.println("sample[" + i + "] is " + sample[i]);
+			}
 			Thread.sleep(20);
 	    }
 

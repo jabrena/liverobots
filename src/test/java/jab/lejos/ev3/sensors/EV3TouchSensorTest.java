@@ -14,8 +14,11 @@ public class EV3TouchSensorTest {
 		LCD.clear();
 		
 		while (!Button.ESCAPE.isDown()) {
-	        LCD.drawString("TS: " + touch.isPressed(), 0, 0);
-			System.out.println("TS: " + touch.isPressed());
+			int sampleSize = touch.sampleSize();
+			float[] sample = new float[sampleSize];
+			touch.fetchSample(sample, 0);
+	        LCD.drawString("TS: " + sample[0], 0, 0);
+			System.out.println("TS: " + sample[0]);
 			Thread.sleep(20);
 	    }
 

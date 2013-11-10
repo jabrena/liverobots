@@ -29,6 +29,8 @@ public class OccupancyGridTest2 {
 	};
 	private static int cellSize = 20;
 	
+	private static final int ITERATIONS = 70;
+	
 	public static void main(String[] args) {
 
 		int mapDimension = 20;
@@ -36,19 +38,22 @@ public class OccupancyGridTest2 {
 		OccupancyGridMap cgm = new OccupancyGridMap(mapDimension,cellSize);
 		cgm.setFilePath("/home/jabrena/DATA/JAB/research/robotics/lejos/ev3/EV3_WebUI/www/js/");
 		cgm.setFileName("map.js");
-		
+
 		float distance = 0;
 		
 		//BeetleRobotEV3 robot = BeetleRobotEV3.getInstance();
 		int theta = 0;
 		int travelDistance = 20;
-		Pose pose = new Pose(20,20,theta);
+		Pose pose = new Pose();
+		pose.setLocation(20, 20);
+		pose.setHeading(theta);
 		distance = getFrontalDistance(pose);
+		System.out.print("Iteration: " + "-" + " ");
 		System.out.println("pose = " + pose.toString() + " distance:" + distance);
 		cgm.update(pose, distance);
 		
-		for(int i = 0; i<190;i++){
-			System.out.println("Iteration: " + i + " ----------------");
+		for(int i = 0; i<ITERATIONS;i++){
+			
 			if(distance > 20){
 				if(theta == 0){
 					pose.setLocation(pose.getX() + travelDistance, pose.getY());
@@ -69,6 +74,7 @@ public class OccupancyGridTest2 {
 				pose.setHeading(theta);
 			}
 			distance = getFrontalDistance(pose);
+			System.out.print("Iteration: " + i + " ");
 			System.out.println("pose = " + pose.toString() + " distance:" + distance);
 			cgm.update(pose, distance);
 		}
@@ -138,9 +144,9 @@ public class OccupancyGridTest2 {
 			
 			cellCounter = Math.abs(yMeasuredCell - yCell);
 			
-			System.out.println(yCell);
-			System.out.println(yMeasuredCell);
-			System.out.println(cellCounter);
+			//System.out.println(yCell);
+			//System.out.println(yMeasuredCell);
+			//System.out.println(cellCounter);
 		}
 
 		
@@ -163,7 +169,7 @@ public class OccupancyGridTest2 {
 			
 			for(int x= 0; x<cellCounter; x++){
 			
-				System.out.println("map[" + yCell + "][" + (xCell + x) + "] " + mapR[yCell][xCell+x]);
+				//System.out.println("map[" + yCell + "][" + (xCell + x) + "] " + mapR[yCell][xCell+x]);
 				if(mapR[yCell][xCell + x] == 1){
 					distance = x*cellSize;
 					break;
@@ -173,7 +179,7 @@ public class OccupancyGridTest2 {
 			}
 		}else if(theta== 90){
 			for(int x= 0; x<cellCounter; x++){
-				System.out.println("map[" + (yCell + x) + "]["+ xCell + "] " + mapR[yCell+x][xCell]);
+				//System.out.println("map[" + (yCell + x) + "]["+ xCell + "] " + mapR[yCell+x][xCell]);
 				if(mapR[yCell + x][xCell] == 1){
 					distance = x*cellSize;
 					break;
@@ -186,8 +192,7 @@ public class OccupancyGridTest2 {
 			
 			for(int x= 0; x<cellCounter; x++){
 				
-				System.out.println("map[" + yCell + "][" + (xCell - x) + "] " + mapR[yCell][xCell-x]);
-				
+				//System.out.println("map[" + yCell + "][" + (xCell - x) + "] " + mapR[yCell][xCell-x]);
 				
 				if(mapR[yCell][xCell - x] == 1){
 					distance = x*cellSize;
@@ -200,9 +205,8 @@ public class OccupancyGridTest2 {
 		}else if(theta== 270){
 			for(int x= 0; x<cellCounter; x++){
 				
-				System.out.println("map[" + (yCell -x) + "][" + xCell + "] " + mapR[yCell-x][xCell]);
-				
-				
+				//System.out.println("map[" + (yCell -x) + "][" + xCell + "] " + mapR[yCell-x][xCell]);
+
 				if(mapR[yCell-x][xCell] == 1){
 					distance = x*cellSize;
 					break;
